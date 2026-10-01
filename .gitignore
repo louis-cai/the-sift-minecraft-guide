@@ -1,0 +1,26 @@
+# Backups & Temporary files
+*.bak
+*.bak.*
+*~
+*.swp
+*.tmp
+
+# Cloudflare Wrangler
+.wrangler/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Node / Test outputs
+node_modules/
+test-results/
+playwright-report/
+
+# OS / Editor metadata
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

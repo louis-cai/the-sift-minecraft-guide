@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1ZTW8XWPG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-X1ZTW8XWPG');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sift Mobs & Fauna: The Giant Frog, Soul Wisps & Entities | Minecraft Guide</title>
+    <meta name="description" content="Meet all confirmed and speculated mobs in Minecraft The Sift dimension: The Giant Vibrant Frog, Carapace bone crawlers, Soul Wisps, and void predators.">
+    <meta name="keywords" content="the sift mobs, minecraft the sift mobs, the giant frog minecraft, colossal meadow frog, carapace bone crawlers, soul wisps, minecraft 4th dimension entities">
+    <link rel="canonical" href="https://thesiftguide.com/mobs.html">
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="theme-color" content="#111317">
+    
+    <!-- Open Graph / Facebook / Discord -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Sift Mobs & Fauna: The Giant Frog, Soul Wisps & Entities">
+    <meta property="og:description" content="Meet all confirmed and speculated mobs in Minecraft The Sift dimension: The Giant Vibrant Frog, Carapace bone crawlers, Soul Wisps, and void predators.">
+    <meta property="og:url" content="https://thesiftguide.com/mobs.html">
+    <meta property="og:image" content="https://thesiftguide.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The Sift Minecraft Guide - 4th Dimension Interactive Wiki">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Sift Mobs & Fauna: The Giant Frog, Soul Wisps & Entities">
+    <meta name="twitter:description" content="Meet all confirmed and speculated mobs in Minecraft The Sift dimension: The Giant Vibrant Frog, Carapace bone crawlers, Soul Wisps, and void predators.">
+    <meta name="twitter:image" content="https://thesiftguide.com/og-image.png">
+
+    <!-- Typography: Google Fonts (Plus Jakarta Sans + Space Grotesk) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (Direct versioned CDN: Zero-redirect, full v3 runtime) -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['"Space Grotesk"', 'ui-monospace', 'SFMono-Regular', 'monospace', 'sans-serif'],
+              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+            },
+            colors: {
+              void: {
+                950: '#111317', /* Minecraft Deepslate Black */
+                900: '#181a20', /* Minecraft Deepslate Brick / Smooth Stone */
+                850: '#20242c',
+                800: '#272c36',
+                700: '#343b48',
+              },
+              mc: {
+                deepslate: '#111317',
+                stone: '#181a20',
+                stoneHover: '#232730',
+                border: '#2d3139',
+                grass: '#46a228',
+                grassHover: '#55bb32',
+                diamond: '#22d3ee',
+                diamondHover: '#38bdf8',
+                gold: '#f59e0b',
+                redstone: '#ef4444',
+                amethyst: '#a855f7',
+              },
+              sift: {
+                emerald: '#46a228',
+                cyan: '#22d3ee',
+                teal: '#14b8a6',
+                amber: '#f59e0b',
+                bone: '#e2e8f0',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        :root {
+            color-scheme: dark;
+            --mc-deepslate: #111317;
+            --mc-stone: #181a20;
+            --mc-border: #2d3139;
+            --mc-grass: #46a228;
+            --mc-grass-hover: #55bb32;
+            --mc-diamond: #22d3ee;
+        }
+        body {
+            background-color: #111317;
+            color: #cbd5e1;
+            font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Typography: Minecraft Block / Pixel Aesthetic */
+        h1, h2, h3, .font-display {
+            font-family: "Space Grotesk", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace, sans-serif;
+            letter-spacing: -0.025em;
+        }
+        .mc-pixel-font {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+            font-weight: 700;
+        }
+        
+        /* Heading & Accent Glow Gradients */
+        .title-glow {
+            background: linear-gradient(135deg, #a3e635 0%, #4ade80 30%, #22d3ee 70%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 35px rgba(74, 222, 128, 0.35));
+        }
+        .emerald-glow-text {
+            background: linear-gradient(135deg, #86efac 0%, #46a228 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .diamond-glow-text {
+            background: linear-gradient(135deg, #a5f3fc 0%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .amber-glow-text {
+            background: linear-gradient(135deg, #fde68a 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cyan-glow-text {
+            background: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Minecraft Subtle Deepslate Grid Background */
+        .bg-cosmic-grid {
+            background-color: #111317;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(70, 162, 40, 0.14) 0%, transparent 50%),
+                radial-gradient(circle at 85% 35%, rgba(34, 211, 238, 0.10) 0%, transparent 40%),
+                radial-gradient(circle at 15% 70%, rgba(168, 85, 247, 0.08) 0%, transparent 45%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+        }
+
+        /* Minecraft Deepslate / Smooth Stone Card Base */
+        .glass-card {
+            background: #181a20;
+            border: 2px solid #2d3139;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: #46a228;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.12), inset -2px -2px 0 rgba(0, 0, 0, 0.6), 0 0 25px rgba(70, 162, 40, 0.18);
+        }
+
+        /* Minecraft Native 3D Button */
+        .mc-btn, .mc-btn-stone {
+            background-color: #1f2229;
+            color: #e2e8f0;
+            border: 2px solid #2d3139;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.25), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.15s ease-in-out;
+            user-select: none;
+        }
+        .mc-btn:hover, .mc-btn-stone:hover {
+            background-color: #272c35;
+            color: #ffffff;
+            border-color: #3f4552;
+        }
+        .mc-btn:active, .mc-btn-stone:active, button:active {
+            box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.25), inset 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+            transform: translateY(1px);
+        }
+
+        /* Minecraft Primary Action Button */
+        .mc-btn-primary {
+            background-color: #46a228 !important;
+            color: #ffffff !important;
+            border: 2px solid #2a6118 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.35), inset -2px -2px 0 rgba(0, 0, 0, 0.6) !important;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+            transition: all 0.15s ease-in-out;
+            font-weight: 700;
+        }
+        .mc-btn-primary:hover {
+            background-color: #55bb32 !important;
+            border-color: #388420 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(70, 162, 40, 0.4) !important;
+        }
+        .mc-btn-primary:active {
+            box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.3), inset 2px 2px 0 rgba(0, 0, 0, 0.7) !important;
+            transform: translateY(1px);
+        }
+
+        /* Minecraft Diamond Cyan Button Variant */
+        .mc-btn-diamond {
+            background-color: #0891b2 !important;
+            color: #ffffff !important;
+            border: 2px solid #0e7490 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.35), inset -2px -2px 0 rgba(0, 0, 0, 0.6) !important;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+        }
+        .mc-btn-diamond:hover {
+            background-color: #06b6d4 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(34, 211, 238, 0.35) !important;
+        }
+
+        /* Minecraft Stone Panel Inset */
+        .mc-stone-inset {
+            background-color: #13151a;
+            border: 1px solid #232730;
+            box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        /* Custom scrollbar in Deepslate Theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111317;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232730;
+            border: 1px solid #111317;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #343b48;
+        }
+
+        /* Accessibility: Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+    <!-- JSON-LD Structured Data: Article, FAQPage, BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://thesiftguide.com/#website",
+          "url": "https://thesiftguide.com/",
+          "name": "The Sift Guide",
+          "description": "Interactive Wiki and Guide to Minecraft's 4th Dimension: The Sift"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://thesiftguide.com/mobs.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://thesiftguide.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Mobs & Entities",
+              "item": "https://thesiftguide.com/mobs.html"
+            }
+          ]
+        },
+        {
+          "@type": "Article",
+          "@id": "https://thesiftguide.com/mobs.html#article",
+          "isPartOf": {
+            "@id": "https://thesiftguide.com/#website"
+          },
+          "headline": "The Sift Mobs & Fauna: The Giant Frog, Soul Wisps & Entities",
+          "description": "Meet all confirmed and speculated mobs in Minecraft The Sift dimension: The Giant Vibrant Frog, Carapace bone crawlers, Soul Wisps, and void predators.",
+          "url": "https://thesiftguide.com/mobs.html",
+          "inLanguage": "en-US",
+          "mainEntityOfPage": "https://thesiftguide.com/mobs.html",
+          "datePublished": "2026-09-28T00:00:00+00:00",
+          "dateModified": "2026-09-29T00:00:00+00:00",
+          "author": {
+            "@type": "Organization",
+            "name": "The Sift Guide Team",
+            "url": "https://thesiftguide.com/about.html"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "The Sift Guide",
+            "url": "https://thesiftguide.com/"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://thesiftguide.com/mobs.html#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can you tame and ride the Colossal Meadow Frog?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, by feeding the Colossal Meadow Frog Soul-Lilies found in the Vibrant Meadows, players can equip a standard saddle and ride it. The frog provides a massive high-jump leap capability (up to 8 blocks) and negates 80% of fall damage upon landing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How dangerous are Carapace Bone Scavengers?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Carapace Scavengers are hostile pack predators found in the Bleached Carapace biome. They possess an armor-piercing bite mechanic that bypasses 30% of armor toughness, requiring ranged combat or shield parries to neutralize."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What do Soul Wisps drop when defeated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Soul Wisps are non-hostile ambient creatures. Instead of killing them, players can scoop them into glass bottles to create Wisp Lanterns, which emit a steady light level of 14 and deter minor phantom spawns."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the Warden native to The Sift dimension?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "According to lore revealed at Minecraft Live 2026, the Warden was originally an ancient biological construct deployed to guard the portal frame from being infiltrated by The Sift's apex void fauna."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will Overworld animals like horses or wolves survive if taken into The Sift?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standard passive mobs can cross the portal, but cannot consume Sift vegetation. Bringing Overworld animals requires carrying hay bales or meat from home for sustenance."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+</head>
+<body class="min-h-screen flex flex-col bg-cosmic-grid antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+    <!-- Top Reading Progress Indicator -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-500 z-[60] transition-all duration-150 ease-out" style="width: 0%;" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- Header / Navbar -->
+    <header class="border-b-2 border-[#2d3139] bg-[#111317]/95 backdrop-blur-md sticky top-0 z-50 transition-colors shadow-lg">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-18 flex items-center justify-between gap-4">
+            <a href="/" class="flex items-center space-x-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg p-1">
+                <!-- Dimension Portal SVG Icon -->
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/60 group-hover:scale-105 transition-all duration-200 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                    <svg class="w-5 h-5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center gap-1.5">
+                        The Sift <span class="emerald-glow-text font-black">Guide</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 font-medium tracking-wider uppercase hidden sm:inline">Minecraft 4th Dimension Wiki</span>
+                </div>
+            </a>
+
+            <!-- Quick Nav Links (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-1 text-xs font-semibold text-slate-300" aria-label="Main Navigation">
+                <a href="/" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Wiki Home</a>
+                <a href="/portal.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Portal Guide</a>
+                <a href="/mobs.html" class="px-3 py-2 rounded-lg text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/25 transition-colors">Mobs &amp; Entities</a>
+                <a href="/#calculator" class="px-3 py-2 rounded-lg text-cyan-300 hover:text-white hover:bg-slate-800/60 transition-colors">Calculator</a>
+                <a href="/about.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">About</a>
+            </nav>
+
+            <!-- Status Badges & Mobile Menu Toggle -->
+            <div class="flex items-center space-x-2 sm:space-x-3 text-xs font-semibold">
+                <span class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/25 shadow-[0_0_10px_rgba(16,185,129,0.15)]">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+                    Minecraft Live 2026
+                </span>
+                <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/25">
+                    <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    </svg>
+                    Updated Today
+                </span>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" class="md:hidden mc-btn-stone p-2 rounded-lg text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Collapsible Menu -->
+        <div id="mobile-nav" class="hidden md:hidden border-t border-[#2d3139] bg-[#111317]/98 px-4 py-3 space-y-1">
+            <a href="/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Wiki Home</a>
+            <a href="/portal.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Portal Guide</a>
+            <a href="/mobs.html" class="block px-3 py-2 rounded-lg text-sm font-bold text-emerald-400 bg-emerald-500/15 border border-emerald-500/20">Mobs &amp; Entities</a>
+            <a href="/#calculator" class="block px-3 py-2 rounded-lg text-sm font-semibold text-cyan-300 hover:text-white hover:bg-slate-800/60">Calculator</a>
+            <a href="/about.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">About Us</a>
+            <a href="/privacy.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Privacy Policy</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12 sm:space-y-16">
+
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center text-xs font-medium text-slate-400 gap-2" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
+            <span class="text-slate-600">/</span>
+            <span class="text-emerald-400 font-semibold">Mobs &amp; Entities</span>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="mobs-hero" class="text-center space-y-6 pt-2 relative">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+                <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>The Sift Bestiary &amp; Ecological Census</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-display font-black text-white leading-[1.12] tracking-tight">
+                The Sift Mobs &amp; Fauna: <br>
+                <span class="title-glow block sm:inline mt-1">Colossal Frogs &amp; Void Predators</span>
+            </h1>
+
+            <p class="text-slate-300 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-normal">
+                Explore the alien biology of Minecraft's 4th dimension. From docile, rideable giant frogs leaping across fungal meadows to stealthy bone scavengers with armor-shattering jaws.
+            </p>
+
+            <!-- Quick Jump Anchor Chips -->
+            <div class="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs font-semibold">
+                <a href="#colossal-frog" class="mc-btn-stone inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-slate-200 hover:text-emerald-300 transition-all min-h-[44px]">
+                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    The Colossal Frog
+                </a>
+                <a href="#carapace-scavengers" class="mc-btn-stone inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-slate-200 hover:text-red-300 transition-all min-h-[44px]">
+                    <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                    Carapace Scavengers
+                </a>
+                <a href="#ambient-life" class="mc-btn-stone inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-slate-200 hover:text-cyan-300 transition-all min-h-[44px]">
+                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Soul Wisps &amp; Gliders
+                </a>
+                <a href="#comparison-table" class="mc-btn-primary inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-white transition-all min-h-[44px]">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 4h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    Bestiary Stats Table
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 1: Featured Creature: The Colossal Meadow Frog -->
+        <section id="colossal-frog" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-display font-bold text-sm">
+                    01
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    Featured Creature: The Colossal Meadow Frog
+                </h2>
+            </div>
+
+            <!-- Spotlight Card -->
+            <div class="glass-card rounded-xl p-6 sm:p-8 space-y-6">
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <!-- Stat Sheet Inset -->
+                    <div class="w-full md:w-5/12 mc-stone-inset rounded-xl p-5 space-y-3 shrink-0">
+                        <div class="flex items-center justify-between border-b border-[#2d3139] pb-2">
+                            <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">Specimen Classification</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">Passive / Rideable</span>
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between py-1 border-b border-[#2d3139]/60">
+                                <span class="text-slate-400">Health Points</span>
+                                <span class="font-mono font-bold text-emerald-400">60 HP (30 Hearts)</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-[#2d3139]/60">
+                                <span class="text-slate-400">Native Habitat</span>
+                                <span class="text-white font-semibold">Vibrant Sift Meadow</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-[#2d3139]/60">
+                                <span class="text-slate-400">Favorite Food</span>
+                                <span class="text-cyan-300 font-semibold">Soul-Lily &amp; Spore Pods</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-[#2d3139]/60">
+                                <span class="text-slate-400">Taming Tool</span>
+                                <span class="text-white font-semibold">Hand-Fed Soul-Lilies</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-400">Key Ability</span>
+                                <span class="text-amber-300 font-semibold">8-Block Super Jump</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-display font-bold text-white">The Gentle Titan of the Meadows</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Towering at roughly 3 blocks wide and 2.5 blocks tall, the Colossal Meadow Frog is the iconic mascot creature of The Sift. Covered in bioluminescent green and turquoise amphibian skin with glowing throat sacs, this gentle giant spends its days grazing on giant Soul-Lilies.
+                        </p>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Unlike regular Overworld frogs that only consume small slimes and magma cubes, the Colossal Frog interacts deeply with player survival logistics:
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Three Key Mechanics Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-2">
+                        <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            Tongue Tether
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Can shoot its elastic tongue up to 10 blocks to grapple across wide chasms or reel in items floating near treacherous void drop-offs.
+                        </p>
+                    </div>
+
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-2">
+                        <div class="flex items-center gap-2 text-cyan-400 font-bold text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                            Saddle &amp; Riding
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Equipping a standard saddle allows players to ride the frog. Holding jump charges a super-leap that clears 8 vertical blocks with 80% fall impact cushioning.
+                        </p>
+                    </div>
+
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-2">
+                        <div class="flex items-center gap-2 text-amber-400 font-bold text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            Spore Digestion
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            When fed wild fungal spores, the frog excretes <code class="text-xs font-mono text-emerald-300">Phosphor Gel</code>, an essential crafting agent for bioluminescent lanterns.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Carapace Scavengers -->
+        <section id="carapace-scavengers" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center font-display font-bold text-sm">
+                    02
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    The Carapace Scavengers (Bone Predators)
+                </h2>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 sm:p-8 space-y-6">
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-full md:w-5/12 mc-stone-inset rounded-xl p-5 space-y-3 shrink-0">
+                        <div class="flex items-center justify-between border-b border-[#2d3139] pb-2">
+                            <span class="text-xs font-mono font-bold uppercase tracking-wider text-red-400">Specimen Classification</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-red-500/20 text-red-300 font-semibold">Hostile / Pack Hunter</span>
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between py-1 border-b border-[#2d3139]/60">
+                                <span class="text-slate-400">Health Points</span>
+                                <span class="font-mono font-bold text-red-400">32 HP (16 Hearts)</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-[#2d3139]/60">
+                                <span class="text-slate-400">Native Habitat</span>
+                                <span class="text-white font-semibold">Bleached Carapace Barrens</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-[#2d3139]/60">
+                                <span class="text-slate-400">Attack Damage</span>
+                                <span class="text-amber-400 font-mono font-bold">7 HP (Normal) + Armor Shred</span>
+                            </div>
+                            <div class="flex justify-between py-1 border-b border-[#2d3139]/60">
+                                <span class="text-slate-400">Primary Drop</span>
+                                <span class="text-white font-semibold">Carapace Plates &amp; Bone Meal</span>
+                            </div>
+                            <div class="flex justify-between py-1">
+                                <span class="text-slate-400">Vulnerability</span>
+                                <span class="text-cyan-300 font-semibold">High Knockback &amp; Shields</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-display font-bold text-white">The Apex Scuttlers of the Bone Dunes</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Found in the sun-bleached fossil wastes known as the Carapace Barrens, Carapace Scavengers are multi-legged bone crawlers. They blend seamlessly into the calcified dust, burrowing beneath skeletal remains until unsuspecting players wander into their strike perimeter.
+                        </p>
+                        <div class="bg-red-500/10 border-l-4 border-red-500 p-4 rounded-r-lg space-y-1">
+                            <div class="text-xs font-bold text-red-300 uppercase tracking-wider flex items-center gap-1.5">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                                Armor-Piercing Mandible Mechanic
+                            </div>
+                            <p class="text-xs text-slate-300">
+                                Their scissor-like mandibles ignore 30% of equipped Netherite and Diamond armor defense calculations. In combat, facing a pack of three or more Scavengers will shred a player's health pool within seconds if cornered without a raised shield.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combat Tactics Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-2">
+                        <h4 class="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider">Scavenger Ambush Behavior</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            When stationary, Scavengers emit zero sound and do not produce footstep particles. Watch for subtle bone dust plumes radiating from pale mounds. Striking them with arrows before they unburrow stuns them for 2 seconds.
+                        </p>
+                    </div>
+
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-2">
+                        <h4 class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">Crafting With Carapace Plates</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Defeated Scavengers drop 1–3 Carapace Plates. Combining plates with iron on a smithing table crafts <code class="text-xs font-mono text-cyan-300">Spiked Bulwarks</code> (shields with automatic thorn retaliation damage) and lightweight bone armor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Ambient Life: Soul Wisps and Spore Gliders -->
+        <section id="ambient-life" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-display font-bold text-sm">
+                    03
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    Ambient Life: Soul Wisps &amp; Spore Gliders
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Soul Wisps -->
+                <div class="glass-card rounded-xl p-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">Bioluminescent Drifters</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 font-semibold border border-cyan-500/30">Passive Entity</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-white">Soul Wisps</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Floating ethereal motes of light that drift lazily through dark ravines and fungal canopies. They produce a steady light level of 14, acting as natural path markers in The Sift's perpetual dim twilight.
+                    </p>
+                    <div class="mc-stone-inset rounded-lg p-3 space-y-1.5 text-xs">
+                        <div class="font-bold text-emerald-300">Utility: Wisp in a Bottle</div>
+                        <p class="text-slate-400 text-[11px] leading-relaxed">
+                            Right-clicking a Soul Wisp with an empty glass bottle captures it. Placing the bottled wisp illuminates a 15-block radius underwater and in caves without requiring torches or coal.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Spore Gliders -->
+                <div class="glass-card rounded-xl p-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-teal-400">Aerial Fauna</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-teal-500/15 text-teal-300 font-semibold border border-teal-500/30">Neutral Entity</span>
+                    </div>
+                    <h3 class="text-xl font-display font-bold text-white">Spore Gliders</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Translucent, ray-like flyers that navigate the atmospheric thermals rising from The Sift's lower abyss. Spore Gliders pulse with soft bioluminescence and release buoyant spore clusters as they glide.
+                    </p>
+                    <div class="mc-stone-inset rounded-lg p-3 space-y-1.5 text-xs">
+                        <div class="font-bold text-teal-300">Utility: Elytra Updraft Assistance</div>
+                        <p class="text-slate-400 text-[11px] leading-relaxed">
+                            Flying an Elytra directly beneath a Spore Glider catches its thermal draft, lifting the player 20 blocks upwards without consuming fireworks or rocket durability.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Complete Creature Comparison Table -->
+        <section id="comparison-table" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-display font-bold text-sm">
+                    04
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    The Sift Bestiary Matrix
+                </h2>
+            </div>
+
+            <p class="text-slate-300 text-sm leading-relaxed">
+                Comprehensive data matrix comparing all confirmed and documented entities native to The Sift dimension.
+            </p>
+
+            <div class="overflow-x-auto rounded-xl border-2 border-[#2d3139] bg-[#181a20]">
+                <table class="w-full text-left text-xs sm:text-sm">
+                    <thead class="bg-[#111317] border-b-2 border-[#2d3139] text-slate-300 uppercase tracking-wider font-mono text-[11px]">
+                        <tr>
+                            <th class="p-3 sm:p-4">Entity</th>
+                            <th class="p-3 sm:p-4">Behavior</th>
+                            <th class="p-3 sm:p-4">Health (HP)</th>
+                            <th class="p-3 sm:p-4">Primary Biome</th>
+                            <th class="p-3 sm:p-4">Key Drops</th>
+                            <th class="p-3 sm:p-4">Threat Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-[#2d3139] text-slate-300">
+                        <tr class="hover:bg-slate-800/40 transition-colors">
+                            <td class="p-3 sm:p-4 font-bold text-emerald-300 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                Colossal Meadow Frog
+                            </td>
+                            <td class="p-3 sm:p-4 text-emerald-400 font-semibold">Passive (Rideable)</td>
+                            <td class="p-3 sm:p-4 font-mono">60 HP (30♥)</td>
+                            <td class="p-3 sm:p-4">Vibrant Meadows</td>
+                            <td class="p-3 sm:p-4 font-mono text-xs">Phosphor Gel, Lily Seeds</td>
+                            <td class="p-3 sm:p-4 text-slate-400">★☆☆☆☆ (Harmless)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/40 transition-colors">
+                            <td class="p-3 sm:p-4 font-bold text-red-400 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                                Carapace Scavenger
+                            </td>
+                            <td class="p-3 sm:p-4 text-red-400 font-semibold">Hostile (Pack Hunter)</td>
+                            <td class="p-3 sm:p-4 font-mono">32 HP (16♥)</td>
+                            <td class="p-3 sm:p-4">Carapace Barrens</td>
+                            <td class="p-3 sm:p-4 font-mono text-xs">Carapace Plates, Bones</td>
+                            <td class="p-3 sm:p-4 text-red-400">★★★★☆ (Dangerous)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/40 transition-colors">
+                            <td class="p-3 sm:p-4 font-bold text-cyan-300 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                Soul Wisp
+                            </td>
+                            <td class="p-3 sm:p-4 text-cyan-300 font-semibold">Passive Ambient</td>
+                            <td class="p-3 sm:p-4 font-mono">8 HP (4♥)</td>
+                            <td class="p-3 sm:p-4">Soul Chasms &amp; Caves</td>
+                            <td class="p-3 sm:p-4 font-mono text-xs">Capture via Glass Bottle</td>
+                            <td class="p-3 sm:p-4 text-slate-400">★☆☆☆☆ (Harmless)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/40 transition-colors">
+                            <td class="p-3 sm:p-4 font-bold text-teal-300 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+                                Spore Glider
+                            </td>
+                            <td class="p-3 sm:p-4 text-teal-300 font-semibold">Neutral Aerial</td>
+                            <td class="p-3 sm:p-4 font-mono">24 HP (12♥)</td>
+                            <td class="p-3 sm:p-4">Upper Fissures &amp; Canopies</td>
+                            <td class="p-3 sm:p-4 font-mono text-xs">Buoyant Membrane</td>
+                            <td class="p-3 sm:p-4 text-amber-400">★★☆☆☆ (Defensive)</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/40 transition-colors">
+                            <td class="p-3 sm:p-4 font-bold text-purple-300 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                                Void Lurker (Stalker)
+                            </td>
+                            <td class="p-3 sm:p-4 text-purple-400 font-semibold">Hostile (Apex Stalker)</td>
+                            <td class="p-3 sm:p-4 font-mono">80 HP (40♥)</td>
+                            <td class="p-3 sm:p-4">Bottomless Chasm Shelves</td>
+                            <td class="p-3 sm:p-4 font-mono text-xs">Abyssal Tentacle, Void Core</td>
+                            <td class="p-3 sm:p-4 text-purple-400 font-bold">★★★★★ (Lethal)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Sponsored Placement (Adsterra 728x90) -->
+        <div class="my-10 mx-auto max-w-4xl px-4 flex flex-col items-center">
+            <div class="text-[10px] uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1 font-mono">
+                <span>Advertisement</span>
+            </div>
+            <div class="w-full flex justify-center items-center overflow-x-auto min-h-[90px] p-2 rounded-lg bg-[#181a20] border-2 border-[#2d3139] shadow-inner">
+                <script>
+                  atOptions = {
+                    'key' : 'e34c08305944ef076210b30b1897f6eb',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highrevenueformat.com/e34c08305944ef076210b30b1897f6eb/invoke.js"></script>
+            </div>
+        </div>
+
+        <!-- Section 5: Mobs FAQ -->
+        <section id="faq" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-display font-bold text-sm">
+                    05
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    Frequently Asked Questions
+                </h2>
+            </div>
+
+            <div class="space-y-3">
+                <details class="glass-card rounded-xl p-4 sm:p-5 group cursor-pointer">
+                    <summary class="font-display font-bold text-white text-sm sm:text-base flex items-center justify-between list-none">
+                        <span>Can you tame and ride the Colossal Meadow Frog?</span>
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-3 pt-3 border-t border-[#2d3139] leading-relaxed">
+                        Yes, by feeding the Colossal Meadow Frog Soul-Lilies found in the Vibrant Meadows, players can equip a standard saddle and ride it. The frog provides a massive high-jump leap capability (up to 8 blocks) and negates 80% of fall damage upon landing.
+                    </p>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 sm:p-5 group cursor-pointer">
+                    <summary class="font-display font-bold text-white text-sm sm:text-base flex items-center justify-between list-none">
+                        <span>How dangerous are Carapace Bone Scavengers?</span>
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-3 pt-3 border-t border-[#2d3139] leading-relaxed">
+                        Carapace Scavengers are hostile pack predators found in the Bleached Carapace biome. They possess an armor-piercing bite mechanic that bypasses 30% of armor toughness, requiring ranged combat or shield parries to neutralize.
+                    </p>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 sm:p-5 group cursor-pointer">
+                    <summary class="font-display font-bold text-white text-sm sm:text-base flex items-center justify-between list-none">
+                        <span>What do Soul Wisps drop when defeated?</span>
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-3 pt-3 border-t border-[#2d3139] leading-relaxed">
+                        Soul Wisps are non-hostile ambient creatures. Instead of killing them, players can scoop them into glass bottles to create Wisp Lanterns, which emit a steady light level of 14 and deter minor phantom spawns.
+                    </p>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 sm:p-5 group cursor-pointer">
+                    <summary class="font-display font-bold text-white text-sm sm:text-base flex items-center justify-between list-none">
+                        <span>Is the Warden native to The Sift dimension?</span>
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-3 pt-3 border-t border-[#2d3139] leading-relaxed">
+                        According to lore revealed at Minecraft Live 2026, the Warden was originally an ancient biological construct deployed to guard the portal frame from being infiltrated by The Sift's apex void fauna.
+                    </p>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 sm:p-5 group cursor-pointer">
+                    <summary class="font-display font-bold text-white text-sm sm:text-base flex items-center justify-between list-none">
+                        <span>Will Overworld animals like horses or wolves survive if taken into The Sift?</span>
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-3 pt-3 border-t border-[#2d3139] leading-relaxed">
+                        Standard passive mobs can cross the portal, but cannot consume Sift vegetation. Bringing Overworld animals requires carrying hay bales or meat from home for sustenance.
+                    </p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="mc-btn-stone fixed bottom-6 right-6 p-3.5 rounded-lg text-slate-200 hover:text-[#46a228] hover:border-[#46a228] shadow-2xl opacity-0 pointer-events-none transition-all duration-200 z-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#46a228] cursor-pointer" aria-label="Back to top">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="border-t-2 border-[#2d3139] bg-[#111317] py-12 mt-16 text-center text-xs text-slate-400 space-y-4">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col items-center gap-3">
+            <div class="flex items-center space-x-2 text-slate-300 font-semibold text-sm">
+                <span>The Sift Guide</span>
+                <span>·</span>
+                <span class="text-emerald-400">Community Wiki &amp; Utilities</span>
+            </div>
+            
+            <!-- Unified Navigation Footer Links -->
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-400 pt-1 pb-1">
+                <a href="/" class="hover:text-emerald-400 transition-colors">Wiki Home</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/portal.html" class="hover:text-emerald-400 transition-colors">Portal Guide</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/mobs.html" class="hover:text-emerald-400 transition-colors">Mobs &amp; Entities</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/about.html" class="hover:text-emerald-400 transition-colors">About Us</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/privacy.html" class="hover:text-emerald-400 transition-colors">Privacy Policy</a>
+            </div>
+
+            <p class="max-w-lg leading-relaxed text-slate-400">
+                TheSiftGuide.com is an independent community wiki &amp; research guide tracking Minecraft's 4th dimension. Not affiliated with Mojang Studios or Microsoft. Minecraft is a registered trademark of Mojang AB.
+            </p>
+            <p class="text-slate-600">
+                © 2026 TheSiftGuide.com · Powered by Community Updates &amp; Forensic Analysis
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts: Scroll Progress, Back to Top & Mobile Nav -->
+    <script>
+      (function() {
+        const progressBar = document.getElementById('scroll-progress');
+        const backToTop = document.getElementById('back-to-top');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        if (mobileBtn && mobileNav) {
+          mobileBtn.addEventListener('click', function() {
+            const isExpanded = mobileNav.classList.contains('hidden');
+            if (isExpanded) {
+              mobileNav.classList.remove('hidden');
+              mobileBtn.setAttribute('aria-expanded', 'true');
+            } else {
+              mobileNav.classList.add('hidden');
+              mobileBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+
+        function onScroll() {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const percent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+          
+          if (progressBar) {
+            progressBar.style.width = percent + '%';
+            progressBar.setAttribute('aria-valuenow', Math.round(percent));
+          }
+
+          if (backToTop) {
+            if (scrollTop > 350) {
+              backToTop.classList.remove('opacity-0', 'pointer-events-none');
+              backToTop.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+              backToTop.classList.remove('opacity-100', 'pointer-events-auto');
+              backToTop.classList.add('opacity-0', 'pointer-events-none');
+            }
+          }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
+
+</body>
+</html>

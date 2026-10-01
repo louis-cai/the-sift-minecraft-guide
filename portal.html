@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1ZTW8XWPG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-X1ZTW8XWPG');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sift Portal Guide: How to Build, Frame Blocks & Activation | The Sift Minecraft</title>
+    <meta name="description" content="Complete guide to The Sift dimension portal in Minecraft. Discover ancient city theories, frame block requirements, soul fire ignition, and rift linkage mechanics.">
+    <meta name="keywords" content="the sift portal, minecraft the sift portal, how to build the sift portal, reinforced deepslate portal, ancient city portal, echo shards portal, minecraft 4th dimension portal">
+    <link rel="canonical" href="https://thesiftguide.com/portal.html">
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="theme-color" content="#111317">
+    
+    <!-- Open Graph / Facebook / Discord -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Sift Portal Guide: How to Build, Frame Blocks & Activation">
+    <meta property="og:description" content="Complete guide to The Sift dimension portal in Minecraft. Discover ancient city theories, frame block requirements, soul fire ignition, and rift linkage mechanics.">
+    <meta property="og:url" content="https://thesiftguide.com/portal.html">
+    <meta property="og:image" content="https://thesiftguide.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The Sift Minecraft Guide - 4th Dimension Interactive Wiki">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Sift Portal Guide: How to Build, Frame Blocks & Activation">
+    <meta name="twitter:description" content="Complete guide to The Sift dimension portal in Minecraft. Discover ancient city theories, frame block requirements, soul fire ignition, and rift linkage mechanics.">
+    <meta name="twitter:image" content="https://thesiftguide.com/og-image.png">
+
+    <!-- Typography: Google Fonts (Plus Jakarta Sans + Space Grotesk) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (Direct versioned CDN: Zero-redirect, full v3 runtime) -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['"Space Grotesk"', 'ui-monospace', 'SFMono-Regular', 'monospace', 'sans-serif'],
+              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+            },
+            colors: {
+              void: {
+                950: '#111317', /* Minecraft Deepslate Black */
+                900: '#181a20', /* Minecraft Deepslate Brick / Smooth Stone */
+                850: '#20242c',
+                800: '#272c36',
+                700: '#343b48',
+              },
+              mc: {
+                deepslate: '#111317',
+                stone: '#181a20',
+                stoneHover: '#232730',
+                border: '#2d3139',
+                grass: '#46a228',
+                grassHover: '#55bb32',
+                diamond: '#22d3ee',
+                diamondHover: '#38bdf8',
+                gold: '#f59e0b',
+                redstone: '#ef4444',
+                amethyst: '#a855f7',
+              },
+              sift: {
+                emerald: '#46a228',
+                cyan: '#22d3ee',
+                teal: '#14b8a6',
+                amber: '#f59e0b',
+                bone: '#e2e8f0',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        :root {
+            color-scheme: dark;
+            --mc-deepslate: #111317;
+            --mc-stone: #181a20;
+            --mc-border: #2d3139;
+            --mc-grass: #46a228;
+            --mc-grass-hover: #55bb32;
+            --mc-diamond: #22d3ee;
+        }
+        body {
+            background-color: #111317;
+            color: #cbd5e1;
+            font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Typography: Minecraft Block / Pixel Aesthetic */
+        h1, h2, h3, .font-display {
+            font-family: "Space Grotesk", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace, sans-serif;
+            letter-spacing: -0.025em;
+        }
+        .mc-pixel-font {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+            font-weight: 700;
+        }
+        
+        /* Heading & Accent Glow Gradients */
+        .title-glow {
+            background: linear-gradient(135deg, #a3e635 0%, #4ade80 30%, #22d3ee 70%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 35px rgba(74, 222, 128, 0.35));
+        }
+        .emerald-glow-text {
+            background: linear-gradient(135deg, #86efac 0%, #46a228 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .diamond-glow-text {
+            background: linear-gradient(135deg, #a5f3fc 0%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .amber-glow-text {
+            background: linear-gradient(135deg, #fde68a 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cyan-glow-text {
+            background: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Minecraft Subtle Deepslate Grid Background */
+        .bg-cosmic-grid {
+            background-color: #111317;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(70, 162, 40, 0.14) 0%, transparent 50%),
+                radial-gradient(circle at 85% 35%, rgba(34, 211, 238, 0.10) 0%, transparent 40%),
+                radial-gradient(circle at 15% 70%, rgba(168, 85, 247, 0.08) 0%, transparent 45%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+        }
+
+        /* Minecraft Deepslate / Smooth Stone Card Base */
+        .glass-card {
+            background: #181a20;
+            border: 2px solid #2d3139;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: #46a228;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.12), inset -2px -2px 0 rgba(0, 0, 0, 0.6), 0 0 25px rgba(70, 162, 40, 0.18);
+        }
+
+        /* Minecraft Native 3D Button */
+        .mc-btn, .mc-btn-stone {
+            background-color: #1f2229;
+            color: #e2e8f0;
+            border: 2px solid #2d3139;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.25), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.15s ease-in-out;
+            user-select: none;
+        }
+        .mc-btn:hover, .mc-btn-stone:hover {
+            background-color: #272c35;
+            color: #ffffff;
+            border-color: #3f4552;
+        }
+        .mc-btn:active, .mc-btn-stone:active, button:active {
+            box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.25), inset 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+            transform: translateY(1px);
+        }
+
+        /* Minecraft Primary Action Button */
+        .mc-btn-primary {
+            background-color: #46a228 !important;
+            color: #ffffff !important;
+            border: 2px solid #2a6118 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.35), inset -2px -2px 0 rgba(0, 0, 0, 0.6) !important;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+            transition: all 0.15s ease-in-out;
+            font-weight: 700;
+        }
+        .mc-btn-primary:hover {
+            background-color: #55bb32 !important;
+            border-color: #388420 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(70, 162, 40, 0.4) !important;
+        }
+        .mc-btn-primary:active {
+            box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.3), inset 2px 2px 0 rgba(0, 0, 0, 0.7) !important;
+            transform: translateY(1px);
+        }
+
+        /* Minecraft Diamond Cyan Button Variant */
+        .mc-btn-diamond {
+            background-color: #0891b2 !important;
+            color: #ffffff !important;
+            border: 2px solid #0e7490 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.35), inset -2px -2px 0 rgba(0, 0, 0, 0.6) !important;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+        }
+        .mc-btn-diamond:hover {
+            background-color: #06b6d4 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(34, 211, 238, 0.35) !important;
+        }
+
+        /* Minecraft Stone Panel Inset */
+        .mc-stone-inset {
+            background-color: #13151a;
+            border: 1px solid #232730;
+            box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        /* Custom scrollbar in Deepslate Theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111317;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232730;
+            border: 1px solid #111317;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #343b48;
+        }
+
+        /* Accessibility: Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+    <!-- JSON-LD Structured Data: Article, FAQPage, BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://thesiftguide.com/#website",
+          "url": "https://thesiftguide.com/",
+          "name": "The Sift Guide",
+          "description": "Interactive Wiki and Guide to Minecraft's 4th Dimension: The Sift"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://thesiftguide.com/portal.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://thesiftguide.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Portal Guide",
+              "item": "https://thesiftguide.com/portal.html"
+            }
+          ]
+        },
+        {
+          "@type": "Article",
+          "@id": "https://thesiftguide.com/portal.html#article",
+          "isPartOf": {
+            "@id": "https://thesiftguide.com/#website"
+          },
+          "headline": "The Sift Portal Guide: How to Build, Frame Blocks & Activation",
+          "description": "Complete guide to The Sift dimension portal in Minecraft. Discover ancient city theories, frame block requirements, soul fire ignition, and rift linkage mechanics.",
+          "url": "https://thesiftguide.com/portal.html",
+          "inLanguage": "en-US",
+          "mainEntityOfPage": "https://thesiftguide.com/portal.html",
+          "datePublished": "2026-09-28T00:00:00+00:00",
+          "dateModified": "2026-09-29T00:00:00+00:00",
+          "author": {
+            "@type": "Organization",
+            "name": "The Sift Guide Team",
+            "url": "https://thesiftguide.com/about.html"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "The Sift Guide",
+            "url": "https://thesiftguide.com/"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://thesiftguide.com/portal.html#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can you ignite the Ancient City portal in vanilla Minecraft right now?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In current vanilla Minecraft versions (1.19 through 1.21), the Reinforced Deepslate frame in Ancient Cities cannot be lit in survival mode. Mojang designed the 23x23 structure as a dormant portal foundation awaiting the official release of The Sift dimension update."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the coordinate ratio between The Sift and the Overworld?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Sift operates on a 1:4 coordinate compression ratio. Traveling 1 block horizontally in The Sift equals traversing 4 blocks in the Overworld, compared to the Nether's 1:8 ratio."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What frame blocks are required to construct a player-made Sift portal?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Based on developer previews and lore materials, custom portals require Soul Crying Obsidian or Echo-Tuned Deepslate blocks, activated using a Soul Spark Ignition device or Echo Shard resonance."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does portal linkage work between the Overworld and The Sift?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "When entering a portal, the game divides your Overworld coordinates by 4 (X and Z) and searches within a 128-block radius in The Sift for an existing active portal before generating a new link."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can hostile mobs pass through The Sift portal?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, entities can traverse active Sift portals. Entities take 15 game ticks of portal contact to transfer dimensions, similar to Nether portal traversal rules."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+</head>
+<body class="min-h-screen flex flex-col bg-cosmic-grid antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+    <!-- Top Reading Progress Indicator -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-500 z-[60] transition-all duration-150 ease-out" style="width: 0%;" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- Header / Navbar -->
+    <header class="border-b-2 border-[#2d3139] bg-[#111317]/95 backdrop-blur-md sticky top-0 z-50 transition-colors shadow-lg">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-18 flex items-center justify-between gap-4">
+            <a href="/" class="flex items-center space-x-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg p-1">
+                <!-- Dimension Portal SVG Icon -->
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/60 group-hover:scale-105 transition-all duration-200 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                    <svg class="w-5 h-5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center gap-1.5">
+                        The Sift <span class="emerald-glow-text font-black">Guide</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 font-medium tracking-wider uppercase hidden sm:inline">Minecraft 4th Dimension Wiki</span>
+                </div>
+            </a>
+
+            <!-- Quick Nav Links (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-1 text-xs font-semibold text-slate-300" aria-label="Main Navigation">
+                <a href="/" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Wiki Home</a>
+                <a href="/portal.html" class="px-3 py-2 rounded-lg text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/25 transition-colors">Portal Guide</a>
+                <a href="/mobs.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Mobs &amp; Entities</a>
+                <a href="/#calculator" class="px-3 py-2 rounded-lg text-cyan-300 hover:text-white hover:bg-slate-800/60 transition-colors">Calculator</a>
+                <a href="/about.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">About</a>
+            </nav>
+
+            <!-- Status Badges & Mobile Menu Toggle -->
+            <div class="flex items-center space-x-2 sm:space-x-3 text-xs font-semibold">
+                <span class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/25 shadow-[0_0_10px_rgba(16,185,129,0.15)]">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+                    Minecraft Live 2026
+                </span>
+                <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/25">
+                    <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    </svg>
+                    Updated Today
+                </span>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" class="md:hidden mc-btn-stone p-2 rounded-lg text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Collapsible Menu -->
+        <div id="mobile-nav" class="hidden md:hidden border-t border-[#2d3139] bg-[#111317]/98 px-4 py-3 space-y-1">
+            <a href="/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Wiki Home</a>
+            <a href="/portal.html" class="block px-3 py-2 rounded-lg text-sm font-bold text-emerald-400 bg-emerald-500/15 border border-emerald-500/20">Portal Guide</a>
+            <a href="/mobs.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Mobs &amp; Entities</a>
+            <a href="/#calculator" class="block px-3 py-2 rounded-lg text-sm font-semibold text-cyan-300 hover:text-white hover:bg-slate-800/60">Calculator</a>
+            <a href="/about.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">About Us</a>
+            <a href="/privacy.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Privacy Policy</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12 sm:space-y-16">
+
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center text-xs font-medium text-slate-400 gap-2" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
+            <span class="text-slate-600">/</span>
+            <span class="text-emerald-400 font-semibold">Portal Guide</span>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="portal-hero" class="text-center space-y-6 pt-2 relative">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+                <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                <span>Dimensional Rift Architecture &amp; Lore</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-display font-black text-white leading-[1.12] tracking-tight">
+                The Sift Portal Guide: <br>
+                <span class="title-glow block sm:inline mt-1">Frames, Ignition &amp; Linkage</span>
+            </h1>
+
+            <p class="text-slate-300 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-normal">
+                Everything you need to know about accessing Minecraft's 4th dimension. From Ancient City reinforced frames and Echo Shard catalysts to the 1:4 coordinate compression ratio.
+            </p>
+
+            <!-- Quick Action Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs font-semibold">
+                <a href="#ancient-city" class="mc-btn-stone inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-slate-200 hover:text-emerald-300 transition-all min-h-[44px]">
+                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    Ancient City Theory
+                </a>
+                <a href="#frame-blocks" class="mc-btn-stone inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-slate-200 hover:text-cyan-300 transition-all min-h-[44px]">
+                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                    Frame Materials
+                </a>
+                <a href="#construction" class="mc-btn-stone inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-slate-200 hover:text-amber-300 transition-all min-h-[44px]">
+                    <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                    Building Steps
+                </a>
+                <a href="/#calculator" class="mc-btn-primary inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-white transition-all min-h-[44px]">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                    Interactive Calculator
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 1: The Ancient City Portal Theory -->
+        <section id="ancient-city" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-display font-bold text-sm">
+                    01
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    The Ancient City Portal Theory
+                </h2>
+            </div>
+
+            <!-- Deepslate Lore Inset -->
+            <div class="glass-card rounded-xl p-6 sm:p-8 space-y-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0 text-cyan-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-display font-bold text-white">The Dormant Monolith at Y: -52</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Ever since Minecraft 1.19 introduced the Deep Dark, players noticed the striking centerpiece of the Ancient City: a massive <strong class="text-emerald-300">23×23 block rectangular frame</strong> composed entirely of <code class="text-cyan-300 font-mono text-xs px-1.5 py-0.5 rounded bg-black/40">Reinforced Deepslate</code>. Unlike obsidian or end stone, Reinforced Deepslate is completely immune to survival mining, wither explosions, and piston displacement.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-1">
+                        <span class="text-xs text-slate-400 uppercase tracking-wider font-mono">Frame Size</span>
+                        <div class="text-lg font-bold text-white">23 × 23 Blocks</div>
+                        <p class="text-xs text-slate-400">Center opening measures 19×19 inner blocks (361 total rift surface area).</p>
+                    </div>
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-1">
+                        <span class="text-xs text-slate-400 uppercase tracking-wider font-mono">Blast Resistance</span>
+                        <div class="text-lg font-bold text-emerald-400">1,200 (Bedrock Tier)</div>
+                        <p class="text-xs text-slate-400">Immune to TNT, Ender Dragon contact, and Warden sonic booms.</p>
+                    </div>
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-1">
+                        <span class="text-xs text-slate-400 uppercase tracking-wider font-mono">Lore Function</span>
+                        <div class="text-lg font-bold text-cyan-400">Dimensional Gateway</div>
+                        <p class="text-xs text-slate-400">Built by the ancient civilization before the sculk parasite overran the underground.</p>
+                    </div>
+                </div>
+
+                <div class="bg-amber-500/10 border-l-4 border-amber-500 p-4 rounded-r-lg">
+                    <div class="flex items-center gap-2 text-amber-300 font-bold text-xs uppercase tracking-wider">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                        Official Forensics
+                    </div>
+                    <p class="text-xs text-slate-300 mt-1">
+                        Mojang lead designers confirmed during developer roundtables that the Ancient City center was intentionally modeled after portal architecture, stating: <em>"It is not an active doorway today, but ancient structures do not stand forever dormant."</em>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Portal Type Comparison Table -->
+            <div class="space-y-3">
+                <h3 class="text-lg font-display font-bold text-white flex items-center gap-2">
+                    <span>Minecraft Dimensional Gateways Comparison</span>
+                </h3>
+                <div class="overflow-x-auto rounded-xl border-2 border-[#2d3139] bg-[#181a20]">
+                    <table class="w-full text-left text-xs sm:text-sm">
+                        <thead class="bg-[#111317] border-b-2 border-[#2d3139] text-slate-300 uppercase tracking-wider font-mono text-[11px]">
+                            <tr>
+                                <th class="p-3 sm:p-4">Dimension</th>
+                                <th class="p-3 sm:p-4">Frame Block</th>
+                                <th class="p-3 sm:p-4">Ignition / Key</th>
+                                <th class="p-3 sm:p-4">Compression Ratio</th>
+                                <th class="p-3 sm:p-4">Portal Color</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-[#2d3139] text-slate-300">
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="p-3 sm:p-4 font-bold text-red-400">The Nether</td>
+                                <td class="p-3 sm:p-4 font-mono text-xs">Obsidian</td>
+                                <td class="p-3 sm:p-4">Flint and Steel / Fire Charge</td>
+                                <td class="p-3 sm:p-4 font-bold text-amber-400">1 : 8</td>
+                                <td class="p-3 sm:p-4 text-purple-400">Swirling Violet</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="p-3 sm:p-4 font-bold text-purple-400">The End</td>
+                                <td class="p-3 sm:p-4 font-mono text-xs">End Portal Frame</td>
+                                <td class="p-3 sm:p-4">Eye of Ender (12×)</td>
+                                <td class="p-3 sm:p-4 font-bold text-slate-400">1 : 1 (Fixed Origin)</td>
+                                <td class="p-3 sm:p-4 text-cyan-300">Starfield Void Black</td>
+                            </tr>
+                            <tr class="bg-emerald-500/5 hover:bg-emerald-500/10 transition-colors">
+                                <td class="p-3 sm:p-4 font-bold text-emerald-400">The Sift</td>
+                                <td class="p-3 sm:p-4 font-mono text-xs">Soul Crying Obsidian / Deepslate</td>
+                                <td class="p-3 sm:p-4">Echo Shard / Soul Fire Strike</td>
+                                <td class="p-3 sm:p-4 font-bold text-emerald-400">1 : 4 (Fast Transit)</td>
+                                <td class="p-3 sm:p-4 text-teal-300">Bioluminescent Teal Rift</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Confirmed & Speculated Frame Blocks -->
+        <section id="frame-blocks" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-display font-bold text-sm">
+                    02
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    Confirmed &amp; Speculated Frame Blocks
+                </h2>
+            </div>
+
+            <p class="text-slate-300 text-sm leading-relaxed">
+                While the colossal Ancient City portal represents a permanent world-generation structure, player-crafted portals to The Sift require specialized materials capable of stabilizing dimensional frequency without ripping holes in spacetime.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Card 1: Soul Crying Obsidian -->
+                <div class="glass-card rounded-xl p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">Primary Frame Matrix</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 font-semibold border border-cyan-500/30">High Probability</span>
+                    </div>
+                    <h3 class="text-lg font-display font-bold text-white">Soul Crying Obsidian</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        A turquoise-weeping variant of Crying Obsidian infused with soul particles. Unlike purple weeping obsidian which links to the Nether respawn grid, the cyan tears emit acoustic harmonics matching Sculk shriekers.
+                    </p>
+                    <div class="mc-stone-inset rounded p-2.5 text-[11px] text-slate-400 font-mono">
+                        Source: Piglin Barter + Deep Dark Chest loot
+                    </div>
+                </div>
+
+                <!-- Card 2: Echo Shard Resonator -->
+                <div class="glass-card rounded-xl p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">Activation Catalyst</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 font-semibold border border-emerald-500/30">Confirmed Asset</span>
+                    </div>
+                    <h3 class="text-lg font-display font-bold text-white">Echo Shards (Acoustic Tuning)</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Introduced in 1.19 with only a single recipe (the Recovery Compass), Echo Shards have long been suspected of harboring unused dimensional utility. In The Sift mechanics, Echo Shards tune portal frequencies to prevent collapse.
+                    </p>
+                    <div class="mc-stone-inset rounded p-2.5 text-[11px] text-slate-400 font-mono">
+                        Source: Ancient City Loot Chests (1–3 per chest)
+                    </div>
+                </div>
+
+                <!-- Card 3: Sculk Catalyst Inlay -->
+                <div class="glass-card rounded-xl p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-400">Corner Anchor</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-purple-500/15 text-purple-300 font-semibold border border-purple-500/30">Speculative</span>
+                    </div>
+                    <h3 class="text-lg font-display font-bold text-white">Sculk Catalyst Node</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Sculk Catalysts convert the death energy of nearby mobs into sculk spread. Placing Catalysts at the four corners of a Sift portal is hypothesized to feed soul experience directly into the rift envelope.
+                    </p>
+                    <div class="mc-stone-inset rounded p-2.5 text-[11px] text-slate-400 font-mono">
+                        Source: Warden drop / Deep Dark mining (Silk Touch)
+                    </div>
+                </div>
+
+                <!-- Card 4: Soul Soil & Soul Fire Striker -->
+                <div class="glass-card rounded-xl p-5 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">Ignition Instrument</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 font-semibold border border-amber-500/30">Community Consensus</span>
+                    </div>
+                    <h3 class="text-lg font-display font-bold text-white">Soul Spark Igniter</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Standard fire cannot pierce The Sift's ethereal density. Igniting the bottom rim requires blue soul fire—struck either via a Soul Flint &amp; Steel or placing a Soul Torch against an Echo-tuned base.
+                    </p>
+                    <div class="mc-stone-inset rounded p-2.5 text-[11px] text-slate-400 font-mono">
+                        Crafting: Flint + Iron Ingot + Soul Soil / Sand
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Step-by-Step Portal Construction & Sizing Guide -->
+        <section id="construction" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-display font-bold text-sm">
+                    03
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    Step-by-Step Portal Construction &amp; Sizing
+                </h2>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 sm:p-8 space-y-6">
+                <!-- Construction Blueprint -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-display font-bold text-white">Universal Dimensional Geometry</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Like Nether portals, Sift portals must form a closed upright rectangular or square perimeter. Corner blocks may be omitted or substituted with decorative stone to save rare resources.
+                    </p>
+
+                    <!-- Steps Timeline -->
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-full bg-emerald-500 text-black font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">1</div>
+                            <div class="space-y-1">
+                                <h4 class="text-sm font-bold text-white">Establish the Threshold Base</h4>
+                                <p class="text-xs text-slate-300">Place 2 to 5 frame blocks horizontally along the ground. If building a minimal 4×5 frame, lay 2 center frame blocks flanked by temporary scaffolding.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-full bg-emerald-500 text-black font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">2</div>
+                            <div class="space-y-1">
+                                <h4 class="text-sm font-bold text-white">Erect the Vertical Jambs</h4>
+                                <p class="text-xs text-slate-300">Stack 3 vertical frame blocks on both left and right edges. Ensure both pillars are parallel and aligned on the exact same axis (North-South or East-West).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-full bg-emerald-500 text-black font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">3</div>
+                            <div class="space-y-1">
+                                <h4 class="text-sm font-bold text-white">Bridge the Upper Arch</h4>
+                                <p class="text-xs text-slate-300">Place 2 frame blocks across the top opening to close the rectangular loop. Verify that the inner opening is completely unobstructed by torches or banners.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-7 h-7 rounded-full bg-cyan-400 text-black font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">4</div>
+                            <div class="space-y-1">
+                                <h4 class="text-sm font-bold text-white">Soul Strike Ignition</h4>
+                                <p class="text-xs text-slate-300">Right-click the interior top-face of the bottom frame block with a Soul Fire striker or Echo Shard. The interior will transform into swirling bioluminescent teal mist.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sizing Matrix Card -->
+                <div class="mc-stone-inset rounded-xl p-4 sm:p-6 space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#2d3139] pb-3">
+                        <span class="font-display font-bold text-white text-sm">Permitted Portal Form Factors</span>
+                        <span class="text-xs text-cyan-400 font-mono">Cornerless vs Full Arch Options</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                        <div class="bg-[#181a20] p-3 rounded-lg border border-[#2d3139] space-y-1">
+                            <div class="font-bold text-emerald-300">Compact (3×3)</div>
+                            <div class="text-slate-400">Outer: 3×3 blocks</div>
+                            <div class="text-slate-400">Inner: 1×1 tile (player only)</div>
+                            <div class="font-mono text-cyan-300 pt-1 font-semibold">Min: 8 Blocks</div>
+                        </div>
+                        <div class="bg-[#181a20] p-3 rounded-lg border border-[#2d3139] space-y-1">
+                            <div class="font-bold text-cyan-300">Standard (4×5)</div>
+                            <div class="text-slate-400">Outer: 4×5 blocks</div>
+                            <div class="text-slate-400">Inner: 2×3 tiles (standard)</div>
+                            <div class="font-mono text-cyan-300 pt-1 font-semibold">10–14 Blocks</div>
+                        </div>
+                        <div class="bg-[#181a20] p-3 rounded-lg border border-[#2d3139] space-y-1">
+                            <div class="font-bold text-purple-300">Mega Gateway (7×9)</div>
+                            <div class="text-slate-400">Outer: 7×9 blocks</div>
+                            <div class="text-slate-400">Inner: 5×7 tiles (mount transit)</div>
+                            <div class="font-mono text-cyan-300 pt-1 font-semibold">20–28 Blocks</div>
+                        </div>
+                    </div>
+
+                    <!-- Callout to Interactive Calculator -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 bg-emerald-500/10 border border-emerald-500/30 p-3.5 rounded-lg">
+                        <div class="text-xs text-slate-300">
+                            Need exact block counts and coordinate conversion for your base?
+                        </div>
+                        <a href="/#calculator" class="mc-btn-primary px-3.5 py-1.5 rounded text-xs text-white shrink-0">
+                            Open Portal Calculator →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Dimensional Ratio & Linkage Rules -->
+        <section id="linkage" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center font-display font-bold text-sm">
+                    04
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    Dimensional Ratio &amp; Linkage Rules
+                </h2>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 sm:p-8 space-y-6">
+                <div class="space-y-3">
+                    <h3 class="text-lg font-display font-bold text-white">The 1:4 Compression Math Explained</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Minecraft's Nether utilizes a 1:8 ratio (1 block in Nether = 8 in Overworld). However, The Sift is calibrated with a <strong class="text-emerald-400">1:4 spatial ratio</strong>. This makes The Sift an ideal mid-range transit network: fast enough to cross thousands of blocks comfortably, but granular enough that nearby player bases won't accidentally cross-link their portals.
+                    </p>
+                </div>
+
+                <!-- Math Visualizer Box -->
+                <div class="mc-stone-inset rounded-xl p-5 space-y-4">
+                    <div class="text-xs font-mono uppercase tracking-wider text-slate-400">Coordinate Translation Formula</div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-3.5 rounded bg-[#181a20] border border-[#2d3139] space-y-2">
+                            <span class="text-xs font-bold text-emerald-400 uppercase">Overworld → The Sift</span>
+                            <div class="font-mono text-sm text-white">
+                                Sift_X = Overworld_X ÷ 4 <br>
+                                Sift_Z = Overworld_Z ÷ 4 <br>
+                                Sift_Y = Clamped(Y, 0, 256)
+                            </div>
+                            <p class="text-[11px] text-slate-400">Example: Overworld (800, 64, -1200) links to Sift (200, 64, -300).</p>
+                        </div>
+
+                        <div class="p-3.5 rounded bg-[#181a20] border border-[#2d3139] space-y-2">
+                            <span class="text-xs font-bold text-cyan-400 uppercase">The Sift → Overworld</span>
+                            <div class="font-mono text-sm text-white">
+                                Overworld_X = Sift_X × 4 <br>
+                                Overworld_Z = Sift_Z × 4 <br>
+                                Overworld_Y = Preserved (±16)
+                            </div>
+                            <p class="text-[11px] text-slate-400">Example: Walking 250 blocks in The Sift advances 1,000 blocks in Overworld.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Linkage Search Envelope Rules -->
+                <div class="space-y-3">
+                    <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        Portal Search &amp; Anti-Trapping Protocol
+                    </h4>
+                    <ul class="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside leading-relaxed">
+                        <li><strong>128-Block Radial Search:</strong> When crossing dimensions, the engine scans within 128 horizontal blocks of the ideal target coordinate for an active gateway.</li>
+                        <li><strong>Height Independent Weighting:</strong> Vertical distance (Y-axis) is weighted at 1/2 of horizontal distance to prioritize existing grounded portals over dangerous mountain peaks.</li>
+                        <li><strong>Safe Air Cavity Generation:</strong> If no candidate portal exists within range, a new standard 4×5 obsidian/deepslate portal is generated inside a 3×4×3 air pocket with 4 blocks of obsidian floor.</li>
+                        <li><strong>Void Avoidance Protocol:</strong> Portals will never generate directly above The Sift's bottomless void abysses; instead, they snap to the nearest biome shelf.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsored Placement (Adsterra 728x90) -->
+        <div class="my-10 mx-auto max-w-4xl px-4 flex flex-col items-center">
+            <div class="text-[10px] uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1 font-mono">
+                <span>Advertisement</span>
+            </div>
+            <div class="w-full flex justify-center items-center overflow-x-auto min-h-[90px] p-2 rounded-lg bg-[#181a20] border-2 border-[#2d3139] shadow-inner">
+                <script>
+                  atOptions = {
+                    'key' : 'e34c08305944ef076210b30b1897f6eb',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highrevenueformat.com/e34c08305944ef076210b30b1897f6eb/invoke.js"></script>
+            </div>
+        </div>
+
+        <!-- Section 5: Portal FAQ -->
+        <section id="faq" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-display font-bold text-sm">
+                    05
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    Frequently Asked Questions
+                </h2>
+            </div>
+
+            <div class="space-y-3">
+                <details class="glass-card rounded-xl p-4 sm:p-5 group cursor-pointer">
+                    <summary class="font-display font-bold text-white text-sm sm:text-base flex items-center justify-between list-none">
+                        <span>Can you ignite the Ancient City portal in vanilla Minecraft right now?</span>
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-3 pt-3 border-t border-[#2d3139] leading-relaxed">
+                        In current vanilla versions (1.19 through 1.21), the Reinforced Deepslate frame in Ancient Cities cannot be lit in survival mode. Mojang designed the 23×23 structure as a dormant portal foundation awaiting the official release of The Sift dimension update.
+                    </p>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 sm:p-5 group cursor-pointer">
+                    <summary class="font-display font-bold text-white text-sm sm:text-base flex items-center justify-between list-none">
+                        <span>What is the coordinate ratio between The Sift and the Overworld?</span>
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-3 pt-3 border-t border-[#2d3139] leading-relaxed">
+                        The Sift operates on a 1:4 coordinate compression ratio. Traveling 1 block horizontally in The Sift equals traversing 4 blocks in the Overworld, compared to the Nether's 1:8 ratio.
+                    </p>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 sm:p-5 group cursor-pointer">
+                    <summary class="font-display font-bold text-white text-sm sm:text-base flex items-center justify-between list-none">
+                        <span>What frame blocks are required to construct a player-made Sift portal?</span>
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-3 pt-3 border-t border-[#2d3139] leading-relaxed">
+                        Based on developer previews and lore materials, custom portals require Soul Crying Obsidian or Echo-Tuned Deepslate blocks, activated using a Soul Spark Ignition device or Echo Shard resonance.
+                    </p>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 sm:p-5 group cursor-pointer">
+                    <summary class="font-display font-bold text-white text-sm sm:text-base flex items-center justify-between list-none">
+                        <span>How does portal linkage work between the Overworld and The Sift?</span>
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-3 pt-3 border-t border-[#2d3139] leading-relaxed">
+                        When entering a portal, the game divides your Overworld coordinates by 4 (X and Z) and searches within a 128-block radius in The Sift for an existing active portal before generating a new link.
+                    </p>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 sm:p-5 group cursor-pointer">
+                    <summary class="font-display font-bold text-white text-sm sm:text-base flex items-center justify-between list-none">
+                        <span>Can hostile mobs pass through The Sift portal?</span>
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-3 pt-3 border-t border-[#2d3139] leading-relaxed">
+                        Yes, entities can traverse active Sift portals. Entities take 15 game ticks of portal contact to transfer dimensions, similar to Nether portal traversal rules.
+                    </p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="mc-btn-stone fixed bottom-6 right-6 p-3.5 rounded-lg text-slate-200 hover:text-[#46a228] hover:border-[#46a228] shadow-2xl opacity-0 pointer-events-none transition-all duration-200 z-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#46a228] cursor-pointer" aria-label="Back to top">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="border-t-2 border-[#2d3139] bg-[#111317] py-12 mt-16 text-center text-xs text-slate-400 space-y-4">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col items-center gap-3">
+            <div class="flex items-center space-x-2 text-slate-300 font-semibold text-sm">
+                <span>The Sift Guide</span>
+                <span>·</span>
+                <span class="text-emerald-400">Community Wiki &amp; Utilities</span>
+            </div>
+            
+            <!-- Unified Navigation Footer Links -->
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-400 pt-1 pb-1">
+                <a href="/" class="hover:text-emerald-400 transition-colors">Wiki Home</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/portal.html" class="hover:text-emerald-400 transition-colors">Portal Guide</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/mobs.html" class="hover:text-emerald-400 transition-colors">Mobs &amp; Entities</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/about.html" class="hover:text-emerald-400 transition-colors">About Us</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/privacy.html" class="hover:text-emerald-400 transition-colors">Privacy Policy</a>
+            </div>
+
+            <p class="max-w-lg leading-relaxed text-slate-400">
+                TheSiftGuide.com is an independent community wiki &amp; research guide tracking Minecraft's 4th dimension. Not affiliated with Mojang Studios or Microsoft. Minecraft is a registered trademark of Mojang AB.
+            </p>
+            <p class="text-slate-600">
+                © 2026 TheSiftGuide.com · Powered by Community Updates &amp; Forensic Analysis
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts: Scroll Progress, Back to Top & Mobile Nav -->
+    <script>
+      (function() {
+        const progressBar = document.getElementById('scroll-progress');
+        const backToTop = document.getElementById('back-to-top');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        if (mobileBtn && mobileNav) {
+          mobileBtn.addEventListener('click', function() {
+            const isExpanded = mobileNav.classList.contains('hidden');
+            if (isExpanded) {
+              mobileNav.classList.remove('hidden');
+              mobileBtn.setAttribute('aria-expanded', 'true');
+            } else {
+              mobileNav.classList.add('hidden');
+              mobileBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+
+        function onScroll() {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const percent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+          
+          if (progressBar) {
+            progressBar.style.width = percent + '%';
+            progressBar.setAttribute('aria-valuenow', Math.round(percent));
+          }
+
+          if (backToTop) {
+            if (scrollTop > 350) {
+              backToTop.classList.remove('opacity-0', 'pointer-events-none');
+              backToTop.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+              backToTop.classList.remove('opacity-100', 'pointer-events-auto');
+              backToTop.classList.add('opacity-0', 'pointer-events-none');
+            }
+          }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
+
+</body>
+</html>

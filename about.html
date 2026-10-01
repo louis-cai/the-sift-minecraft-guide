@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1ZTW8XWPG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-X1ZTW8XWPG');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | The Sift Minecraft Guide</title>
+    <meta name="description" content="About The Sift Guide: an independent, community-driven wiki and research project tracking Minecraft's 4th dimension announced at Minecraft Live 2026.">
+    <meta name="keywords" content="about the sift guide, the sift wiki, minecraft live 2026 analysis, minecraft editorial standards, the sift team">
+    <link rel="canonical" href="https://thesiftguide.com/about.html">
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="theme-color" content="#111317">
+    
+    <!-- Open Graph / Facebook / Discord -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Us | The Sift Minecraft Guide">
+    <meta property="og:description" content="About The Sift Guide: an independent, community-driven wiki and research project tracking Minecraft's 4th dimension announced at Minecraft Live 2026.">
+    <meta property="og:url" content="https://thesiftguide.com/about.html">
+    <meta property="og:image" content="https://thesiftguide.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The Sift Minecraft Guide - 4th Dimension Interactive Wiki">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Us | The Sift Minecraft Guide">
+    <meta name="twitter:description" content="About The Sift Guide: an independent, community-driven wiki and research project tracking Minecraft's 4th dimension announced at Minecraft Live 2026.">
+    <meta name="twitter:image" content="https://thesiftguide.com/og-image.png">
+
+    <!-- Typography: Google Fonts (Plus Jakarta Sans + Space Grotesk) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (Direct versioned CDN: Zero-redirect, full v3 runtime) -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['"Space Grotesk"', 'ui-monospace', 'SFMono-Regular', 'monospace', 'sans-serif'],
+              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+            },
+            colors: {
+              void: {
+                950: '#111317', /* Minecraft Deepslate Black */
+                900: '#181a20', /* Minecraft Deepslate Brick / Smooth Stone */
+                850: '#20242c',
+                800: '#272c36',
+                700: '#343b48',
+              },
+              mc: {
+                deepslate: '#111317',
+                stone: '#181a20',
+                stoneHover: '#232730',
+                border: '#2d3139',
+                grass: '#46a228',
+                grassHover: '#55bb32',
+                diamond: '#22d3ee',
+                diamondHover: '#38bdf8',
+                gold: '#f59e0b',
+                redstone: '#ef4444',
+                amethyst: '#a855f7',
+              },
+              sift: {
+                emerald: '#46a228',
+                cyan: '#22d3ee',
+                teal: '#14b8a6',
+                amber: '#f59e0b',
+                bone: '#e2e8f0',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        :root {
+            color-scheme: dark;
+            --mc-deepslate: #111317;
+            --mc-stone: #181a20;
+            --mc-border: #2d3139;
+            --mc-grass: #46a228;
+            --mc-grass-hover: #55bb32;
+            --mc-diamond: #22d3ee;
+        }
+        body {
+            background-color: #111317;
+            color: #cbd5e1;
+            font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Typography: Minecraft Block / Pixel Aesthetic */
+        h1, h2, h3, .font-display {
+            font-family: "Space Grotesk", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace, sans-serif;
+            letter-spacing: -0.025em;
+        }
+        .mc-pixel-font {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+            font-weight: 700;
+        }
+        
+        /* Heading & Accent Glow Gradients */
+        .title-glow {
+            background: linear-gradient(135deg, #a3e635 0%, #4ade80 30%, #22d3ee 70%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 35px rgba(74, 222, 128, 0.35));
+        }
+        .emerald-glow-text {
+            background: linear-gradient(135deg, #86efac 0%, #46a228 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .diamond-glow-text {
+            background: linear-gradient(135deg, #a5f3fc 0%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .amber-glow-text {
+            background: linear-gradient(135deg, #fde68a 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cyan-glow-text {
+            background: linear-gradient(135deg, #7dd3fc 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Minecraft Subtle Deepslate Grid Background */
+        .bg-cosmic-grid {
+            background-color: #111317;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(70, 162, 40, 0.14) 0%, transparent 50%),
+                radial-gradient(circle at 85% 35%, rgba(34, 211, 238, 0.10) 0%, transparent 40%),
+                radial-gradient(circle at 15% 70%, rgba(168, 85, 247, 0.08) 0%, transparent 45%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+        }
+
+        /* Minecraft Deepslate / Smooth Stone Card Base */
+        .glass-card {
+            background: #181a20;
+            border: 2px solid #2d3139;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: #46a228;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.12), inset -2px -2px 0 rgba(0, 0, 0, 0.6), 0 0 25px rgba(70, 162, 40, 0.18);
+        }
+
+        /* Minecraft Native 3D Button */
+        .mc-btn, .mc-btn-stone {
+            background-color: #1f2229;
+            color: #e2e8f0;
+            border: 2px solid #2d3139;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.25), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.15s ease-in-out;
+            user-select: none;
+        }
+        .mc-btn:hover, .mc-btn-stone:hover {
+            background-color: #272c35;
+            color: #ffffff;
+            border-color: #3f4552;
+        }
+        .mc-btn:active, .mc-btn-stone:active, button:active {
+            box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.25), inset 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+            transform: translateY(1px);
+        }
+
+        /* Minecraft Primary Action Button */
+        .mc-btn-primary {
+            background-color: #46a228 !important;
+            color: #ffffff !important;
+            border: 2px solid #2a6118 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.35), inset -2px -2px 0 rgba(0, 0, 0, 0.6) !important;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+            transition: all 0.15s ease-in-out;
+            font-weight: 700;
+        }
+        .mc-btn-primary:hover {
+            background-color: #55bb32 !important;
+            border-color: #388420 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(70, 162, 40, 0.4) !important;
+        }
+        .mc-btn-primary:active {
+            box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.3), inset 2px 2px 0 rgba(0, 0, 0, 0.7) !important;
+            transform: translateY(1px);
+        }
+
+        /* Minecraft Diamond Cyan Button Variant */
+        .mc-btn-diamond {
+            background-color: #0891b2 !important;
+            color: #ffffff !important;
+            border: 2px solid #0e7490 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.35), inset -2px -2px 0 rgba(0, 0, 0, 0.6) !important;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+        }
+        .mc-btn-diamond:hover {
+            background-color: #06b6d4 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(34, 211, 238, 0.35) !important;
+        }
+
+        /* Minecraft Stone Panel Inset */
+        .mc-stone-inset {
+            background-color: #13151a;
+            border: 1px solid #232730;
+            box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        /* Custom scrollbar in Deepslate Theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111317;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232730;
+            border: 1px solid #111317;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #343b48;
+        }
+
+        /* Accessibility: Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+    <!-- JSON-LD Structured Data: AboutPage, BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://thesiftguide.com/#website",
+          "url": "https://thesiftguide.com/",
+          "name": "The Sift Guide",
+          "description": "Interactive Wiki and Guide to Minecraft's 4th Dimension: The Sift"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://thesiftguide.com/about.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://thesiftguide.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About Us",
+              "item": "https://thesiftguide.com/about.html"
+            }
+          ]
+        },
+        {
+          "@type": "AboutPage",
+          "@id": "https://thesiftguide.com/about.html#about",
+          "isPartOf": {
+            "@id": "https://thesiftguide.com/#website"
+          },
+          "headline": "About The Sift Guide: Mission, Forensic Methodology & Editorial Standards",
+          "description": "About The Sift Guide: an independent, community-driven wiki and research project tracking Minecraft's 4th dimension announced at Minecraft Live 2026.",
+          "url": "https://thesiftguide.com/about.html",
+          "inLanguage": "en-US",
+          "mainEntityOfPage": "https://thesiftguide.com/about.html",
+          "datePublished": "2026-09-28T00:00:00+00:00",
+          "dateModified": "2026-09-29T00:00:00+00:00",
+          "author": {
+            "@type": "Organization",
+            "name": "The Sift Guide Team",
+            "url": "https://thesiftguide.com/about.html"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "The Sift Guide",
+            "url": "https://thesiftguide.com/"
+          }
+        }
+      ]
+    }
+    </script>
+
+</head>
+<body class="min-h-screen flex flex-col bg-cosmic-grid antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+    <!-- Top Reading Progress Indicator -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-500 z-[60] transition-all duration-150 ease-out" style="width: 0%;" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- Header / Navbar -->
+    <header class="border-b-2 border-[#2d3139] bg-[#111317]/95 backdrop-blur-md sticky top-0 z-50 transition-colors shadow-lg">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-18 flex items-center justify-between gap-4">
+            <a href="/" class="flex items-center space-x-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg p-1">
+                <!-- Dimension Portal SVG Icon -->
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/60 group-hover:scale-105 transition-all duration-200 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                    <svg class="w-5 h-5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center gap-1.5">
+                        The Sift <span class="emerald-glow-text font-black">Guide</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 font-medium tracking-wider uppercase hidden sm:inline">Minecraft 4th Dimension Wiki</span>
+                </div>
+            </a>
+
+            <!-- Quick Nav Links (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-1 text-xs font-semibold text-slate-300" aria-label="Main Navigation">
+                <a href="/" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Wiki Home</a>
+                <a href="/portal.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Portal Guide</a>
+                <a href="/mobs.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Mobs &amp; Entities</a>
+                <a href="/#calculator" class="px-3 py-2 rounded-lg text-cyan-300 hover:text-white hover:bg-slate-800/60 transition-colors">Calculator</a>
+                <a href="/about.html" class="px-3 py-2 rounded-lg text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/25 transition-colors">About</a>
+            </nav>
+
+            <!-- Status Badges & Mobile Menu Toggle -->
+            <div class="flex items-center space-x-2 sm:space-x-3 text-xs font-semibold">
+                <span class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/25 shadow-[0_0_10px_rgba(16,185,129,0.15)]">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+                    Minecraft Live 2026
+                </span>
+                <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/25">
+                    <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    </svg>
+                    Updated Today
+                </span>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" class="md:hidden mc-btn-stone p-2 rounded-lg text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Collapsible Menu -->
+        <div id="mobile-nav" class="hidden md:hidden border-t border-[#2d3139] bg-[#111317]/98 px-4 py-3 space-y-1">
+            <a href="/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Wiki Home</a>
+            <a href="/portal.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Portal Guide</a>
+            <a href="/mobs.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Mobs &amp; Entities</a>
+            <a href="/#calculator" class="block px-3 py-2 rounded-lg text-sm font-semibold text-cyan-300 hover:text-white hover:bg-slate-800/60">Calculator</a>
+            <a href="/about.html" class="block px-3 py-2 rounded-lg text-sm font-bold text-emerald-400 bg-emerald-500/15 border border-emerald-500/20">About Us</a>
+            <a href="/privacy.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Privacy Policy</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12 sm:space-y-16">
+
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center text-xs font-medium text-slate-400 gap-2" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
+            <span class="text-slate-600">/</span>
+            <span class="text-emerald-400 font-semibold">About Us</span>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="about-hero" class="text-center space-y-6 pt-2 relative">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+                <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Editorial Mission &amp; Community Transparency</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-display font-black text-white leading-[1.12] tracking-tight">
+                About The Sift Guide: <br>
+                <span class="title-glow block sm:inline mt-1">Our Mission &amp; Methodology</span>
+            </h1>
+
+            <p class="text-slate-300 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-normal">
+                An independent, community-driven wiki and forensic research project tracking Minecraft's 4th dimension announced at Minecraft Live 2026.
+            </p>
+        </section>
+
+        <!-- Section 1: Mission Statement -->
+        <section id="mission" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-display font-bold text-sm">
+                    01
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    Our Mission
+                </h2>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 sm:p-8 space-y-4">
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    When Mojang Studios revealed <strong class="text-emerald-400">The Sift</strong> at Minecraft Live 2026—marking the first new official dimension added to Minecraft in over 14 years since The End in 2011—the global community was overwhelmed with fragmented rumors, clickbait videos, and unsubstantiated leaks.
+                </p>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <strong class="text-white">The Sift Guide</strong> was created to serve as an authoritative, ad-clean, and technologically precise repository for Minecraft builders, technical redstone engineers, and lore scholars. Our goal is simple: deliver verified facts, rigorous frame-by-frame analysis of official footage, and interactive utility calculators without marketing fluff or misleading claims.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-1 text-center">
+                        <div class="text-2xl font-black text-emerald-400 font-display">100%</div>
+                        <div class="text-xs font-semibold text-white">Ad-Clean Experience</div>
+                        <p class="text-[11px] text-slate-400">Zero intrusive popups, auto-playing video overlays, or paywalls.</p>
+                    </div>
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-1 text-center">
+                        <div class="text-2xl font-black text-cyan-400 font-display">0-Latency</div>
+                        <div class="text-xs font-semibold text-white">Edge-Delivered Static Wiki</div>
+                        <p class="text-[11px] text-slate-400">Built with pure semantic HTML and Tailwind CSS for instant load times worldwide.</p>
+                    </div>
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-1 text-center">
+                        <div class="text-2xl font-black text-amber-400 font-display">4-Tier</div>
+                        <div class="text-xs font-semibold text-white">Evidence Verification</div>
+                        <p class="text-[11px] text-slate-400">Every claim is explicitly categorized by verification status.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Research Methodology -->
+        <section id="methodology" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-display font-bold text-sm">
+                    02
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    Research Methodology &amp; Fact-Checking
+                </h2>
+            </div>
+
+            <p class="text-slate-300 text-sm leading-relaxed">
+                To prevent misinformation from polluting the Minecraft community wiki space, our editorial contributors adhere to a strict forensic evaluation pipeline:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="glass-card rounded-xl p-5 space-y-3">
+                    <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm font-display">
+                        <span class="w-6 h-6 rounded-md bg-emerald-500/20 flex items-center justify-center text-xs">A</span>
+                        Official Stream &amp; Keynote Forensics
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Every frame of Minecraft Live 2026 broadcasts, Mojang Monthly developer vlogs, and official B-roll clips is analyzed at 4K resolution. Coordinate displays, tooltip text, and block lighting values are cross-checked against vanilla game code.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-xl p-5 space-y-3">
+                    <div class="flex items-center gap-2 text-cyan-400 font-bold text-sm font-display">
+                        <span class="w-6 h-6 rounded-md bg-cyan-500/20 flex items-center justify-center text-xs">B</span>
+                        Developer Interviews &amp; Social Feeds
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        We actively archive commentary from Mojang developers (including lead designers and technical directors) across X/Twitter, Reddit AMA threads, and Discord partner channels to confirm feature intent and design rationale.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-xl p-5 space-y-3">
+                    <div class="flex items-center gap-2 text-amber-400 font-bold text-sm font-display">
+                        <span class="w-6 h-6 rounded-md bg-amber-500/20 flex items-center justify-center text-xs">C</span>
+                        Minecraft Dungeons II Cross-Referencing
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Because The Sift will debut in playable form within Minecraft Dungeons II in 2026 prior to the 2027 vanilla update, our team monitors Unreal Engine data tables, enemy taxonomy, and weapon lore to preview mechanics.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-xl p-5 space-y-3">
+                    <div class="flex items-center gap-2 text-purple-400 font-bold text-sm font-display">
+                        <span class="w-6 h-6 rounded-md bg-purple-500/20 flex items-center justify-center text-xs">D</span>
+                        Java &amp; Bedrock Snapshot Decompilation
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        As experimental snapshots and preview builds release throughout 2027, our technical team decompiles JAR files, inspects JSON worldgen biomes, and benchmarks dimension performance across hardware tiers.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Editorial Independence & Disclosures -->
+        <section id="disclosure" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-display font-bold text-sm">
+                    03
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    Editorial Independence &amp; Legal Disclosures
+                </h2>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 sm:p-8 space-y-4">
+                <div class="bg-amber-500/10 border-l-4 border-amber-500 p-4 rounded-r-lg space-y-2">
+                    <div class="flex items-center gap-2 text-amber-300 font-bold text-xs uppercase tracking-wider">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                        Mandatory Legal &amp; Trademark Notice
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        <strong>TheSiftGuide.com is an independent community wiki and enthusiast website.</strong> We are not affiliated with, endorsed by, sponsored by, or associated with Mojang Studios, Mojang AB, Microsoft Corporation, or any of their parent or subsidiary companies.
+                    </p>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        <em>Minecraft</em>, <em>Minecraft Dungeons</em>, <em>Minecraft Legends</em>, and all associated names, logos, characters, and artwork are registered trademarks of Mojang Synergies AB. All game content and materials belong to their respective copyright holders.
+                    </p>
+                </div>
+
+                <div class="space-y-3 pt-2">
+                    <h3 class="text-base font-display font-bold text-white">Advertising &amp; Funding Transparency</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        The Sift Guide is funded exclusively through non-intrusive standard web display advertisements (Google AdSense, Adsterra). We do not accept sponsored content, paid favorable reviews, or game studio promotional payments. All editorial evaluations and technical calculators are produced autonomously by our volunteer and contributor staff.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Contact & Community Submissions -->
+        <section id="contact" class="space-y-6 scroll-mt-24">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-display font-bold text-sm">
+                    04
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    Contact &amp; Corrections
+                </h2>
+            </div>
+
+            <div class="glass-card rounded-xl p-6 sm:p-8 space-y-6">
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Have you spotted a new snapshot teaser, discovered an anomaly in our dimensional coordinate calculator, or want to contribute a community theory? We welcome constructive feedback from players around the globe.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-2">
+                        <div class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">Editorial Tip Line &amp; Contact</div>
+                        <div class="text-base font-bold text-white">contact@thesiftguide.com</div>
+                        <p class="text-xs text-slate-400">For news tips, calculation corrections, press inquiries, and general correspondence.</p>
+                    </div>
+
+                    <div class="mc-stone-inset rounded-lg p-4 space-y-2">
+                        <div class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">Privacy &amp; Compliance Inquiries</div>
+                        <div class="text-base font-bold text-white">privacy@thesiftguide.com</div>
+                        <p class="text-xs text-slate-400">For questions regarding data privacy, GDPR/CCPA requests, or cookie management.</p>
+                    </div>
+                </div>
+
+                <div class="pt-2 text-center text-xs text-slate-400">
+                    Response time is typically within 24–48 hours during active snapshot testing cycles.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="mc-btn-stone fixed bottom-6 right-6 p-3.5 rounded-lg text-slate-200 hover:text-[#46a228] hover:border-[#46a228] shadow-2xl opacity-0 pointer-events-none transition-all duration-200 z-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#46a228] cursor-pointer" aria-label="Back to top">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="border-t-2 border-[#2d3139] bg-[#111317] py-12 mt-16 text-center text-xs text-slate-400 space-y-4">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col items-center gap-3">
+            <div class="flex items-center space-x-2 text-slate-300 font-semibold text-sm">
+                <span>The Sift Guide</span>
+                <span>·</span>
+                <span class="text-emerald-400">Community Wiki &amp; Utilities</span>
+            </div>
+            
+            <!-- Unified Navigation Footer Links -->
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-400 pt-1 pb-1">
+                <a href="/" class="hover:text-emerald-400 transition-colors">Wiki Home</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/portal.html" class="hover:text-emerald-400 transition-colors">Portal Guide</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/mobs.html" class="hover:text-emerald-400 transition-colors">Mobs &amp; Entities</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/about.html" class="hover:text-emerald-400 transition-colors">About Us</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/privacy.html" class="hover:text-emerald-400 transition-colors">Privacy Policy</a>
+            </div>
+
+            <p class="max-w-lg leading-relaxed text-slate-400">
+                TheSiftGuide.com is an independent community wiki &amp; research guide tracking Minecraft's 4th dimension. Not affiliated with Mojang Studios or Microsoft. Minecraft is a registered trademark of Mojang AB.
+            </p>
+            <p class="text-slate-600">
+                © 2026 TheSiftGuide.com · Powered by Community Updates &amp; Forensic Analysis
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts: Scroll Progress, Back to Top & Mobile Nav -->
+    <script>
+      (function() {
+        const progressBar = document.getElementById('scroll-progress');
+        const backToTop = document.getElementById('back-to-top');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        if (mobileBtn && mobileNav) {
+          mobileBtn.addEventListener('click', function() {
+            const isExpanded = mobileNav.classList.contains('hidden');
+            if (isExpanded) {
+              mobileNav.classList.remove('hidden');
+              mobileBtn.setAttribute('aria-expanded', 'true');
+            } else {
+              mobileNav.classList.add('hidden');
+              mobileBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+
+        function onScroll() {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const percent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+          
+          if (progressBar) {
+            progressBar.style.width = percent + '%';
+            progressBar.setAttribute('aria-valuenow', Math.round(percent));
+          }
+
+          if (backToTop) {
+            if (scrollTop > 350) {
+              backToTop.classList.remove('opacity-0', 'pointer-events-none');
+              backToTop.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+              backToTop.classList.remove('opacity-100', 'pointer-events-auto');
+              backToTop.classList.add('opacity-0', 'pointer-events-none');
+            }
+          }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
+
+</body>
+</html>
