@@ -258,7 +258,18 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mobs), full_page=False)
         reporter.add_screenshot(ss_mobs, "Desktop Nav: Mobs & Entities bestiary page loaded")
 
-        # Step 3: Nav to /about.html
+        # Step 3: Nav to /dungeons-2.html
+        page.locator('header nav a[href*="dungeons-2.html"]:visible').click()
+        page.wait_for_load_state("networkidle")
+        assert "/dungeons-2" in page.url, f"URL did not contain '/dungeons-2': '{page.url}'"
+        d2_h1 = page.locator("h1").inner_text().strip()
+        assert "Minecraft Dungeons II" in d2_h1, f"Dungeons II H1 mismatch: '{d2_h1}'"
+
+        ss_d2 = "05b_desktop_nav_dungeons2.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_d2), full_page=False)
+        reporter.add_screenshot(ss_d2, "Desktop Nav: Dungeons II Guide page loaded")
+
+        # Step 4: Nav to /about.html
         page.locator('header nav a[href*="about.html"]:visible').click()
         page.wait_for_load_state("networkidle")
         assert "/about" in page.url, f"URL did not contain '/about': '{page.url}'"
@@ -269,7 +280,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_about), full_page=False)
         reporter.add_screenshot(ss_about, "Desktop Nav: About & Legal Disclaimers page loaded")
 
-        # Step 4: Nav to /privacy.html from footer
+        # Step 5: Nav to /privacy.html from footer
         privacy_link = page.locator('footer a[href*="privacy.html"]').first
         privacy_link.scroll_into_view_if_needed()
         privacy_link.click()
@@ -282,7 +293,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_privacy), full_page=False)
         reporter.add_screenshot(ss_privacy, "Desktop Nav: Privacy Policy page loaded")
 
-        # Step 5: Click Logo to return to Home /
+        # Step 6: Click Logo to return to Home /
         logo_link = page.locator('header a[href="/"]:visible').first
         logo_link.click()
         page.wait_for_load_state("networkidle")
@@ -292,9 +303,61 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         ss_home_ret = "08_desktop_nav_home_returned.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_home_ret), full_page=False)
         reporter.add_screenshot(ss_home_ret, "Desktop Nav: Returned to Home via Header Logo")
-        reporter.record_pass("Case 1.4 - Full Site Navigation & Inter-Page Loop", time.time() - t0, "Home ➔ Portal ➔ Mobs ➔ About ➔ Privacy ➔ Home closed-loop verified")
+        reporter.record_pass("Case 1.4 - Full Site Navigation & Inter-Page Loop", time.time() - t0, "Home ➔ Portal ➔ Mobs ➔ Dungeons II ➔ About ➔ Privacy ➔ Home closed-loop verified")
     except Exception as e:
         reporter.record_fail("Case 1.4 - Full Site Navigation & Inter-Page Loop", time.time() - t0, str(e))
+
+    # -------------------------------------------------------------
+    # Case 1.5: Dungeons 2 Subpage Verification
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        page.goto(f"{base_url}/dungeons-2.html", wait_until="networkidle")
+        title = page.title()
+        assert "The Sift in Minecraft Dungeons 2" in title, f"Dungeons 2 title mismatch: '{title}'"
+
+        # Check GA4 script
+        page_content = page.content()
+        assert "G-X1ZTW8XWPG" in page_content, "GA4 measurement ID not found on dungeons-2.html"
+
+        # Check Top & Bottom Adsterra ad slots
+        top_ad_found = "e34c08305944ef076210b30b1897f6eb" in page_content
+        bottom_ad_found = "93a1b6fb1cf3809a6ddd2ccae9364526" in page_content
+        assert top_ad_found, "Top 728x90 Adsterra container not found on dungeons-2.html"
+        assert bottom_ad_found, "Bottom 300x250 Adsterra container not found on dungeons-2.html"
+
+        # Check Schema.org FAQPage structured data
+        json_lds = page.locator('script[type="application/ld+json"]').all_inner_texts()
+        assert len(json_lds) > 0, "No Schema JSON-LD found on dungeons-2.html"
+        faq_found = False
+        for jtext in json_lds:
+            data = json.loads(jtext)
+            graph = data.get("@graph", [data])
+            for item in graph:
+                if item.get("@type") == "FAQPage":
+                    faq_found = True
+                    assert len(item.get("mainEntity", [])) >= 6, "FAQPage mainEntity has fewer than 6 questions"
+        assert faq_found, "Schema.org FAQPage not found in JSON-LD graph"
+
+        # Check Hero & Key Sections
+        assert page.locator('#hero:has-text("Minecraft Dungeons II")').count() > 0, "Hero section missing"
+        assert page.locator('#biomes:has-text("Singer\'s Meadow")').count() > 0, "Singer's Meadow section missing"
+        assert page.locator('#biomes:has-text("Carapace Desert")').count() > 0, "Carapace Desert section missing"
+        assert page.locator('#mechanics:has-text("Overworld Rifts")').count() > 0, "Overworld Rifts section missing"
+        assert page.locator('#comparison:has-text("The Sift Matrix")').count() > 0, "Comparison Matrix section missing"
+
+        # Test Interactive FAQ Accordion Click
+        first_faq_summary = page.locator("#faq details summary").first
+        first_faq_summary.click()
+        time.sleep(0.1)
+        assert page.locator("#faq details").first.is_visible(), "FAQ details element not visible"
+
+        ss_d2_sub = "08b_desktop_dungeons2_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_d2_sub), full_page=False)
+        reporter.add_screenshot(ss_d2_sub, "Desktop Dungeons II Subpage (SEO, Dual Ads, JSON-LD, Biomes & FAQ verified)")
+        reporter.record_pass("Case 1.5 - Dungeons 2 Subpage Verification", time.time() - t0, "dungeons-2.html loaded, SEO Title/GA4/Dual Ads/JSON-LD/Biomes/Accordion verified")
+    except Exception as e:
+        reporter.record_fail("Case 1.5 - Dungeons 2 Subpage Verification", time.time() - t0, str(e))
 
     context.close()
 
@@ -393,6 +456,35 @@ def run_mobile_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         reporter.record_pass("Case 2.2 - Mobile Calculator Touch & Zero Overflow", time.time() - t0, f"scrollWidth={scroll_width} <= innerWidth={inner_width} (zero overflow), touch conversion & copy verified")
     except Exception as e:
         reporter.record_fail("Case 2.2 - Mobile Calculator Touch & Zero Overflow", time.time() - t0, str(e))
+
+    # -------------------------------------------------------------
+    # Case 2.3: Mobile Dungeons 2 Subpage & Zero Overflow
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        page.goto(f"{base_url}/dungeons-2.html", wait_until="networkidle")
+
+        # Zero Horizontal Overflow Check
+        scroll_width = page.evaluate("() => document.documentElement.scrollWidth")
+        inner_width = page.evaluate("() => window.innerWidth")
+        assert scroll_width <= inner_width, f"Dungeons 2 horizontal overflow detected! scrollWidth={scroll_width} > innerWidth={inner_width}"
+
+        # Test mobile accordion interaction
+        faq_sum = page.locator("#faq details summary").first
+        faq_sum.scroll_into_view_if_needed()
+        faq_sum.click()
+        time.sleep(0.1)
+
+        # Re-check overflow after accordion expands
+        scroll_width_expanded = page.evaluate("() => document.documentElement.scrollWidth")
+        assert scroll_width_expanded <= inner_width, f"Overflow detected after FAQ open! scrollWidth={scroll_width_expanded} > innerWidth={inner_width}"
+
+        ss_mob_d2 = "12_mobile_dungeons2_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mob_d2), full_page=False)
+        reporter.add_screenshot(ss_mob_d2, "Mobile Dungeons 2 Verified (Zero overflow, accordion touch verified)")
+        reporter.record_pass("Case 2.3 - Mobile Dungeons 2 Subpage & Zero Overflow", time.time() - t0, f"scrollWidth={scroll_width} <= innerWidth={inner_width} (zero overflow), accordion touch verified")
+    except Exception as e:
+        reporter.record_fail("Case 2.3 - Mobile Dungeons 2 Subpage & Zero Overflow", time.time() - t0, str(e))
 
     mobile_context.close()
 
