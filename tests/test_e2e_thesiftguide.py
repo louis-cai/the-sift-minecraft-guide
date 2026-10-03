@@ -359,6 +359,51 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
     except Exception as e:
         reporter.record_fail("Case 1.5 - Dungeons 2 Subpage Verification", time.time() - t0, str(e))
 
+    # -------------------------------------------------------------
+    # Case 1.6: Portal Guide VideoObject Schema & YouTube Embed Verification
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        page.goto(f"{base_url}/portal.html", wait_until="networkidle")
+        title = page.title()
+        assert "The Sift Portal Guide" in title, f"Portal title mismatch: '{title}'"
+
+        # 1. Video container and iframe assertions
+        video_guide = page.locator("#video-guide")
+        assert video_guide.is_visible(), "Video guide container (#video-guide) not visible on portal.html"
+        video_guide.scroll_into_view_if_needed()
+
+        iframe = page.locator('#video-guide iframe[src*="youtube-nocookie.com/embed/mdsxeO9mpd8"]')
+        assert iframe.count() > 0, "YouTube nocookie iframe with embed ID mdsxeO9mpd8 not found"
+        assert iframe.first.is_visible(), "YouTube iframe is not visible"
+
+        # 2. VideoObject Schema JSON-LD assertion
+        json_lds = page.locator('script[type="application/ld+json"]').all_inner_texts()
+        assert len(json_lds) > 0, "No Schema JSON-LD found on portal.html"
+
+        video_object_found = False
+        for jtext in json_lds:
+            data = json.loads(jtext)
+            graph = data.get("@graph", [data])
+            for item in graph:
+                if item.get("@type") == "VideoObject":
+                    video_object_found = True
+                    assert item.get("name") == "How to Enter The Sift in Minecraft (Portal & Teleport Commands)", f"VideoObject name mismatch: {item.get('name')}"
+                    assert "Quick 30-second tutorial" in item.get("description", ""), f"VideoObject description mismatch: {item.get('description')}"
+                    assert item.get("thumbnailUrl") == "https://thesiftguide.com/youtube_shorts_thumbnail.png", f"thumbnailUrl mismatch: {item.get('thumbnailUrl')}"
+                    assert item.get("uploadDate") == "2026-10-03T00:00:00+08:00", f"uploadDate mismatch: {item.get('uploadDate')}"
+                    assert item.get("duration") == "PT30S", f"duration mismatch: {item.get('duration')}"
+                    assert item.get("embedUrl") == "https://www.youtube-nocookie.com/embed/mdsxeO9mpd8", f"embedUrl mismatch: {item.get('embedUrl')}"
+                    assert item.get("contentUrl") == "https://youtube.com/shorts/mdsxeO9mpd8", f"contentUrl mismatch: {item.get('contentUrl')}"
+        assert video_object_found, "Schema.org VideoObject not found in portal.html JSON-LD graph"
+
+        ss_video = "08c_desktop_portal_video_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_video), full_page=False)
+        reporter.add_screenshot(ss_video, "Desktop Portal Guide Video (YouTube nocookie iframe & VideoObject schema verified)")
+        reporter.record_pass("Case 1.6 - Portal Guide VideoObject & YouTube Embed", time.time() - t0, "portal.html 9:16 iframe & VideoObject JSON-LD verified")
+    except Exception as e:
+        reporter.record_fail("Case 1.6 - Portal Guide VideoObject & YouTube Embed", time.time() - t0, str(e))
+
     context.close()
 
 
