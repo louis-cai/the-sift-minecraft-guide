@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Sift Guide - YouTube Banner</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 2048px;
+      height: 1152px;
+      background: #0a0d14;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Space Grotesk", sans-serif;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Ambient Background Elements */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 64px 64px;
+      opacity: 0.8;
+    }
+
+    .bg-glow-emerald {
+      position: absolute;
+      width: 900px;
+      height: 550px;
+      left: 15%;
+      top: 25%;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(16, 185, 129, 0) 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .bg-glow-purple {
+      position: absolute;
+      width: 800px;
+      height: 500px;
+      right: 15%;
+      top: 25%;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.16) 0%, rgba(168, 85, 247, 0) 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    /* Floating Minecraft Pixel Particles */
+    .particle {
+      position: absolute;
+      border-radius: 3px;
+      box-shadow: 0 0 12px currentColor;
+      opacity: 0.65;
+    }
+
+    /* Safe Area Container: 1235px wide x 338px tall */
+    .safe-area {
+      width: 1235px;
+      height: 338px;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    /* Left Branding Content */
+    .brand-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 800px;
+    }
+
+    .tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1.5px solid rgba(52, 211, 153, 0.4);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #34d399;
+      width: fit-content;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+    }
+
+    .tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .main-title {
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #ffffff 30%, #34d399 75%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(52, 211, 153, 0.3);
+    }
+
+    .subtitle-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 22px;
+      font-weight: 500;
+      color: #94a3b8;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-tag {
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    .divider {
+      color: #475569;
+    }
+
+    .link-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1.5px solid rgba(56, 189, 248, 0.4);
+      padding: 10px 22px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #38bdf8;
+      width: fit-content;
+      margin-top: 4px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.2);
+    }
+
+    /* Right Side 3D Isometric Cube Graphic */
+    .cube-container {
+      width: 260px;
+      height: 260px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cube-glow {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(52, 211, 153, 0.4) 0%, rgba(56, 189, 248, 0.2) 50%, transparent 70%);
+      filter: blur(30px);
+    }
+
+    .cube-svg {
+      width: 210px;
+      height: 210px;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.8)) drop-shadow(0 0 20px rgba(52, 211, 153, 0.3));
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow-emerald"></div>
+  <div class="bg-glow-purple"></div>
+
+  <!-- Decorative Minecraft Particles -->
+  <div class="particle" style="width: 14px; height: 14px; top: 380px; left: 320px; background: #34d399; color: #34d399;"></div>
+  <div class="particle" style="width: 10px; height: 10px; top: 720px; left: 260px; background: #a855f7; color: #a855f7;"></div>
+  <div class="particle" style="width: 16px; height: 16px; top: 320px; right: 380px; background: #38bdf8; color: #38bdf8;"></div>
+  <div class="particle" style="width: 12px; height: 12px; top: 760px; right: 340px; background: #34d399; color: #34d399;"></div>
+  <div class="particle" style="width: 8px; height: 8px; top: 460px; left: 880px; background: #c084fc; color: #c084fc;"></div>
+  <div class="particle" style="width: 12px; height: 12px; top: 680px; left: 950px; background: #38bdf8; color: #38bdf8;"></div>
+
+  <!-- 1235x338 Safe Area -->
+  <div class="safe-area">
+    <div class="brand-content">
+      <div class="tag-badge">
+        <span class="tag-dot"></span>
+        <span>MINECRAFT 4TH DIMENSION WIKI & HUB</span>
+      </div>
+
+      <h1 class="main-title">THE SIFT GUIDE</h1>
+
+      <div class="subtitle-row">
+        <span class="feature-tag">🧭 Portal Blueprint</span>
+        <span class="divider">•</span>
+        <span class="feature-tag">⚡ Live Calculator</span>
+        <span class="divider">•</span>
+        <span class="feature-tag">🐸 Mobs & Lore</span>
+      </div>
+
+      <div class="link-pill">
+        <span>🌐 Official Companion: <strong>thesiftguide.com</strong></span>
+      </div>
+    </div>
+
+    <!-- 3D Isometric Dimension Cube Graphic -->
+    <div class="cube-container">
+      <div class="cube-glow"></div>
+      <svg class="cube-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Cube Isometric Top Face (Emerald) -->
+        <polygon points="100,20 175,62 100,105 25,62" fill="#10b981" stroke="#34d399" stroke-width="3" />
+        
+        <!-- Inner Cavity / Portal Gate -->
+        <polygon points="100,38 148,65 100,92 52,65" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+        <polygon points="100,45 136,65 100,85 64,65" fill="#0284c7" opacity="0.8" />
+        
+        <!-- Core Glowing Orb -->
+        <circle cx="100" cy="65" r="14" fill="#ffffff" filter="drop-shadow(0 0 8px #38bdf8)" />
+        <circle cx="100" cy="65" r="7" fill="#38bdf8" />
+
+        <!-- Cube Isometric Left Face (Deep Forest Slate) -->
+        <polygon points="25,62 100,105 100,185 25,142" fill="#064e3b" stroke="#059669" stroke-width="3" />
+
+        <!-- Cube Isometric Right Face (Cyan / Teal Shadow) -->
+        <polygon points="100,105 175,62 175,142 100,185" fill="#0284c7" stroke="#38bdf8" stroke-width="3" />
+
+        <!-- Grid Accents on Faces -->
+        <line x1="25" y1="102" x2="100" y2="145" stroke="rgba(52, 211, 153, 0.3)" stroke-width="1.5" />
+        <line x1="62" y1="83" x2="62" y2="163" stroke="rgba(52, 211, 153, 0.3)" stroke-width="1.5" />
+        <line x1="100" y1="145" x2="175" y2="102" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.5" />
+        <line x1="137" y1="83" x2="137" y2="163" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.5" />
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

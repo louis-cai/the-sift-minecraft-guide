@@ -44,7 +44,9 @@
     <!-- Typography: Google Fonts (Plus Jakarta Sans + Space Grotesk) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
     
     <!-- Tailwind CSS (Direct versioned CDN: Zero-redirect, full v3 runtime) -->
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
@@ -477,7 +479,7 @@
                     2027 Sandbox Matrix
                 </a>
                 <a href="#faq" class="mc-btn-stone inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-slate-200 hover:text-indigo-300 transition-all cursor-pointer min-h-[44px]">
-                    <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                     FAQ
                 </a>
             </div>
@@ -526,7 +528,7 @@
                     'params' : {}
                   };
                 </script>
-                <script src="https://www.highrevenueformat.com/e34c08305944ef076210b30b1897f6eb/invoke.js"></script>
+                <script async="async" data-cfasync="false" src="https://www.highrevenueformat.com/e34c08305944ef076210b30b1897f6eb/invoke.js"></script>
             </div>
         </div>
 
@@ -870,7 +872,7 @@
                     'params' : {}
                   };
                 </script>
-                <script src="https://www.highrevenueformat.com/93a1b6fb1cf3809a6ddd2ccae9364526/invoke.js"></script>
+                <script async="async" data-cfasync="false" src="https://www.highrevenueformat.com/93a1b6fb1cf3809a6ddd2ccae9364526/invoke.js"></script>
             </div>
         </div>
 
