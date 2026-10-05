@@ -143,6 +143,18 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
             data = json.loads(jtext)
             assert ("@context" in data or "@graph" in data), f"JSON-LD #{idx} invalid structure"
 
+        # Check Favicon (Google SERP 48px/96px standard links and assets)
+        fav_48 = page.locator('link[rel="icon"][sizes="48x48"][href="/favicon-48x48.png"]').count()
+        fav_96 = page.locator('link[rel="icon"][sizes="96x96"][href="/favicon-96x96.png"]').count()
+        assert fav_48 > 0, "Favicon 48x48 link tag not found"
+        assert fav_96 > 0, "Favicon 96x96 link tag not found"
+        res_48 = context.request.get(f"{base_url}/favicon-48x48.png")
+        assert res_48.status == 200, f"/favicon-48x48.png returned {res_48.status}"
+        assert len(res_48.body()) > 500, f"/favicon-48x48.png content too small ({len(res_48.body())} bytes)"
+        res_96 = context.request.get(f"{base_url}/favicon-96x96.png")
+        assert res_96.status == 200, f"/favicon-96x96.png returned {res_96.status}"
+        assert len(res_96.body()) > 500, f"/favicon-96x96.png content too small ({len(res_96.body())} bytes)"
+
         # Save screenshot
         ss_file = "01_desktop_home_loaded.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_file), full_page=False)
