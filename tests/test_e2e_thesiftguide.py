@@ -133,7 +133,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
             assert "G-X1ZTW8XWPG" in page_content, "GA4 measurement ID (G-X1ZTW8XWPG) not found"
 
         # Check Adsterra ad slot
-        adsterra_count = page.locator('script[src*="invoke.js"], script:has-text("e34c08305944ef076210b30b1897f6eb")').count()
+        adsterra_count = page.locator('script[src*="invoke.js"], script[src*="bauval.org"], script:has-text("e34c08305944ef076210b30b1897f6eb")').count()
         assert adsterra_count > 0, "Adsterra ad placement container not found"
 
         # Check Schema JSON-LD parsing
