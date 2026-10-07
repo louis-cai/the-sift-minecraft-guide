@@ -155,6 +155,10 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert res_96.status == 200, f"/favicon-96x96.png returned {res_96.status}"
         assert len(res_96.body()) > 500, f"/favicon-96x96.png content too small ({len(res_96.body())} bytes)"
 
+        # Check Canonical Tag matches clean root URL
+        canonical_href = page.locator('link[rel="canonical"]').get_attribute("href")
+        assert canonical_href == "https://thesiftguide.com/", f"Home canonical mismatch: expected 'https://thesiftguide.com/', got '{canonical_href}'"
+
         # Save screenshot
         ss_file = "01_desktop_home_loaded.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_file), full_page=False)
@@ -248,10 +252,12 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
     # -------------------------------------------------------------
     t0 = time.time()
     try:
-        # Step 1: Nav to /portal.html
-        page.locator('header nav a[href*="portal.html"]:visible').click()
+        # Step 1: Nav to /portal
+        page.locator('header nav a[href="/portal"]:visible').click()
         page.wait_for_load_state("networkidle")
         assert "/portal" in page.url, f"URL did not contain '/portal': '{page.url}'"
+        assert not page.url.endswith("/portal.html"), f"URL should not end with .html: '{page.url}'"
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/portal", "Portal canonical tag mismatch"
         h1_text = page.locator("h1").inner_text().strip()
         assert "The Sift Portal Guide" in h1_text, f"Portal H1 mismatch: '{h1_text}'"
         assert page.locator('#faq, section:has-text("Frequently Asked Questions")').count() > 0, "Portal FAQ not found"
@@ -260,20 +266,24 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_portal), full_page=False)
         reporter.add_screenshot(ss_portal, "Desktop Nav: Portal Guide page loaded")
 
-        # Step 2: Nav to /mobs.html
-        page.locator('header nav a[href*="mobs.html"]:visible').click()
+        # Step 2: Nav to /mobs
+        page.locator('header nav a[href="/mobs"]:visible').click()
         page.wait_for_load_state("networkidle")
         assert "/mobs" in page.url, f"URL did not contain '/mobs': '{page.url}'"
+        assert not page.url.endswith("/mobs.html"), f"URL should not end with .html: '{page.url}'"
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/mobs", "Mobs canonical tag mismatch"
         assert page.locator("table").count() > 0 and page.locator("table").first.is_visible(), "Mobs bestiary table not found or not visible"
 
         ss_mobs = "05_desktop_nav_mobs.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mobs), full_page=False)
         reporter.add_screenshot(ss_mobs, "Desktop Nav: Mobs & Entities bestiary page loaded")
 
-        # Step 3: Nav to /dungeons-2.html
-        page.locator('header nav a[href*="dungeons-2.html"]:visible').click()
+        # Step 3: Nav to /dungeons-2
+        page.locator('header nav a[href="/dungeons-2"]:visible').click()
         page.wait_for_load_state("networkidle")
         assert "/dungeons-2" in page.url, f"URL did not contain '/dungeons-2': '{page.url}'"
+        assert not page.url.endswith("/dungeons-2.html"), f"URL should not end with .html: '{page.url}'"
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/dungeons-2", "Dungeons-2 canonical tag mismatch"
         d2_h1 = page.locator("h1").inner_text().strip()
         assert "Minecraft Dungeons II" in d2_h1, f"Dungeons II H1 mismatch: '{d2_h1}'"
 
@@ -281,10 +291,12 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_d2), full_page=False)
         reporter.add_screenshot(ss_d2, "Desktop Nav: Dungeons II Guide page loaded")
 
-        # Step 4: Nav to /about.html
-        page.locator('header nav a[href*="about.html"]:visible').click()
+        # Step 4: Nav to /about
+        page.locator('header nav a[href="/about"]:visible').click()
         page.wait_for_load_state("networkidle")
         assert "/about" in page.url, f"URL did not contain '/about': '{page.url}'"
+        assert not page.url.endswith("/about.html"), f"URL should not end with .html: '{page.url}'"
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/about", "About canonical tag mismatch"
         disclosure_section = page.locator('#disclosure, section:has-text("Editorial Independence")')
         assert disclosure_section.count() > 0, "About editorial independence / disclaimer section not found"
 
@@ -292,12 +304,14 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_about), full_page=False)
         reporter.add_screenshot(ss_about, "Desktop Nav: About & Legal Disclaimers page loaded")
 
-        # Step 5: Nav to /privacy.html from footer
-        privacy_link = page.locator('footer a[href*="privacy.html"]').first
+        # Step 5: Nav to /privacy from footer
+        privacy_link = page.locator('footer a[href="/privacy"]').first
         privacy_link.scroll_into_view_if_needed()
         privacy_link.click()
         page.wait_for_load_state("networkidle")
         assert "/privacy" in page.url, f"URL did not contain '/privacy': '{page.url}'"
+        assert not page.url.endswith("/privacy.html"), f"URL should not end with .html: '{page.url}'"
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/privacy", "Privacy canonical tag mismatch"
         privacy_h1 = page.locator("h1").inner_text().strip()
         assert "Privacy Policy" in privacy_h1, f"Privacy H1 mismatch: '{privacy_h1}'"
 
@@ -310,12 +324,13 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         logo_link.click()
         page.wait_for_load_state("networkidle")
         assert (page.url.rstrip("/") == base_url.rstrip("/") or page.url.endswith("/index.html") or page.url == f"{base_url}/"), f"Expected home URL, got '{page.url}'"
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/", "Home canonical tag mismatch"
         assert page.locator("#calculator").is_visible(), "Calculator not found after returning home"
 
         ss_home_ret = "08_desktop_nav_home_returned.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_home_ret), full_page=False)
         reporter.add_screenshot(ss_home_ret, "Desktop Nav: Returned to Home via Header Logo")
-        reporter.record_pass("Case 1.4 - Full Site Navigation & Inter-Page Loop", time.time() - t0, "Home ➔ Portal ➔ Mobs ➔ Dungeons II ➔ About ➔ Privacy ➔ Home closed-loop verified")
+        reporter.record_pass("Case 1.4 - Full Site Navigation & Inter-Page Loop", time.time() - t0, "Home ➔ Portal ➔ Mobs ➔ Dungeons II ➔ About ➔ Privacy ➔ Home closed-loop verified with Clean URLs & canonical checks")
     except Exception as e:
         reporter.record_fail("Case 1.4 - Full Site Navigation & Inter-Page Loop", time.time() - t0, str(e))
 
@@ -324,9 +339,10 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
     # -------------------------------------------------------------
     t0 = time.time()
     try:
-        page.goto(f"{base_url}/dungeons-2.html", wait_until="networkidle")
+        page.goto(f"{base_url}/dungeons-2", wait_until="networkidle")
         title = page.title()
         assert "The Sift in Minecraft Dungeons 2" in title, f"Dungeons 2 title mismatch: '{title}'"
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/dungeons-2", "Dungeons 2 canonical tag mismatch"
 
         # Check GA4 script
         page_content = page.content()
@@ -367,7 +383,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         ss_d2_sub = "08b_desktop_dungeons2_verified.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_d2_sub), full_page=False)
         reporter.add_screenshot(ss_d2_sub, "Desktop Dungeons II Subpage (SEO, Dual Ads, JSON-LD, Biomes & FAQ verified)")
-        reporter.record_pass("Case 1.5 - Dungeons 2 Subpage Verification", time.time() - t0, "dungeons-2.html loaded, SEO Title/GA4/Dual Ads/JSON-LD/Biomes/Accordion verified")
+        reporter.record_pass("Case 1.5 - Dungeons 2 Subpage Verification", time.time() - t0, "dungeons-2 loaded, SEO Title/GA4/Dual Ads/JSON-LD/Biomes/Accordion/Canonical verified")
     except Exception as e:
         reporter.record_fail("Case 1.5 - Dungeons 2 Subpage Verification", time.time() - t0, str(e))
 
@@ -376,9 +392,10 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
     # -------------------------------------------------------------
     t0 = time.time()
     try:
-        page.goto(f"{base_url}/portal.html", wait_until="networkidle")
+        page.goto(f"{base_url}/portal", wait_until="networkidle")
         title = page.title()
         assert "The Sift Portal Guide" in title, f"Portal title mismatch: '{title}'"
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/portal", "Portal canonical tag mismatch"
 
         # 1. Video container and iframe assertions
         video_guide = page.locator("#video-guide")
@@ -415,6 +432,32 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         reporter.record_pass("Case 1.6 - Portal Guide VideoObject & YouTube Embed", time.time() - t0, "portal.html 9:16 iframe & VideoObject JSON-LD verified")
     except Exception as e:
         reporter.record_fail("Case 1.6 - Portal Guide VideoObject & YouTube Embed", time.time() - t0, str(e))
+
+    # -------------------------------------------------------------
+    # Case 1.7: Clean URLs & Canonical Tags Alignment Audit (All 6 Pages)
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        pages_to_check = [
+            ("/", "https://thesiftguide.com/"),
+            ("/portal", "https://thesiftguide.com/portal"),
+            ("/mobs", "https://thesiftguide.com/mobs"),
+            ("/dungeons-2", "https://thesiftguide.com/dungeons-2"),
+            ("/about", "https://thesiftguide.com/about"),
+            ("/privacy", "https://thesiftguide.com/privacy"),
+        ]
+        for path, expected_canonical in pages_to_check:
+            page.goto(f"{base_url}{path}", wait_until="networkidle")
+            canonical_tag = page.locator('link[rel="canonical"]').get_attribute("href")
+            assert canonical_tag == expected_canonical, f"Canonical tag on {path} mismatch: expected {expected_canonical}, got {canonical_tag}"
+
+            # Verify no internal relative links point to legacy .html files
+            html_hrefs = page.locator('a[href$=".html"], a[href*=".html#"], a[href*=".html?"]').all()
+            assert len(html_hrefs) == 0, f"Found {len(html_hrefs)} legacy .html links on {path}"
+
+        reporter.record_pass("Case 1.7 - Clean URLs & Canonical Tags Alignment Audit", time.time() - t0, "All 6 pages verified: exact clean canonical tags & zero legacy .html links")
+    except Exception as e:
+        reporter.record_fail("Case 1.7 - Clean URLs & Canonical Tags Alignment Audit", time.time() - t0, str(e))
 
     context.close()
 
@@ -457,11 +500,13 @@ def run_mobile_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         reporter.add_screenshot(ss_drawer, "Mobile Drawer Expanded (Hamburger menu opened)")
 
         # Click Portal Guide in drawer
-        portal_item = page.locator('#mobile-nav a[href*="portal.html"]').first
+        portal_item = page.locator('#mobile-nav a[href="/portal"]').first
         portal_item.click()
         page.wait_for_load_state("networkidle")
 
         assert "/portal" in page.url, f"Mobile URL did not contain '/portal': '{page.url}'"
+        assert not page.url.endswith("/portal.html"), f"Mobile URL should not end with .html: '{page.url}'"
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/portal", "Mobile portal canonical tag mismatch"
         portal_h1 = page.locator("h1").inner_text().strip()
         assert "The Sift Portal Guide" in portal_h1, f"Mobile portal H1 mismatch: '{portal_h1}'"
 
@@ -519,7 +564,8 @@ def run_mobile_suite(browser: Browser, base_url: str, reporter: E2EReporter):
     # -------------------------------------------------------------
     t0 = time.time()
     try:
-        page.goto(f"{base_url}/dungeons-2.html", wait_until="networkidle")
+        page.goto(f"{base_url}/dungeons-2", wait_until="networkidle")
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/dungeons-2", "Mobile dungeons-2 canonical tag mismatch"
 
         # Zero Horizontal Overflow Check
         scroll_width = page.evaluate("() => document.documentElement.scrollWidth")
