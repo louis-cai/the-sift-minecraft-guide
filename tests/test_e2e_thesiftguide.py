@@ -125,6 +125,11 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         title = page.title()
         assert "The Sift Minecraft" in title, f"Title does not contain 'The Sift Minecraft': '{title}'"
 
+        # Check Home H1 bounds
+        home_h1 = page.locator("h1").first.inner_text().strip()
+        assert "The Sift in Minecraft" in home_h1, f"Home H1 mismatch: '{home_h1}'"
+        assert 20 <= len(home_h1) <= 70, f"Home H1 length out of bounds ({len(home_h1)} chars): '{home_h1}'"
+
         # Check GA4 script
         ga4_count = page.locator('script[src*="googletagmanager.com/gtag/js?id=G-X1ZTW8XWPG"]').count()
         if ga4_count == 0:
@@ -158,6 +163,32 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         # Check Canonical Tag matches clean root URL
         canonical_href = page.locator('link[rel="canonical"]').get_attribute("href")
         assert canonical_href == "https://thesiftguide.com/", f"Home canonical mismatch: expected 'https://thesiftguide.com/', got '{canonical_href}'"
+
+        # Check Capo.js head element order (monotonic non-increasing effectiveness)
+        head_html = page.evaluate("() => document.head.innerHTML")
+        def _pos(needle):
+            i = head_html.find(needle)
+            assert i != -1, f"head order check: needle not found: {needle[:60]}"
+            return i
+        pos_charset = _pos('<meta charset')
+        pos_title = _pos('<title')
+        pos_preconnect = _pos('rel="preconnect"')
+        pos_gtag_async = _pos('googletagmanager.com/gtag/js')
+        pos_tailwind = _pos('cdn.tailwindcss.com')
+        pos_jsonld = _pos('application/ld+json')
+        pos_font_css = _pos('family=Plus+Jakarta+Sans')
+        pos_canonical = _pos('rel="canonical"')
+        order_pairs = [
+            (pos_charset, pos_title, "charset before title"),
+            (pos_title, pos_preconnect, "title before preconnect"),
+            (pos_preconnect, pos_gtag_async, "preconnect before async gtag"),
+            (pos_gtag_async, pos_tailwind, "async gtag before Tailwind sync script"),
+            (pos_tailwind, pos_jsonld, "Tailwind before JSON-LD"),
+            (pos_jsonld, pos_font_css, "JSON-LD before font stylesheet"),
+            (pos_font_css, pos_canonical, "font stylesheet before canonical"),
+        ]
+        for earlier, later, label in order_pairs:
+            assert earlier < later, f"Capo.js head order violated ({label})"
 
         # Save screenshot
         ss_file = "01_desktop_home_loaded.png"
@@ -260,6 +291,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/portal", "Portal canonical tag mismatch"
         h1_text = page.locator("h1").inner_text().strip()
         assert "The Sift Portal Guide" in h1_text, f"Portal H1 mismatch: '{h1_text}'"
+        assert 20 <= len(h1_text) <= 70, f"Portal H1 length out of bounds ({len(h1_text)} chars): '{h1_text}'"
         assert page.locator('#faq, section:has-text("Frequently Asked Questions")').count() > 0, "Portal FAQ not found"
 
         ss_portal = "04_desktop_nav_portal.png"
@@ -272,6 +304,9 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert "/mobs" in page.url, f"URL did not contain '/mobs': '{page.url}'"
         assert not page.url.endswith("/mobs.html"), f"URL should not end with .html: '{page.url}'"
         assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/mobs", "Mobs canonical tag mismatch"
+        mobs_h1 = page.locator("h1").inner_text().strip()
+        assert "The Sift Mobs & Fauna" in mobs_h1, f"Mobs H1 mismatch: '{mobs_h1}'"
+        assert 20 <= len(mobs_h1) <= 70, f"Mobs H1 length out of bounds ({len(mobs_h1)} chars): '{mobs_h1}'"
         assert page.locator("table").count() > 0 and page.locator("table").first.is_visible(), "Mobs bestiary table not found or not visible"
 
         ss_mobs = "05_desktop_nav_mobs.png"
@@ -286,6 +321,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/dungeons-2", "Dungeons-2 canonical tag mismatch"
         d2_h1 = page.locator("h1").inner_text().strip()
         assert "Minecraft Dungeons II" in d2_h1, f"Dungeons II H1 mismatch: '{d2_h1}'"
+        assert 20 <= len(d2_h1) <= 70, f"Dungeons II H1 length out of bounds ({len(d2_h1)} chars): '{d2_h1}'"
 
         ss_d2 = "05b_desktop_nav_dungeons2.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_d2), full_page=False)
@@ -297,6 +333,9 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert "/about" in page.url, f"URL did not contain '/about': '{page.url}'"
         assert not page.url.endswith("/about.html"), f"URL should not end with .html: '{page.url}'"
         assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/about", "About canonical tag mismatch"
+        about_h1 = page.locator("h1").inner_text().strip()
+        assert "About The Sift Guide" in about_h1, f"About H1 mismatch: '{about_h1}'"
+        assert 20 <= len(about_h1) <= 70, f"About H1 length out of bounds ({len(about_h1)} chars): '{about_h1}'"
         disclosure_section = page.locator('#disclosure, section:has-text("Editorial Independence")')
         assert disclosure_section.count() > 0, "About editorial independence / disclaimer section not found"
 
@@ -313,7 +352,8 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert not page.url.endswith("/privacy.html"), f"URL should not end with .html: '{page.url}'"
         assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/privacy", "Privacy canonical tag mismatch"
         privacy_h1 = page.locator("h1").inner_text().strip()
-        assert "Privacy Policy" in privacy_h1, f"Privacy H1 mismatch: '{privacy_h1}'"
+        assert ("The Sift Minecraft Guide: Official Privacy Policy" in privacy_h1 or "Privacy Policy" in privacy_h1), f"Privacy H1 mismatch: '{privacy_h1}'"
+        assert 20 <= len(privacy_h1) <= 70, f"Privacy H1 length out of bounds ({len(privacy_h1)} chars): '{privacy_h1}'"
 
         ss_privacy = "07_desktop_nav_privacy.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_privacy), full_page=False)
@@ -368,6 +408,8 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert faq_found, "Schema.org FAQPage not found in JSON-LD graph"
 
         # Check Hero & Key Sections
+        d2_sub_h1 = page.locator("h1").first.inner_text().strip()
+        assert 20 <= len(d2_sub_h1) <= 70, f"Dungeons 2 H1 length out of bounds ({len(d2_sub_h1)} chars): '{d2_sub_h1}'"
         assert page.locator('#hero:has-text("Minecraft Dungeons II")').count() > 0, "Hero section missing"
         assert page.locator('#biomes:has-text("Singer\'s Meadow")').count() > 0, "Singer's Meadow section missing"
         assert page.locator('#biomes:has-text("Carapace Desert")').count() > 0, "Carapace Desert section missing"
@@ -451,6 +493,26 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
             canonical_tag = page.locator('link[rel="canonical"]').get_attribute("href")
             assert canonical_tag == expected_canonical, f"Canonical tag on {path} mismatch: expected {expected_canonical}, got {canonical_tag}"
 
+            # Check H1 length bounds on all 6 pages
+            page_h1 = page.locator("h1").first.inner_text().strip()
+            assert 20 <= len(page_h1) <= 70, f"{path} H1 length out of bounds ({len(page_h1)} chars): '{page_h1}'"
+
+            # Check Capo.js head order (preconnect before async gtag, etc.)
+            p_head = page.evaluate("() => document.head.innerHTML")
+            def _find_pos(needle):
+                idx = p_head.find(needle)
+                assert idx != -1, f"{path}: needle '{needle[:50]}' not found in head"
+                return idx
+            c_charset = _find_pos('<meta charset')
+            c_title = _find_pos('<title')
+            c_preconnect = _find_pos('rel="preconnect"')
+            c_gtag = _find_pos('googletagmanager.com/gtag/js')
+            c_tailwind = _find_pos('cdn.tailwindcss.com')
+            c_jsonld = _find_pos('application/ld+json')
+            c_font = _find_pos('family=Plus+Jakarta+Sans')
+            c_canonical = _find_pos('rel="canonical"')
+            assert c_charset < c_title < c_preconnect < c_gtag < c_tailwind < c_jsonld < c_font < c_canonical, f"{path} head order violates Capo.js"
+
             # Verify no internal relative links point to legacy .html files
             html_hrefs = page.locator('a[href$=".html"], a[href*=".html#"], a[href*=".html?"]').all()
             assert len(html_hrefs) == 0, f"Found {len(html_hrefs)} legacy .html links on {path}"
@@ -509,6 +571,7 @@ def run_mobile_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/portal", "Mobile portal canonical tag mismatch"
         portal_h1 = page.locator("h1").inner_text().strip()
         assert "The Sift Portal Guide" in portal_h1, f"Mobile portal H1 mismatch: '{portal_h1}'"
+        assert 20 <= len(portal_h1) <= 70, f"Mobile portal H1 length out of bounds ({len(portal_h1)} chars): '{portal_h1}'"
 
         ss_mob_portal = "10_mobile_navigated_portal.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mob_portal), full_page=False)
