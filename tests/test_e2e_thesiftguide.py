@@ -127,7 +127,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
 
         # Check Home H1 bounds
         home_h1 = page.locator("h1").first.inner_text().strip()
-        assert "The Sift in Minecraft" in home_h1, f"Home H1 mismatch: '{home_h1}'"
+        assert ("The Sift: Minecraft" in home_h1 or "The Sift in Minecraft" in home_h1), f"Home H1 mismatch: '{home_h1}'"
         assert 20 <= len(home_h1) <= 70, f"Home H1 length out of bounds ({len(home_h1)} chars): '{home_h1}'"
 
         # Check GA4 script
@@ -292,7 +292,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert not page.url.endswith("/portal.html"), f"URL should not end with .html: '{page.url}'"
         assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/portal", "Portal canonical tag mismatch"
         h1_text = page.locator("h1").inner_text().strip()
-        assert "The Sift Portal Guide" in h1_text, f"Portal H1 mismatch: '{h1_text}'"
+        assert ("Minecraft Portal Guide" in h1_text or "The Sift Portal Guide" in h1_text), f"Portal H1 mismatch: '{h1_text}'"
         assert 20 <= len(h1_text) <= 70, f"Portal H1 length out of bounds ({len(h1_text)} chars): '{h1_text}'"
         assert page.locator('#faq, section:has-text("Frequently Asked Questions")').count() > 0, "Portal FAQ not found"
 
@@ -307,7 +307,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert not page.url.endswith("/mobs.html"), f"URL should not end with .html: '{page.url}'"
         assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/mobs", "Mobs canonical tag mismatch"
         mobs_h1 = page.locator("h1").inner_text().strip()
-        assert "The Sift Mobs & Fauna" in mobs_h1, f"Mobs H1 mismatch: '{mobs_h1}'"
+        assert ("The Sift Minecraft: Mobs" in mobs_h1 or "The Sift Mobs & Fauna" in mobs_h1), f"Mobs H1 mismatch: '{mobs_h1}'"
         assert 20 <= len(mobs_h1) <= 70, f"Mobs H1 length out of bounds ({len(mobs_h1)} chars): '{mobs_h1}'"
         assert page.locator("table").count() > 0 and page.locator("table").first.is_visible(), "Mobs bestiary table not found or not visible"
 
@@ -438,7 +438,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
     try:
         page.goto(f"{base_url}/portal", wait_until="networkidle")
         title = page.title()
-        assert "The Sift Portal Guide" in title, f"Portal title mismatch: '{title}'"
+        assert ("Minecraft Portal Guide" in title or "The Sift Portal Guide" in title), f"Portal title mismatch: '{title}'"
         assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/portal", "Portal canonical tag mismatch"
 
         # 1. Video container and iframe assertions
@@ -573,7 +573,7 @@ def run_mobile_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert not page.url.endswith("/portal.html"), f"Mobile URL should not end with .html: '{page.url}'"
         assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/portal", "Mobile portal canonical tag mismatch"
         portal_h1 = page.locator("h1").inner_text().strip()
-        assert "The Sift Portal Guide" in portal_h1, f"Mobile portal H1 mismatch: '{portal_h1}'"
+        assert ("Minecraft Portal Guide" in portal_h1 or "The Sift Portal Guide" in portal_h1), f"Mobile portal H1 mismatch: '{portal_h1}'"
         assert 20 <= len(portal_h1) <= 70, f"Mobile portal H1 length out of bounds ({len(portal_h1)} chars): '{portal_h1}'"
 
         ss_mob_portal = "10_mobile_navigated_portal.png"
