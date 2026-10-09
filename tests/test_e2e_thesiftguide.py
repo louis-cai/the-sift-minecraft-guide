@@ -315,6 +315,20 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mobs), full_page=False)
         reporter.add_screenshot(ss_mobs, "Desktop Nav: Mobs & Entities bestiary page loaded")
 
+        # Step 2.5: Nav to /mods
+        page.locator('header nav a[href="/mods"]:visible').click()
+        page.wait_for_load_state("networkidle")
+        assert "/mods" in page.url, f"URL did not contain '/mods': '{page.url}'"
+        assert not page.url.endswith("/mods.html"), f"URL should not end with .html: '{page.url}'"
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/mods", "Mods canonical tag mismatch"
+        mods_h1 = page.locator("h1").inner_text().strip()
+        assert "The Sift Minecraft Mod" in mods_h1, f"Mods H1 mismatch: '{mods_h1}'"
+        assert 20 <= len(mods_h1) <= 70, f"Mods H1 length out of bounds ({len(mods_h1)} chars): '{mods_h1}'"
+
+        ss_mods = "05_desktop_nav_mods.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mods), full_page=False)
+        reporter.add_screenshot(ss_mods, "Desktop Nav: Mods & Addons guide page loaded")
+
         # Step 3: Nav to /dungeons-2
         page.locator('header nav a[href="/dungeons-2"]:visible').click()
         page.wait_for_load_state("networkidle")
@@ -478,7 +492,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         reporter.record_fail("Case 1.6 - Portal Guide VideoObject & YouTube Embed", time.time() - t0, str(e))
 
     # -------------------------------------------------------------
-    # Case 1.7: Clean URLs & Canonical Tags Alignment Audit (All 6 Pages)
+    # Case 1.7: Clean URLs & Canonical Tags Alignment Audit (All 7 Pages)
     # -------------------------------------------------------------
     t0 = time.time()
     try:
@@ -486,6 +500,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
             ("/", "https://thesiftguide.com/"),
             ("/portal", "https://thesiftguide.com/portal"),
             ("/mobs", "https://thesiftguide.com/mobs"),
+            ("/mods", "https://thesiftguide.com/mods"),
             ("/dungeons-2", "https://thesiftguide.com/dungeons-2"),
             ("/about", "https://thesiftguide.com/about"),
             ("/privacy", "https://thesiftguide.com/privacy"),
@@ -495,7 +510,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
             canonical_tag = page.locator('link[rel="canonical"]').get_attribute("href")
             assert canonical_tag == expected_canonical, f"Canonical tag on {path} mismatch: expected {expected_canonical}, got {canonical_tag}"
 
-            # Check H1 length bounds on all 6 pages
+            # Check H1 length bounds on all 7 pages
             page_h1 = page.locator("h1").first.inner_text().strip()
             assert 20 <= len(page_h1) <= 70, f"{path} H1 length out of bounds ({len(page_h1)} chars): '{page_h1}'"
 
@@ -520,9 +535,108 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
             html_hrefs = page.locator('a[href$=".html"], a[href*=".html#"], a[href*=".html?"]').all()
             assert len(html_hrefs) == 0, f"Found {len(html_hrefs)} legacy .html links on {path}"
 
-        reporter.record_pass("Case 1.7 - Clean URLs & Canonical Tags Alignment Audit", time.time() - t0, "All 6 pages verified: exact clean canonical tags & zero legacy .html links")
+        reporter.record_pass("Case 1.7 - Clean URLs & Canonical Tags Alignment Audit", time.time() - t0, "All 7 pages verified: exact clean canonical tags & zero legacy .html links")
     except Exception as e:
         reporter.record_fail("Case 1.7 - Clean URLs & Canonical Tags Alignment Audit", time.time() - t0, str(e))
+
+    # -------------------------------------------------------------
+    # Case 1.8: Mods Subpage Deep Verification (SEO, Schema, Dual Ads, Matcher)
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        page.goto(f"{base_url}/mods", wait_until="networkidle")
+        title = page.title()
+        assert title == "The Sift Minecraft Mod: Download Guide (Java & Bedrock)", f"Mods title mismatch: '{title}'"
+        assert 50 <= len(title) <= 60, f"Title length out of bounds ({len(title)}): '{title}'"
+        assert title.startswith("The Sift Minecraft Mod"), "Title does not start with primary surge keyword"
+
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/mods", "Mods canonical tag mismatch"
+
+        # Check GA4 script
+        page_content = page.content()
+        assert "G-X1ZTW8XWPG" in page_content, "GA4 measurement ID not found on mods.html"
+
+        # Check Meta Description
+        meta_desc = page.locator('meta[name="description"]').get_attribute("content")
+        assert meta_desc == "Download The Sift Minecraft mod today. Complete setup guide for Java (Fabric/Forge) and Bedrock (.mcaddon) with custom biomes, Colossal Frogs, and Siftite.", f"Meta description mismatch: '{meta_desc}'"
+        assert 145 <= len(meta_desc) <= 158, f"Meta desc length out of bounds ({len(meta_desc)}): '{meta_desc}'"
+
+        # Check H1
+        mods_h1 = page.locator("h1").first.inner_text().strip()
+        assert mods_h1 == "The Sift Minecraft Mod: Play the 4th Dimension Today", f"Mods H1 mismatch: '{mods_h1}'"
+        assert 20 <= len(mods_h1) <= 70, f"Mods H1 length out of bounds ({len(mods_h1)} chars): '{mods_h1}'"
+
+        # Check Top & Bottom Adsterra ad slots
+        top_ad_found = "e34c08305944ef076210b30b1897f6eb" in page_content
+        bottom_ad_found = "93a1b6fb1cf3809a6ddd2ccae9364526" in page_content
+        assert top_ad_found, "Top 728x90 Adsterra container not found on mods.html"
+        assert bottom_ad_found, "Bottom 300x250 Adsterra container not found on mods.html"
+
+        # Check Schema.org structured data (WebSite, BreadcrumbList, TechArticle, SoftwareApplication, FAQPage)
+        json_lds = page.locator('script[type="application/ld+json"]').all_inner_texts()
+        assert len(json_lds) > 0, "No Schema JSON-LD found on mods.html"
+        types_found = set()
+        faq_count = 0
+        for jtext in json_lds:
+            data = json.loads(jtext)
+            graph = data.get("@graph", [data])
+            for item in graph:
+                itype = item.get("@type")
+                types_found.add(itype)
+                if itype == "FAQPage":
+                    faq_count = len(item.get("mainEntity", []))
+        for req in ["WebSite", "BreadcrumbList", "TechArticle", "SoftwareApplication", "FAQPage"]:
+            assert req in types_found, f"Missing Schema.org type '{req}' on mods.html"
+        assert faq_count >= 7, f"FAQPage has fewer than 7 questions ({faq_count})"
+
+        # Check Interactive Matcher State Machine
+        matcher = page.locator("#matcher")
+        assert matcher.is_visible(), "Matcher section (#matcher) is not visible"
+
+        # Initial default: Java Edition -> verify default Fabric recommendations
+        result_title = page.locator("#result-title").inner_text().strip()
+        assert "Fabric" in result_title, f"Default result title expected Fabric, got: '{result_title}'"
+        result_deps = page.locator("#result-deps").inner_text().strip()
+        assert "Fabric API" in result_deps, f"Default deps expected Fabric API, got: '{result_deps}'"
+
+        # Click Bedrock button
+        bedrock_btn = page.locator('#platform-selector button[data-val="bedrock"]')
+        bedrock_btn.click()
+        time.sleep(0.1)
+
+        result_title_bedrock = page.locator("#result-title").inner_text().strip()
+        assert (".mcaddon" in result_title_bedrock or "Bedrock" in result_title_bedrock), f"Bedrock result title expected .mcaddon/Bedrock, got: '{result_title_bedrock}'"
+        result_deps_bedrock = page.locator("#result-deps").inner_text().strip()
+        assert ("Experimental" in result_deps_bedrock or "No external loaders" in result_deps_bedrock), f"Bedrock deps mismatch: '{result_deps_bedrock}'"
+
+        # Switch back to Java
+        java_btn = page.locator('#platform-selector button[data-val="java"]')
+        java_btn.click()
+        time.sleep(0.1)
+
+        # Select MC 1.20.1
+        v120_btn = page.locator('#version-selector button[data-val="1.20"]')
+        v120_btn.click()
+        time.sleep(0.1)
+
+        # Switch loader to Forge
+        page.select_option("#loader-selector", "forge")
+        time.sleep(0.1)
+        result_title_forge = page.locator("#result-title").inner_text().strip()
+        assert "Forge" in result_title_forge, f"Expected Forge in result title, got: '{result_title_forge}'"
+
+        # Check FAQ Accordion interaction
+        first_faq_summary = page.locator("#faq details summary").first
+        first_faq_summary.click()
+        time.sleep(0.1)
+        assert page.locator("#faq details").first.is_visible(), "FAQ details element not visible after click"
+
+        ss_mods_sub = "08d_desktop_mods_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mods_sub), full_page=False)
+        reporter.add_screenshot(ss_mods_sub, "Desktop Mods Subpage (SEO, Dual Ads, 5 Schemas, Matcher & FAQ verified)")
+        reporter.record_pass("Case 1.8 - Mods Subpage Verification", time.time() - t0, "mods.html loaded, SEO Title/Desc/H1/GA4/Dual Ads/5 Schemas/Matcher/Canonical verified")
+    except Exception as e:
+        reporter.record_fail("Case 1.8 - Mods Subpage Verification", time.time() - t0, str(e))
 
     context.close()
 
@@ -654,6 +768,45 @@ def run_mobile_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         reporter.record_pass("Case 2.3 - Mobile Dungeons 2 Subpage & Zero Overflow", time.time() - t0, f"scrollWidth={scroll_width} <= innerWidth={inner_width} (zero overflow), accordion touch verified")
     except Exception as e:
         reporter.record_fail("Case 2.3 - Mobile Dungeons 2 Subpage & Zero Overflow", time.time() - t0, str(e))
+
+    # -------------------------------------------------------------
+    # Case 2.4: Mobile Mods Subpage & Zero Overflow
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        page.goto(f"{base_url}/mods", wait_until="networkidle")
+        assert page.locator('link[rel="canonical"]').get_attribute("href") == "https://thesiftguide.com/mods", "Mobile mods canonical tag mismatch"
+
+        # Zero Horizontal Overflow Check
+        scroll_width = page.evaluate("() => document.documentElement.scrollWidth")
+        inner_width = page.evaluate("() => window.innerWidth")
+        assert scroll_width <= inner_width, f"Mods page horizontal overflow detected! scrollWidth={scroll_width} > innerWidth={inner_width}"
+
+        # Test mobile Matcher interaction (JS click: immune to ad-iframe layout shift)
+        page.evaluate("() => document.querySelector('#matcher').scrollIntoView({behavior: 'instant', block: 'center'})")
+        time.sleep(0.3)
+        page.evaluate("() => document.querySelector('#platform-selector button[data-val=\\'bedrock\\']').click()")
+        time.sleep(0.2)
+        bedrock_btn = page.locator('#platform-selector button[data-val="bedrock"]')
+        assert "mc-btn-primary" in bedrock_btn.get_attribute("class"), "Bedrock button not activated after JS click"
+
+        # Test mobile accordion interaction
+        page.evaluate("() => document.querySelector('#faq details summary').scrollIntoView({behavior: 'instant', block: 'center'})")
+        time.sleep(0.3)
+        page.evaluate("() => document.querySelector('#faq details').setAttribute('open', '')")
+        time.sleep(0.2)
+        assert page.locator("#faq details").first.is_visible(), "FAQ details element not visible after open"
+
+        # Re-check overflow after interactive updates
+        scroll_width_expanded = page.evaluate("() => document.documentElement.scrollWidth")
+        assert scroll_width_expanded <= inner_width, f"Overflow detected after Matcher/FAQ action! scrollWidth={scroll_width_expanded} > innerWidth={inner_width}"
+
+        ss_mob_mods = "13_mobile_mods_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mob_mods), full_page=False)
+        reporter.add_screenshot(ss_mob_mods, "Mobile Mods Verified (Zero overflow, Matcher touch & accordion verified)")
+        reporter.record_pass("Case 2.4 - Mobile Mods Subpage & Zero Overflow", time.time() - t0, f"scrollWidth={scroll_width} <= innerWidth={inner_width} (zero overflow), mobile Matcher & FAQ verified")
+    except Exception as e:
+        reporter.record_fail("Case 2.4 - Mobile Mods Subpage & Zero Overflow", time.time() - t0, str(e))
 
     mobile_context.close()
 

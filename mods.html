@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sift Minecraft Mod: Download Guide (Java & Bedrock)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1ZTW8XWPG"></script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['"Space Grotesk"', 'ui-monospace', 'SFMono-Regular', 'monospace', 'sans-serif'],
+              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+            },
+            colors: {
+              void: {
+                950: '#111317',
+                900: '#181a20',
+                850: '#20242c',
+                800: '#272c36',
+                700: '#343b48',
+              },
+              mc: {
+                deepslate: '#111317',
+                stone: '#181a20',
+                stoneHover: '#232730',
+                border: '#2d3139',
+                grass: '#46a228',
+                grassHover: '#55bb32',
+                diamond: '#22d3ee',
+                diamondHover: '#38bdf8',
+                gold: '#f59e0b',
+                redstone: '#ef4444',
+                amethyst: '#a855f7',
+              },
+              sift: {
+                emerald: '#46a228',
+                cyan: '#22d3ee',
+                teal: '#14b8a6',
+                amber: '#f59e0b',
+                bone: '#e2e8f0',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X1ZTW8XWPG');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://thesiftguide.com/#website",
+          "url": "https://thesiftguide.com/",
+          "name": "The Sift Guide",
+          "description": "Interactive Wiki and Guide to Minecraft's 4th Dimension: The Sift",
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://thesiftguide.com/mods#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://thesiftguide.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Mods & Addons",
+              "item": "https://thesiftguide.com/mods"
+            }
+          ]
+        },
+        {
+          "@type": "TechArticle",
+          "@id": "https://thesiftguide.com/mods#article",
+          "isPartOf": {
+            "@id": "https://thesiftguide.com/#website"
+          },
+          "headline": "The Sift Minecraft Mod: Download Guide (Java & Bedrock)",
+          "description": "Download The Sift Minecraft mod today. Complete setup guide for Java (Fabric/Forge) and Bedrock (.mcaddon) with custom biomes, Colossal Frogs, and Siftite.",
+          "url": "https://thesiftguide.com/mods",
+          "inLanguage": "en-US",
+          "mainEntityOfPage": "https://thesiftguide.com/mods",
+          "datePublished": "2026-10-09T00:00:00+00:00",
+          "dateModified": "2026-10-09T00:00:00+00:00",
+          "author": {
+            "@type": "Organization",
+            "name": "The Sift Guide Team",
+            "url": "https://thesiftguide.com/about"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "The Sift Guide",
+            "url": "https://thesiftguide.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://thesiftguide.com/favicon-32x32.png"
+            }
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://thesiftguide.com/mods#software",
+          "name": "The Sift Dimension Recreation Mod",
+          "operatingSystem": "Windows, macOS, Linux, Android, iOS",
+          "applicationCategory": "GameMod",
+          "gamePlatform": "Minecraft (Java Edition & Bedrock Edition)",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "128"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://thesiftguide.com/mods#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is there an official Sift mod made by Mojang?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Mojang Studios has not released an official standalone mod. The Sift dimension was leaked and concept-designed by community creator Mielon for future vanilla updates (projected for 2027). The playable mods and Bedrock add-ons available today are fan-created recreations based on official design sheets and community lore."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which Minecraft version supports The Sift mod?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most community Sift mods are developed for Minecraft Java Edition 1.20.1 and 1.21.1. On Bedrock Edition, .mcaddon files support Bedrock 1.21.x as long as Experimental Creator Features are toggled on in the world settings."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I play The Sift mod on Bedrock Edition (PE / Xbox / Switch / PC)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. You can install The Sift .mcaddon file directly on Windows 10/11 PC, iOS, and Android devices. Console players (Xbox, PlayStation, Nintendo Switch) can join a Minecraft Realm hosted from PC or mobile that has The Sift add-on active to play without jailbreaking."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Fabric or Forge better for running The Sift mod on Java Edition?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Fabric Loader is strongly recommended for Minecraft 1.21.1 due to its superior performance, low memory footprint, and compatibility with optimization mods like Sodium and Iris Shaders. For heavily modded Minecraft 1.20.1 modpacks, NeoForge or Forge is also widely supported."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does The Sift mod include the Colossal Frog and Siftite armor?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Verified recreation packs feature the rideable Colossal Meadow Frog entity, Siftite Ore deposits in deepslate strata, Siftite Ingots craftable at Smithing Tables, and unique gravity-nullifying armor enchantments."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where can I safely download The Sift mod without viruses or malware?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Only download from trusted community repositories including Modrinth (modrinth.com), CurseForge (curseforge.com), and MCPEDL (mcpedl.com for Bedrock). Never download .jar or .exe files from unauthorized rehosting sites like 9minecraft or unknown forums."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will adding The Sift mod corrupt my existing survival world?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Installing a dimension mod creates new chunk data. While generally safe, you should always create a full backup of your .minecraft/saves folder before loading the mod. Using a separate new world for mod testing is strongly recommended to avoid chunk boundary artifacts."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
+    <style>
+        :root {
+            color-scheme: dark;
+            --mc-deepslate: #111317;
+            --mc-stone: #181a20;
+            --mc-border: #2d3139;
+            --mc-grass: #46a228;
+            --mc-grass-hover: #55bb32;
+            --mc-diamond: #22d3ee;
+        }
+        body {
+            background-color: #111317;
+            color: #cbd5e1;
+            font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-display {
+            font-family: "Space Grotesk", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace, sans-serif;
+            letter-spacing: -0.025em;
+        }
+        .mc-pixel-font {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+            font-weight: 700;
+        }
+        
+        .title-glow {
+            background: linear-gradient(135deg, #a3e635 0%, #4ade80 30%, #22d3ee 70%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 35px rgba(74, 222, 128, 0.35));
+        }
+        .emerald-glow-text {
+            background: linear-gradient(135deg, #86efac 0%, #46a228 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .diamond-glow-text {
+            background: linear-gradient(135deg, #a5f3fc 0%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-cosmic-grid {
+            background-color: #111317;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(70, 162, 40, 0.14) 0%, transparent 50%),
+                radial-gradient(circle at 85% 35%, rgba(34, 211, 238, 0.10) 0%, transparent 40%),
+                radial-gradient(circle at 15% 70%, rgba(168, 85, 247, 0.08) 0%, transparent 45%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+        }
+
+        .glass-card {
+            background: #181a20;
+            border: 2px solid #2d3139;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: #46a228;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.12), inset -2px -2px 0 rgba(0, 0, 0, 0.6), 0 0 25px rgba(70, 162, 40, 0.18);
+        }
+
+        .mc-btn, .mc-btn-stone {
+            background-color: #1f2229;
+            color: #e2e8f0;
+            border: 2px solid #2d3139;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.25), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.15s ease-in-out;
+            user-select: none;
+        }
+        .mc-btn:hover, .mc-btn-stone:hover {
+            background-color: #272c35;
+            color: #ffffff;
+            border-color: #3f4552;
+        }
+        .mc-btn:active, .mc-btn-stone:active, button:active {
+            box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.25), inset 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+            transform: translateY(1px);
+        }
+
+        .mc-btn-primary {
+            background-color: #46a228 !important;
+            color: #ffffff !important;
+            border: 2px solid #2a6118 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.35), inset -2px -2px 0 rgba(0, 0, 0, 0.6) !important;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+            transition: all 0.15s ease-in-out;
+            font-weight: 700;
+        }
+        .mc-btn-primary:hover {
+            background-color: #55bb32 !important;
+            border-color: #388420 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(70, 162, 40, 0.4) !important;
+        }
+
+        .mc-btn-diamond {
+            background-color: #0891b2 !important;
+            color: #ffffff !important;
+            border: 2px solid #0e7490 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.35), inset -2px -2px 0 rgba(0, 0, 0, 0.6) !important;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+        }
+        .mc-btn-diamond:hover {
+            background-color: #06b6d4 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(34, 211, 238, 0.35) !important;
+        }
+
+        .mc-stone-inset {
+            background-color: #13151a;
+            border: 1px solid #232730;
+            box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.5), inset -1px -1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111317;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232730;
+            border: 1px solid #111317;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #343b48;
+        }
+
+        /* Sticky-header offset for anchored/scroll-into-view elements */
+        section[id], button, details, select {
+            scroll-margin-top: 6rem;
+        }
+
+        /* Fixed-height ad slots to prevent iframe-injection layout shift */
+        .ad-slot-fixed {
+            height: 94px;
+            overflow: hidden;
+        }
+        .ad-slot-fixed-250 {
+            height: 254px;
+            overflow: hidden;
+        }
+    </style>
+    <link rel="canonical" href="https://thesiftguide.com/mods">
+    <meta name="description" content="Download The Sift Minecraft mod today. Complete setup guide for Java (Fabric/Forge) and Bedrock (.mcaddon) with custom biomes, Colossal Frogs, and Siftite.">
+    <meta name="keywords" content="the sift mod, sift mod, the sift minecraft mod, sift mod download, the sift mod bedrock, the sift dimension mod, how to play the sift today">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#111317">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Sift Minecraft Mod: Download Guide (Java & Bedrock)">
+    <meta property="og:description" content="Download The Sift Minecraft mod today. Complete setup guide for Java (Fabric/Forge) and Bedrock (.mcaddon) with custom biomes, Colossal Frogs, and Siftite.">
+    <meta property="og:url" content="https://thesiftguide.com/mods">
+    <meta property="og:image" content="https://thesiftguide.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The Sift Minecraft Mod - Complete Download and Setup Guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Sift Minecraft Mod: Download Guide (Java & Bedrock)">
+    <meta name="twitter:description" content="Download The Sift Minecraft mod today. Complete setup guide for Java (Fabric/Forge) and Bedrock (.mcaddon) with custom biomes, Colossal Frogs, and Siftite.">
+    <meta name="twitter:image" content="https://thesiftguide.com/og-image.png">
+</head>
+<body class="bg-cosmic-grid min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="border-b-2 border-[#2d3139] bg-[#111317]/95 backdrop-blur-md sticky top-0 z-50 transition-colors shadow-lg">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-18 flex items-center justify-between gap-4">
+            <a href="/" class="flex items-center space-x-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg p-1">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/60 group-hover:scale-105 transition-all duration-200 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                    <svg class="w-5 h-5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center gap-1.5">
+                        The Sift <span class="emerald-glow-text font-black">Guide</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 font-medium tracking-wider uppercase hidden sm:inline">Minecraft 4th Dimension Wiki</span>
+                </div>
+            </a>
+
+            <!-- Quick Nav Links (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-1 text-xs font-semibold text-slate-300" aria-label="Main Navigation">
+                <a href="/" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Wiki Home</a>
+                <a href="/portal" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Portal Guide</a>
+                <a href="/mobs" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Mobs &amp; Entities</a>
+                <a href="/mods" class="px-3 py-2 rounded-lg text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/25 transition-colors">Mods Guide</a>
+                <a href="/dungeons-2" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Dungeons II</a>
+                <a href="/#calculator" class="px-3 py-2 rounded-lg text-cyan-300 hover:text-white hover:bg-slate-800/60 transition-colors">Calculator</a>
+                <a href="/about" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">About</a>
+            </nav>
+
+            <!-- Status Badges & Mobile Menu Toggle -->
+            <div class="flex items-center space-x-2 sm:space-x-3 text-xs font-semibold">
+                <span class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/25 shadow-[0_0_10px_rgba(16,185,129,0.15)]">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+                    MODS ACTIVE
+                </span>
+                <span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/25">
+                    Java &amp; Bedrock
+                </span>
+
+                <button id="mobile-menu-btn" class="md:hidden mc-btn-stone p-2 rounded-lg text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Collapsible Menu -->
+        <div id="mobile-nav" class="hidden md:hidden border-t border-[#2d3139] bg-[#111317]/98 px-4 py-3 space-y-1">
+            <a href="/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Wiki Home</a>
+            <a href="/portal" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Portal Guide</a>
+            <a href="/mobs" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Mobs &amp; Entities</a>
+            <a href="/mods" class="block px-3 py-2 rounded-lg text-sm font-bold text-emerald-400 bg-emerald-500/15 border border-emerald-500/20">Mods Guide</a>
+            <a href="/dungeons-2" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Dungeons II</a>
+            <a href="/#calculator" class="block px-3 py-2 rounded-lg text-sm font-semibold text-cyan-300 hover:text-white hover:bg-slate-800/60">Calculator</a>
+            <a href="/about" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">About Us</a>
+            <a href="/privacy" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-400 hover:text-white hover:bg-slate-800/60">Privacy Policy</a>
+        </div>
+    </header>
+
+    <!-- Top 728x90 Adsterra Container -->
+    <div class="my-6 max-w-4xl mx-auto px-4" aria-label="Advertisement Container">
+        <div class="glass-card rounded-xl p-2 sm:p-3 overflow-hidden text-center">
+            <div class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mb-1 flex items-center justify-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400/80"></span>
+                <span>Advertisement</span>
+            </div>
+            <div class="w-full flex justify-center items-center overflow-x-auto min-h-[90px] bg-transparent">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : 'e34c08305944ef076210b30b1897f6eb',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="https://www.highperformanceformat.com/e34c08305944ef076210b30b1897f6eb/invoke.js"></script>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-12 sm:space-y-16">
+
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center text-xs font-medium text-slate-400 gap-2" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
+            <span class="text-slate-600">/</span>
+            <span class="text-emerald-400 font-semibold">Mods &amp; Addons</span>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero" class="text-center space-y-6 pt-2 sm:pt-4 relative">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Playable Fan Recreations (2026)
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold title-glow tracking-tight text-center">The Sift Minecraft Mod: Play the 4th Dimension Today</h1>
+
+            <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                While Mojang Studios plans the official release of The Sift dimension for 2027, the Minecraft modding community has already brought this mysterious 4th dimension to life. Experience the Colossal Meadow Frog, mine raw Siftite ore, and ignite ancient deepslate rifts today on Java (Fabric/Forge) and Bedrock (.mcaddon).
+            </p>
+
+            <!-- Quick Action Pills -->
+            <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
+                <a href="#matcher" class="mc-btn-diamond px-3.5 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5">
+                    Compatibility Matcher
+                </a>
+                <a href="#java-guide" class="mc-btn px-3.5 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5">
+                    Java Edition Setup
+                </a>
+                <a href="#bedrock-guide" class="mc-btn px-3.5 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5">
+                    Bedrock / PE Guide
+                </a>
+                <a href="#faq" class="mc-btn-stone px-3.5 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5">
+                    Mod FAQs
+                </a>
+            </div>
+        </section>
+
+        <!-- Interactive Component: Mod Compatibility & Download Matcher -->
+        <section id="matcher" class="glass-card rounded-2xl p-6 sm:p-8 space-y-6 border-2 border-emerald-500/30">
+            <div class="border-b border-slate-800 pb-4">
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-2">
+                    Interactive Tool
+                </div>
+                <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                    Mod Compatibility &amp; Download Matcher
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                    Select your platform, version, and loader to generate safe download sources, required libraries, and RAM allocation flags.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Step 1: Edition (button selector) -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">1. Platform Edition</label>
+                    <div id="platform-selector" class="grid grid-cols-2 gap-2">
+                        <button type="button" data-val="java" class="mc-btn-primary p-2.5 rounded-lg text-xs font-bold text-center">Java Edition</button>
+                        <button type="button" data-val="bedrock" class="mc-btn-stone p-2.5 rounded-lg text-xs font-bold text-center">Bedrock</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Version (button selector) -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">2. Game Version</label>
+                    <div id="version-selector" class="grid grid-cols-2 gap-2">
+                        <button type="button" data-val="1.21" class="mc-btn-primary p-2.5 rounded-lg text-xs font-bold text-center">1.21.x Latest</button>
+                        <button type="button" data-val="1.20" class="mc-btn-stone p-2.5 rounded-lg text-xs font-bold text-center">1.20.1 Stable</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Loader (select dropdown) -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-300">3. Loader / Setup</label>
+                    <select id="loader-selector" class="w-full bg-[#13151a] border border-[#2d3139] text-xs text-white rounded-lg p-2.5 focus:outline-none focus:border-emerald-500 font-medium">
+                        <option value="fabric" selected>Fabric Loader (Recommended)</option>
+                        <option value="forge">NeoForge / Forge</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Dynamic Result Card -->
+            <div id="matcher-result" class="p-5 rounded-xl bg-[#13151a] border border-emerald-500/40 space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                        <span id="result-title" class="font-bold text-white text-sm sm:text-base">The Sift Dimension: Community Fabric Port</span>
+                    </div>
+                    <span id="res-badge" class="text-[11px] font-bold px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Verified Package</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                    <div>
+                        <span class="text-slate-400 block font-semibold mb-1">Required Dependencies:</span>
+                        <p id="result-deps" class="text-slate-200">Fabric API (v0.100+), Cloth Config v15+</p>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block font-semibold mb-1">Recommended Memory &amp; Flags:</span>
+                        <p id="result-ram" class="text-slate-200 font-mono">-Xmx4G (4GB Allocation)</p>
+                    </div>
+                </div>
+
+                <div class="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs border-t border-slate-800/60">
+                    <span class="text-slate-400">Official Safe Repositories:</span>
+                    <div class="flex items-center gap-2">
+                        <a href="https://modrinth.com" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded bg-emerald-950/60 text-emerald-400 border border-emerald-800/80 hover:bg-emerald-900 transition-colors">Modrinth (Official)</a>
+                        <a href="https://curseforge.com" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded bg-amber-950/60 text-amber-400 border border-amber-800/80 hover:bg-amber-900 transition-colors">CurseForge (Verified)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Java Edition Guide -->
+        <section id="java-guide" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold text-white tracking-tight">
+                    Java Edition: Fabric &amp; Forge Installation Guide
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                    Step-by-step tutorial on how to install The Sift mod on Minecraft Java Edition 1.20.1 and 1.21.x.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Step 1 -->
+                <div class="glass-card p-5 rounded-xl space-y-3">
+                    <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                        <span class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs">1</span>
+                        <span>Install Mod Loader</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Download the official installer for <strong>Fabric Loader</strong> (recommended for 1.21.x) or <strong>NeoForge</strong>. Run the installer and select your client version.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass-card p-5 rounded-xl space-y-3">
+                    <div class="flex items-center gap-2 text-cyan-400 font-bold text-sm">
+                        <span class="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-xs">2</span>
+                        <span>Place Dependencies in /mods</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Navigate to your <code class="bg-[#13151a] px-1.5 py-0.5 rounded text-cyan-300">.minecraft/mods</code> folder. Drop in <strong>Fabric API</strong> and your downloaded Sift mod <code class="bg-[#13151a] px-1.5 py-0.5 rounded text-cyan-300">.jar</code> file.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Anti-scam warning card -->
+            <div class="p-4 rounded-xl bg-amber-950/20 border border-amber-900/40 text-xs text-amber-200/90 leading-relaxed">
+                <strong>Safety Warning:</strong> Only download mods from official portals like Modrinth and CurseForge. Never download executable files (.exe) or mods from unauthorized reposting sites.
+            </div>
+        </section>
+
+        <!-- Bedrock Edition Guide -->
+        <section id="bedrock-guide" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold text-white tracking-tight">
+                    Bedrock Edition: .mcaddon &amp; Console Guide
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                    Play The Sift recreation packs on Windows 10/11, iOS, Android, and consoles via Minecraft Realms.
+                </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-xl space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                    <div class="p-4 rounded-lg bg-[#13151a] border border-[#2d3139]">
+                        <h3 class="font-bold text-white mb-1">PC &amp; Mobile Direct Import</h3>
+                        <p class="text-slate-300">Double-click or tap the downloaded <code class="text-emerald-400">.mcaddon</code> file to automatically import resource and behavior packs into Minecraft.</p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-[#13151a] border border-[#2d3139]">
+                        <h3 class="font-bold text-white mb-1">Experimental Toggles</h3>
+                        <p class="text-slate-300">In your world settings, you must toggle on <strong>Holiday Creator Features</strong>, <strong>Upcoming Features</strong>, and <strong>Custom Biomes</strong>.</p>
+                    </div>
+                    <div class="p-4 rounded-lg bg-[#13151a] border border-[#2d3139]">
+                        <h3 class="font-bold text-white mb-1">Console via Realms</h3>
+                        <p class="text-slate-300">Xbox, PlayStation, and Switch players can join a Realm created on PC/Mobile with The Sift packs enabled to experience the dimension.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mod Features Matrix -->
+        <section id="features" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold text-white tracking-tight">
+                    Recreated Dimension Features Matrix
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                    Detailed breakdown of community recreation packs compared to official Mojang design sheets.
+                </p>
+            </div>
+
+            <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/40">
+                <table class="w-full text-left text-xs text-slate-300 min-w-[540px]">
+                    <thead class="bg-slate-950/80 text-[11px] uppercase tracking-wider text-slate-400 border-b border-slate-800">
+                        <tr>
+                            <th class="py-3 px-4">Feature Name</th>
+                            <th class="py-3 px-4">Modded Status</th>
+                            <th class="py-3 px-4">Official 2027 Spec</th>
+                            <th class="py-3 px-4">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800/60 font-sans">
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="py-3 px-4 font-semibold text-white">Colossal Meadow Frog</td>
+                            <td class="py-3 px-4 text-emerald-400 font-bold">Playable &amp; Rideable</td>
+                            <td class="py-3 px-4 text-slate-300">Bioluminescent Soul Entity</td>
+                            <td class="py-3 px-4 text-slate-400">Tameable with Singer spores</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="py-3 px-4 font-semibold text-white">Siftite Ore &amp; Ingot</td>
+                            <td class="py-3 px-4 text-emerald-400 font-bold">Deepslate Y: -16 to -58</td>
+                            <td class="py-3 px-4 text-slate-300">4th Tier Endgame Mineral</td>
+                            <td class="py-3 px-4 text-slate-400">Refines in Soul Blast Furnace</td>
+                        </tr>
+                        <tr class="hover:bg-slate-800/30 transition-colors">
+                            <td class="py-3 px-4 font-semibold text-white">Ancient Gateway Ignition</td>
+                            <td class="py-3 px-4 text-emerald-400 font-bold">Echo Shard Activation</td>
+                            <td class="py-3 px-4 text-slate-300">Ancient City Portal Center</td>
+                            <td class="py-3 px-4 text-slate-400">1:4 Coordinate ratio</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h2 class="text-2xl font-bold text-white tracking-tight">
+                    Frequently Asked Questions (Mod FAQs)
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                    Everything you need to know about playing The Sift mod in Minecraft today.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <details class="glass-card rounded-xl p-4 text-xs sm:text-sm cursor-pointer group">
+                    <summary class="font-bold text-white flex justify-between items-center group-hover:text-emerald-400">
+                        <span>Is there an official Sift mod made by Mojang?</span>
+                        <span class="text-slate-500 font-mono">+</span>
+                    </summary>
+                    <div class="mt-3 text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+                        No. Mojang Studios has not released an official standalone mod. The Sift dimension was leaked and concept-designed by community creator Mielon for future vanilla updates (projected for 2027). The playable mods and Bedrock add-ons available today are fan-created recreations based on official design sheets and community lore.
+                    </div>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 text-xs sm:text-sm cursor-pointer group">
+                    <summary class="font-bold text-white flex justify-between items-center group-hover:text-emerald-400">
+                        <span>Which Minecraft version supports The Sift mod?</span>
+                        <span class="text-slate-500 font-mono">+</span>
+                    </summary>
+                    <div class="mt-3 text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+                        Most community Sift mods are developed for Minecraft Java Edition 1.20.1 and 1.21.1. On Bedrock Edition, .mcaddon files support Bedrock 1.21.x as long as Experimental Creator Features are toggled on in the world settings.
+                    </div>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 text-xs sm:text-sm cursor-pointer group">
+                    <summary class="font-bold text-white flex justify-between items-center group-hover:text-emerald-400">
+                        <span>Can I play The Sift mod on Bedrock Edition (PE / Xbox / Switch / PC)?</span>
+                        <span class="text-slate-500 font-mono">+</span>
+                    </summary>
+                    <div class="mt-3 text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+                        Yes. You can install The Sift .mcaddon file directly on Windows 10/11 PC, iOS, and Android devices. Console players (Xbox, PlayStation, Nintendo Switch) can join a Minecraft Realm hosted from PC or mobile that has The Sift add-on active to play without jailbreaking.
+                    </div>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 text-xs sm:text-sm cursor-pointer group">
+                    <summary class="font-bold text-white flex justify-between items-center group-hover:text-emerald-400">
+                        <span>Is Fabric or Forge better for running The Sift mod on Java Edition?</span>
+                        <span class="text-slate-500 font-mono">+</span>
+                    </summary>
+                    <div class="mt-3 text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+                        Fabric Loader is strongly recommended for Minecraft 1.21.1 due to its superior performance, low memory footprint, and compatibility with optimization mods like Sodium and Iris Shaders. For heavily modded Minecraft 1.20.1 modpacks, NeoForge or Forge is also widely supported.
+                    </div>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 text-xs sm:text-sm cursor-pointer group">
+                    <summary class="font-bold text-white flex justify-between items-center group-hover:text-emerald-400">
+                        <span>Does The Sift mod include the Colossal Frog and Siftite armor?</span>
+                        <span class="text-slate-500 font-mono">+</span>
+                    </summary>
+                    <div class="mt-3 text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+                        Yes! Verified recreation packs feature the rideable Colossal Meadow Frog entity, Siftite Ore deposits in deepslate strata, Siftite Ingots craftable at Smithing Tables, and unique gravity-nullifying armor enchantments.
+                    </div>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 text-xs sm:text-sm cursor-pointer group">
+                    <summary class="font-bold text-white flex justify-between items-center group-hover:text-emerald-400">
+                        <span>Where can I safely download The Sift mod without viruses or malware?</span>
+                        <span class="text-slate-500 font-mono">+</span>
+                    </summary>
+                    <div class="mt-3 text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+                        Only download from trusted community repositories including Modrinth (modrinth.com), CurseForge (curseforge.com), and MCPEDL (mcpedl.com for Bedrock). Never download .jar or .exe files from unauthorized rehosting sites like 9minecraft or unknown forums.
+                    </div>
+                </details>
+
+                <details class="glass-card rounded-xl p-4 text-xs sm:text-sm cursor-pointer group">
+                    <summary class="font-bold text-white flex justify-between items-center group-hover:text-emerald-400">
+                        <span>Will adding The Sift mod corrupt my existing survival world?</span>
+                        <span class="text-slate-500 font-mono">+</span>
+                    </summary>
+                    <div class="mt-3 text-slate-300 leading-relaxed border-t border-slate-800 pt-3">
+                        Installing a dimension mod creates new chunk data. While generally safe, you should always create a full backup of your .minecraft/saves folder before loading the mod. Using a separate new world for mod testing is strongly recommended to avoid chunk boundary artifacts.
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Bottom 300x250 Adsterra Container -->
+        <div class="my-8 max-w-4xl mx-auto px-4" aria-label="Advertisement Container">
+            <div class="glass-card rounded-xl p-3 text-center">
+                <div class="text-[10px] uppercase font-bold tracking-widest text-slate-400 mb-2 flex items-center justify-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400/80"></span>
+                    <span>Advertisement</span>
+                </div>
+                <div class="w-full flex justify-center items-center overflow-x-auto min-h-[250px] bg-transparent">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : '93a1b6fb1cf3809a6ddd2ccae9364526',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="https://www.highperformanceformat.com/93a1b6fb1cf3809a6ddd2ccae9364526/invoke.js"></script>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t-2 border-[#2d3139] bg-[#111317] py-12 mt-16 text-center text-xs text-slate-400 space-y-4">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4 font-semibold text-slate-300">
+                <a href="/" class="hover:text-emerald-400">Wiki Home</a>
+                <a href="/portal" class="hover:text-emerald-400">Portal Guide</a>
+                <a href="/mobs" class="hover:text-emerald-400">Mobs &amp; Entities</a>
+                <a href="/mods" class="text-emerald-400 font-bold">Mods Guide</a>
+                <a href="/dungeons-2" class="hover:text-emerald-400">Dungeons II</a>
+                <a href="/about" class="hover:text-emerald-400">About</a>
+                <a href="/privacy" class="hover:text-emerald-400">Privacy Policy</a>
+            </div>
+            <p>&copy; 2026 The Sift Guide. Independent community guide. Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Matcher Script & Mobile Menu -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        if (menuBtn && mobileNav) {
+            menuBtn.addEventListener('click', () => {
+                const isHidden = mobileNav.classList.toggle('hidden');
+                menuBtn.setAttribute('aria-expanded', !isHidden);
+            });
+        }
+
+        // Matcher State Machine
+        let currentPlatform = 'java';
+        let currentVersion = '1.21';
+
+        const platformBtns = document.querySelectorAll('#platform-selector button');
+        const versionBtns = document.querySelectorAll('#version-selector button');
+        const loaderSelect = document.getElementById('loader-selector');
+
+        const resTitle = document.getElementById('result-title');
+        const resBadge = document.getElementById('res-badge');
+        const resDeps = document.getElementById('result-deps');
+        const resRam = document.getElementById('result-ram');
+
+        function updateMatcher() {
+            const ldr = loaderSelect ? loaderSelect.value : 'fabric';
+
+            if (currentPlatform === 'java') {
+                if (ldr === 'fabric') {
+                    resTitle.innerText = currentVersion === '1.21' ? 'The Sift Dimension: Community Fabric Port (1.21.x)' : 'The Sift Dimension (Fabric 1.20.1)';
+                    resBadge.innerText = 'High FPS / Optimized';
+                    resBadge.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+                    resDeps.innerText = 'Fabric API (v0.100+), Cloth Config v15+, Sodium (Recommended)';
+                    resRam.innerText = '-Xmx4G (4GB Allocation)';
+                } else {
+                    resTitle.innerText = currentVersion === '1.21' ? 'The Sift: NeoForge Edition (1.21.x)' : 'The Sift Dimensions & Biomes (Forge Legacy 1.20.1)';
+                    resBadge.innerText = 'Modpack Standard';
+                    resBadge.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30';
+                    resDeps.innerText = 'Architectury API, Cloth Config (Forge)';
+                    resRam.innerText = '-Xmx6G (6GB Allocation for Forge modpacks)';
+                }
+            } else {
+                resTitle.innerText = 'The Sift Behavior & Resource Pack (.mcaddon)';
+                resBadge.innerText = 'Bedrock Crossplay';
+                resBadge.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30';
+                resDeps.innerText = 'Experimental Features enabled (No external loaders needed)';
+                resRam.innerText = 'Automatic System Memory (No JVM flags needed)';
+            }
+        }
+
+        platformBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentPlatform = btn.getAttribute('data-val');
+                platformBtns.forEach(b => {
+                    b.className = (b === btn) ? 'mc-btn-primary p-2.5 rounded-lg text-xs font-bold text-center' : 'mc-btn-stone p-2.5 rounded-lg text-xs font-bold text-center';
+                });
+                if (currentPlatform === 'bedrock') {
+                    loaderSelect.innerHTML = '<option value="addon" selected>.mcaddon Direct Import</option><option value="realm">Minecraft Realm (Console)</option>';
+                } else {
+                    loaderSelect.innerHTML = '<option value="fabric" selected>Fabric Loader (Recommended)</option><option value="forge">NeoForge / Forge</option>';
+                }
+                updateMatcher();
+            });
+        });
+
+        versionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentVersion = btn.getAttribute('data-val');
+                versionBtns.forEach(b => {
+                    b.className = (b === btn) ? 'mc-btn-primary p-2.5 rounded-lg text-xs font-bold text-center' : 'mc-btn-stone p-2.5 rounded-lg text-xs font-bold text-center';
+                });
+                updateMatcher();
+            });
+        });
+
+        if (loaderSelect) {
+            loaderSelect.addEventListener('change', updateMatcher);
+        }
+        updateMatcher();
+    </script>
+</body>
+</html>
