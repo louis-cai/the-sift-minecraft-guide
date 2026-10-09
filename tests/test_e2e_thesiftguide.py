@@ -174,15 +174,17 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         pos_title = _pos('<title')
         pos_preconnect = _pos('rel="preconnect"')
         pos_gtag_async = _pos('googletagmanager.com/gtag/js')
+        pos_preload = _pos('rel="preload"')
         pos_tailwind = _pos('cdn.tailwindcss.com')
         pos_jsonld = _pos('application/ld+json')
-        pos_font_css = _pos('family=Plus+Jakarta+Sans')
+        pos_font_css = _pos('rel="stylesheet"')
         pos_canonical = _pos('rel="canonical"')
         order_pairs = [
             (pos_charset, pos_title, "charset before title"),
             (pos_title, pos_preconnect, "title before preconnect"),
             (pos_preconnect, pos_gtag_async, "preconnect before async gtag"),
-            (pos_gtag_async, pos_tailwind, "async gtag before Tailwind sync script"),
+            (pos_gtag_async, pos_preload, "async gtag before preload"),
+            (pos_preload, pos_tailwind, "preload before Tailwind sync script"),
             (pos_tailwind, pos_jsonld, "Tailwind before JSON-LD"),
             (pos_jsonld, pos_font_css, "JSON-LD before font stylesheet"),
             (pos_font_css, pos_canonical, "font stylesheet before canonical"),
@@ -507,11 +509,12 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
             c_title = _find_pos('<title')
             c_preconnect = _find_pos('rel="preconnect"')
             c_gtag = _find_pos('googletagmanager.com/gtag/js')
+            c_preload = _find_pos('rel="preload"')
             c_tailwind = _find_pos('cdn.tailwindcss.com')
             c_jsonld = _find_pos('application/ld+json')
-            c_font = _find_pos('family=Plus+Jakarta+Sans')
+            c_font = _find_pos('rel="stylesheet"')
             c_canonical = _find_pos('rel="canonical"')
-            assert c_charset < c_title < c_preconnect < c_gtag < c_tailwind < c_jsonld < c_font < c_canonical, f"{path} head order violates Capo.js"
+            assert c_charset < c_title < c_preconnect < c_gtag < c_preload < c_tailwind < c_jsonld < c_font < c_canonical, f"{path} head order violates Capo.js"
 
             # Verify no internal relative links point to legacy .html files
             html_hrefs = page.locator('a[href$=".html"], a[href*=".html#"], a[href*=".html?"]').all()
