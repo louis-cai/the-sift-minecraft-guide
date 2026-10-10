@@ -58,6 +58,10 @@ A: Official portal frames and ignition recipes have not yet been revealed. Tease
 ## Resources & Links
 
 - **Main Wiki & Updates**: [https://thesiftguide.com](https://thesiftguide.com)
+- **Portal Construction & Rift Keys**: [https://thesiftguide.com/portal.html](https://thesiftguide.com/portal.html)
+- **Minecraft Dungeons II Crossover**: [https://thesiftguide.com/dungeons-2.html](https://thesiftguide.com/dungeons-2.html)
+- **Mobs, Bosses & Drop Rates**: [https://thesiftguide.com/mobs.html](https://thesiftguide.com/mobs.html)
+- **Community Mods & Datapacks**: [https://thesiftguide.com/mods.html](https://thesiftguide.com/mods.html)
 - **Official Mojang Recap**: [Minecraft Live September 2026](https://www.minecraft.net/en-us/article/mclive_sept2026_recap)
 - **Xbox Wire Coverage**: [Minecraft Dimension Reveal](https://news.xbox.com/en-us/2026/09/26/minecraft-new-dimension-sift-dungeons-2/)
 
