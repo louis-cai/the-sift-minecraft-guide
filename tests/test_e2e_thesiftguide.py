@@ -70,14 +70,21 @@ APEX_COUPON_CODE = "APEX25"
 
 def assert_apex_affiliate_card(page: Page, label: str, check_overflow: bool = False):
     """Assert the Apex Hosting affiliate card: sponsored link + rel, coupon visibility,
-    FTC disclosure text, and (mobile) zero horizontal overflow of card and page."""
+    V2 signature copy, FTC disclosure text, and (mobile) zero horizontal overflow of card and page."""
     aff_link = page.locator(f'a[href="{APEX_AFFILIATE_URL}"]')
     assert aff_link.count() > 0, f"Apex Hosting affiliate link not found on {label}"
     assert aff_link.first.is_visible(), f"Apex Hosting affiliate button is not visible on {label}"
     rel = aff_link.first.get_attribute("rel") or ""
     assert set(rel.split()) == {"noopener", "noreferrer", "sponsored"}, f"Affiliate rel mismatch on {label}: '{rel}'"
+    
+    # V2 signature copy assertions
+    assert page.locator("text=Ready to Play").first.is_visible(), f"'Ready to Play' not visible on {label}"
+    assert page.locator("text=Deploy Server Now").first.is_visible(), f"'Deploy Server Now' not visible on {label}"
+    assert page.locator("text=SAVE 25% OFF").first.is_visible(), f"'SAVE 25% OFF' not visible on {label}"
     assert page.locator(f"text={APEX_COUPON_CODE}").first.is_visible(), f"Coupon code {APEX_COUPON_CODE} not visible on {label}"
+    assert page.locator("text=Verified Minecraft Server Partner").first.is_visible(), f"'Verified Minecraft Server Partner' not visible on {label}"
     assert page.locator("text=Affiliate Disclosure").first.is_visible(), f"Affiliate Disclosure not visible on {label}"
+
     if check_overflow:
         inner_width = page.evaluate("() => window.innerWidth")
         scroll_width = page.evaluate("() => document.documentElement.scrollWidth")
