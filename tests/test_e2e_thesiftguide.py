@@ -164,6 +164,11 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         canonical_href = page.locator('link[rel="canonical"]').get_attribute("href")
         assert canonical_href == "https://thesiftguide.com/", f"Home canonical mismatch: expected 'https://thesiftguide.com/', got '{canonical_href}'"
 
+        # Verify Impact.com site verification meta tag
+        impact_meta = page.locator("meta[name='impact-site-verification']")
+        assert impact_meta.count() == 1, "Impact.com verification meta tag not found"
+        assert impact_meta.get_attribute("value") == "a3061b92-e31e-4926-b218-3f76c51dc979"
+
         # Check Capo.js head element order (monotonic non-increasing effectiveness)
         head_html = page.evaluate("() => document.head.innerHTML")
         def _pos(needle):
