@@ -167,7 +167,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         # Verify Impact.com site verification meta tag
         impact_meta = page.locator("meta[name='impact-site-verification']")
         assert impact_meta.count() == 1, "Impact.com verification meta tag not found"
-        assert impact_meta.get_attribute("value") == "02309de0-c5c8-4abd-a7a1-5dda6cab205a"
+        assert impact_meta.get_attribute("value") == "4814f34e-7227-46df-8e85-f0d0cf47576c"
 
         # Check Capo.js head element order (monotonic non-increasing effectiveness)
         head_html = page.evaluate("() => document.head.innerHTML")
