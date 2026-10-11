@@ -63,6 +63,31 @@ def start_local_server(port: int) -> socketserver.TCPServer:
     return server
 
 
+# Apex Hosting Affiliate Action Card (FTC-compliant sponsored placement)
+APEX_AFFILIATE_URL = "https://billing.apexminecrafthosting.com/aff.php?aff=17191"
+APEX_COUPON_CODE = "APEX25"
+
+
+def assert_apex_affiliate_card(page: Page, label: str, check_overflow: bool = False):
+    """Assert the Apex Hosting affiliate card: sponsored link + rel, coupon visibility,
+    FTC disclosure text, and (mobile) zero horizontal overflow of card and page."""
+    aff_link = page.locator(f'a[href="{APEX_AFFILIATE_URL}"]')
+    assert aff_link.count() > 0, f"Apex Hosting affiliate link not found on {label}"
+    assert aff_link.first.is_visible(), f"Apex Hosting affiliate button is not visible on {label}"
+    rel = aff_link.first.get_attribute("rel") or ""
+    assert set(rel.split()) == {"noopener", "noreferrer", "sponsored"}, f"Affiliate rel mismatch on {label}: '{rel}'"
+    assert page.locator(f"text={APEX_COUPON_CODE}").first.is_visible(), f"Coupon code {APEX_COUPON_CODE} not visible on {label}"
+    assert page.locator("text=Affiliate Disclosure").first.is_visible(), f"Affiliate Disclosure not visible on {label}"
+    if check_overflow:
+        inner_width = page.evaluate("() => window.innerWidth")
+        scroll_width = page.evaluate("() => document.documentElement.scrollWidth")
+        assert scroll_width <= inner_width, f"Affiliate card page overflow on {label}! scrollWidth={scroll_width} > innerWidth={inner_width}"
+        box = aff_link.first.bounding_box()
+        assert box is not None, f"Affiliate button bounding box unavailable on {label}"
+        assert box["x"] >= 0 and (box["x"] + box["width"]) <= inner_width + 1, \
+            f"Affiliate button exceeds horizontal viewport on {label}: box={box}, innerWidth={inner_width}"
+
+
 class E2EReporter:
     def __init__(self):
         self.results = []
@@ -168,6 +193,9 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         impact_meta = page.locator("meta[name='impact-site-verification']")
         assert impact_meta.count() == 1, "Impact.com verification meta tag not found"
         assert impact_meta.get_attribute("value") == "4814f34e-7227-46df-8e85-f0d0cf47576c"
+
+        # Check Apex Hosting Affiliate Action Card & FTC Disclosure
+        assert_apex_affiliate_card(page, "Desktop Home")
 
         # Check Capo.js head element order (monotonic non-increasing effectiveness)
         head_html = page.evaluate("() => document.head.innerHTML")
@@ -301,6 +329,9 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         assert 20 <= len(h1_text) <= 70, f"Portal H1 length out of bounds ({len(h1_text)} chars): '{h1_text}'"
         assert page.locator('#faq, section:has-text("Frequently Asked Questions")').count() > 0, "Portal FAQ not found"
 
+        # Assert Apex Hosting Affiliate Card on /portal
+        assert_apex_affiliate_card(page, "Desktop /portal")
+
         ss_portal = "04_desktop_nav_portal.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_portal), full_page=False)
         reporter.add_screenshot(ss_portal, "Desktop Nav: Portal Guide page loaded")
@@ -329,6 +360,9 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         mods_h1 = page.locator("h1").inner_text().strip()
         assert "The Sift Minecraft Mod" in mods_h1, f"Mods H1 mismatch: '{mods_h1}'"
         assert 20 <= len(mods_h1) <= 70, f"Mods H1 length out of bounds ({len(mods_h1)} chars): '{mods_h1}'"
+
+        # Assert Apex Hosting Affiliate Card on /mods
+        assert_apex_affiliate_card(page, "Desktop /mods")
 
         ss_mods = "05_desktop_nav_mods.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mods), full_page=False)
@@ -698,6 +732,10 @@ def run_mobile_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         ss_mob_portal = "10_mobile_navigated_portal.png"
         page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mob_portal), full_page=False)
         reporter.add_screenshot(ss_mob_portal, "Mobile Navigated to Portal Guide via Drawer")
+
+        # Assert Apex Hosting Affiliate Card on mobile /portal (with zero overflow)
+        assert_apex_affiliate_card(page, "Mobile /portal", check_overflow=True)
+
         reporter.record_pass("Case 2.1 - Mobile Hamburger Drawer Navigation", time.time() - t0, "Hamburger drawer opened and smoothly navigated to /portal")
     except Exception as e:
         reporter.record_fail("Case 2.1 - Mobile Hamburger Drawer Navigation", time.time() - t0, str(e))
@@ -728,6 +766,9 @@ def run_mobile_suite(browser: Browser, base_url: str, reporter: E2EReporter):
 
         target_x = page.locator("#res-target-x").inner_text().strip()
         assert target_x == "200", f"Mobile conversion expected 200, got '{target_x}'"
+
+        # Assert Apex Hosting Affiliate Card on mobile home (with zero overflow)
+        assert_apex_affiliate_card(page, "Mobile Home", check_overflow=True)
 
         # Click copy button
         page.click("#btn-copy-tp")
@@ -786,6 +827,9 @@ def run_mobile_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         scroll_width = page.evaluate("() => document.documentElement.scrollWidth")
         inner_width = page.evaluate("() => window.innerWidth")
         assert scroll_width <= inner_width, f"Mods page horizontal overflow detected! scrollWidth={scroll_width} > innerWidth={inner_width}"
+
+        # Assert Apex Hosting Affiliate Card on mobile /mods (with zero overflow)
+        assert_apex_affiliate_card(page, "Mobile /mods", check_overflow=True)
 
         # Test mobile Matcher interaction (JS click: immune to ad-iframe layout shift)
         page.evaluate("() => document.querySelector('#matcher').scrollIntoView({behavior: 'instant', block: 'center'})")
