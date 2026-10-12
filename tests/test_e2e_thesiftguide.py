@@ -196,10 +196,10 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         canonical_href = page.locator('link[rel="canonical"]').get_attribute("href")
         assert canonical_href == "https://thesiftguide.com/", f"Home canonical mismatch: expected 'https://thesiftguide.com/', got '{canonical_href}'"
 
-        # Verify Impact.com site verification meta tag
+        # Impact.com media partnership terminated: deprecated verification
+        # meta tag must be fully removed from all pages (regression guard)
         impact_meta = page.locator("meta[name='impact-site-verification']")
-        assert impact_meta.count() == 1, "Impact.com verification meta tag not found"
-        assert impact_meta.get_attribute("value") == "4814f34e-7227-46df-8e85-f0d0cf47576c"
+        assert impact_meta.count() == 0, "Deprecated Impact.com verification meta tag still present"
 
         # Check Apex Hosting Affiliate Action Card & FTC Disclosure
         assert_apex_affiliate_card(page, "Desktop Home")
@@ -577,11 +577,15 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
             c_canonical = _find_pos('rel="canonical"')
             assert c_charset < c_title < c_preconnect < c_gtag < c_preload < c_tailwind < c_jsonld < c_font < c_canonical, f"{path} head order violates Capo.js"
 
+            # Verify deprecated Impact.com tag is absent on all 7 pages
+            assert page.locator("meta[name='impact-site-verification']").count() == 0, \
+                f"Deprecated Impact.com verification meta tag still present on {path}"
+
             # Verify no internal relative links point to legacy .html files
             html_hrefs = page.locator('a[href$=".html"], a[href*=".html#"], a[href*=".html?"]').all()
             assert len(html_hrefs) == 0, f"Found {len(html_hrefs)} legacy .html links on {path}"
 
-        reporter.record_pass("Case 1.7 - Clean URLs & Canonical Tags Alignment Audit", time.time() - t0, "All 7 pages verified: exact clean canonical tags & zero legacy .html links")
+        reporter.record_pass("Case 1.7 - Clean URLs & Canonical Tags Alignment Audit", time.time() - t0, "All 7 pages verified: exact clean canonical tags, zero legacy .html links, zero deprecated Impact.com tags")
     except Exception as e:
         reporter.record_fail("Case 1.7 - Clean URLs & Canonical Tags Alignment Audit", time.time() - t0, str(e))
 
