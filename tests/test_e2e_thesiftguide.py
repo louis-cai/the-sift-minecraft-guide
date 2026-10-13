@@ -571,6 +571,7 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
             ("/portal", "https://thesiftguide.com/portal"),
             ("/mobs", "https://thesiftguide.com/mobs"),
             ("/mods", "https://thesiftguide.com/mods"),
+            ("/how-to-enter", "https://thesiftguide.com/how-to-enter"),
             ("/dungeons-2", "https://thesiftguide.com/dungeons-2"),
             ("/about", "https://thesiftguide.com/about"),
             ("/privacy", "https://thesiftguide.com/privacy"),
@@ -780,6 +781,93 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
     except Exception as e:
         reporter.record_fail("Case 1.9 - Custom 404 Page & Security Headers Verification", time.time() - t0, str(e))
 
+    # -------------------------------------------------------------
+    # Case 1.10: How to Enter Subpage Verification (SEO, Schema, Dual Ads, Diagnostic)
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        resp = page.goto(f"{base_url}/how-to-enter", wait_until="networkidle")
+        assert resp is not None and resp.status == 200, f"Expected HTTP 200 for /how-to-enter, got {resp.status if resp else 'None'}"
+        title = page.title()
+        assert title == "How to Enter The Sift in Minecraft: Portal & Ignition Guide", f"How to Enter title mismatch: '{title}'"
+        assert 50 <= len(title) <= 60, f"Title length out of bounds ({len(title)}): '{title}'"
+
+        # 1. Meta Description
+        meta_desc = page.locator('meta[name="description"]').get_attribute("content") or ""
+        assert "How to Enter The Sift in Minecraft" in meta_desc or "how to enter The Sift in Minecraft" in meta_desc, f"Meta description missing primary keyword: '{meta_desc}'"
+        assert 145 <= len(meta_desc) <= 158, f"Meta description length out of bounds ({len(meta_desc)} chars): '{meta_desc}'"
+
+        # 2. H1
+        h1_text = page.locator("h1").first.inner_text().strip()
+        assert h1_text == "How to Enter The Sift in Minecraft: Complete Portal Opening Guide", f"H1 mismatch: '{h1_text}'"
+        assert 20 <= len(h1_text) <= 70, f"H1 length out of bounds ({len(h1_text)} chars): '{h1_text}'"
+
+        # 3. Canonical
+        canonical = page.locator('link[rel="canonical"]').get_attribute("href")
+        assert canonical == "https://thesiftguide.com/how-to-enter", f"Canonical mismatch: '{canonical}'"
+
+        # 4. GA4 & Dual Ads
+        page_html = page.content()
+        assert "G-X1ZTW8XWPG" in page_html, "GA4 measurement ID not found on /how-to-enter"
+        ad_count = page.locator('script[src*="e34c08305944ef076210b30b1897f6eb"], script[src*="93a1b6fb1cf3809a6ddd2ccae9364526"], script[src*="bauval.org"], script[src*="highperformanceformat.com"]').count()
+        assert ad_count >= 2, f"Expected at least 2 ad scripts on /how-to-enter, found {ad_count}"
+
+        # 5. Schema.org JSON-LD (HowTo and FAQPage)
+        json_lds = page.locator('script[type="application/ld+json"]').all()
+        assert len(json_lds) > 0, "No Schema JSON-LD found on /how-to-enter"
+        types_found = set()
+        for s in json_lds:
+            try:
+                data = json.loads(s.inner_text())
+                if "@graph" in data:
+                    for item in data["@graph"]:
+                        types_found.add(item.get("@type"))
+                elif "@type" in data:
+                    types_found.add(data.get("@type"))
+            except Exception:
+                pass
+        assert "HowTo" in types_found, f"HowTo schema missing from /how-to-enter (found: {types_found})"
+        assert "FAQPage" in types_found, f"FAQPage schema missing from /how-to-enter (found: {types_found})"
+
+        # 6. Apex Hosting V2 Affiliate Card
+        assert_apex_affiliate_card(page, "Desktop /how-to-enter")
+
+        # 7. Diagnostic Widget Radio interaction
+        diag_container = page.locator("#diagnostic")
+        assert diag_container.count() > 0, "Diagnostic widget (#diagnostic) container not found"
+
+        # Test Vanilla + Ancient selection -> BLOCKED IN VANILLA SURVIVAL
+        page.check('input[name="setup"][value="vanilla"]')
+        page.check('input[name="block"][value="ancient"]')
+        time.sleep(0.1)
+        diag_output = page.locator("#diagnosis-output").inner_text()
+        assert "BLOCKED IN VANILLA SURVIVAL" in diag_output or "BLOCKED" in diag_output, f"Diagnostic output did not reflect blocked state: '{diag_output}'"
+
+        # Test Modded selection -> READY TO ACTIVATE
+        page.check('input[name="setup"][value="modded"]')
+        time.sleep(0.1)
+        diag_output_mod = page.locator("#diagnosis-output").inner_text()
+        assert "READY TO ACTIVATE" in diag_output_mod or "READY" in diag_output_mod, f"Diagnostic output did not reflect ready state: '{diag_output_mod}'"
+
+        # 8. Checklist dynamic trigger
+        check_inputs = page.locator('#ignition-checklist input[type="checkbox"]').all()
+        assert len(check_inputs) == 4, f"Expected 4 checklist items, got {len(check_inputs)}"
+        for cb in check_inputs:
+            cb.check()
+        time.sleep(0.1)
+        assert page.locator("#checklist-status:has-text('ACTIVATED')").count() > 0, "Checklist did not trigger ACTIVATED status when all checked"
+
+        # 9. Direct Teleport Commands copy button
+        copy_btn = page.locator('button:has-text("Copy Command"), button:has-text("Copy")').first
+        assert copy_btn.count() > 0, "Teleport command copy button not found"
+
+        ss_how_to = "08e_desktop_how_to_enter_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_how_to), full_page=False)
+        reporter.add_screenshot(ss_how_to, "Desktop How to Enter Subpage Verified (SEO, Schema, Dual Ads, Diagnostic & Commands)")
+        reporter.record_pass("Case 1.10 - How to Enter Subpage Verification", time.time() - t0, "how-to-enter loaded, SEO Title/Desc/H1/GA4/Dual Ads/Schema/Diagnostic/Apex verified")
+    except Exception as e:
+        reporter.record_fail("Case 1.10 - How to Enter Subpage Verification", time.time() - t0, str(e))
+
     context.close()
 
 
@@ -980,6 +1068,30 @@ def run_mobile_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         reporter.record_pass("Case 2.5 - Mobile 404 Page & Zero Overflow", time.time() - t0, f"scrollWidth={scroll_width} <= innerWidth={inner_width} (zero overflow)")
     except Exception as e:
         reporter.record_fail("Case 2.5 - Mobile 404 Page & Zero Overflow", time.time() - t0, str(e))
+
+    # -------------------------------------------------------------
+    # Case 2.6: Mobile How to Enter Subpage & Zero Overflow
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        page.goto(f"{base_url}/how-to-enter", wait_until="networkidle")
+        inner_width = page.evaluate("() => window.innerWidth")
+        scroll_width = page.evaluate("() => document.documentElement.scrollWidth")
+        assert scroll_width <= inner_width, f"Overflow on Mobile /how-to-enter! scrollWidth={scroll_width} > innerWidth={inner_width}"
+
+        # Assert Apex card mobile bounds
+        assert_apex_affiliate_card(page, "Mobile /how-to-enter", check_overflow=True)
+
+        # Assert Diagnostic widget interactive on touch
+        page.check('input[name="setup"][value="modded"]')
+        assert page.locator("#diagnosis-output").is_visible(), "Mobile diagnosis output not visible"
+
+        ss_mob_how_to = "16_mobile_how_to_enter_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mob_how_to), full_page=False)
+        reporter.add_screenshot(ss_mob_how_to, "Mobile How to Enter Page Verified (Zero overflow, touch diagnostic & Apex card)")
+        reporter.record_pass("Case 2.6 - Mobile How to Enter Subpage & Zero Overflow", time.time() - t0, f"scrollWidth={scroll_width} <= innerWidth={inner_width} (zero overflow)")
+    except Exception as e:
+        reporter.record_fail("Case 2.6 - Mobile How to Enter Subpage & Zero Overflow", time.time() - t0, str(e))
 
     mobile_context.close()
 
