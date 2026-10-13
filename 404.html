@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found | The Sift Guide</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="description" content="Lost in the Sift. The coordinate you navigated to doesn't exist. Return to The Sift Minecraft Guide wiki.">
+    <meta name="theme-color" content="#111317">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1ZTW8XWPG"></script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+              display: ['"Space Grotesk"', 'ui-monospace', 'SFMono-Regular', 'monospace', 'sans-serif'],
+              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+            },
+            colors: {
+              void: {
+                950: '#111317', /* Minecraft Deepslate Black */
+                900: '#181a20', /* Minecraft Deepslate Brick / Smooth Stone */
+                850: '#20242c',
+                800: '#272c36',
+                700: '#343b48',
+              },
+              mc: {
+                deepslate: '#111317',
+                stone: '#181a20',
+                stoneHover: '#232730',
+                border: '#2d3139',
+                grass: '#46a228',
+                grassHover: '#55bb32',
+                diamond: '#22d3ee',
+                diamondHover: '#38bdf8',
+                gold: '#f59e0b',
+                redstone: '#ef4444',
+                amethyst: '#a855f7',
+              },
+              sift: {
+                emerald: '#46a228',
+                cyan: '#22d3ee',
+                teal: '#14b8a6',
+                amber: '#f59e0b',
+                bone: '#e2e8f0',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-X1ZTW8XWPG');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
+    <style>
+        :root {
+            color-scheme: dark;
+            --mc-deepslate: #111317;
+            --mc-stone: #181a20;
+            --mc-border: #2d3139;
+            --mc-grass: #46a228;
+            --mc-grass-hover: #55bb32;
+            --mc-diamond: #22d3ee;
+        }
+        body {
+            background-color: #111317;
+            color: #cbd5e1;
+            font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-display {
+            font-family: "Space Grotesk", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace, sans-serif;
+            letter-spacing: -0.025em;
+        }
+        .mc-pixel-font {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+            font-weight: 700;
+        }
+
+        .title-glow {
+            background: linear-gradient(135deg, #a3e635 0%, #4ade80 30%, #22d3ee 70%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 35px rgba(74, 222, 128, 0.35));
+        }
+        .emerald-glow-text {
+            background: linear-gradient(135deg, #86efac 0%, #46a228 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-cosmic-grid {
+            background-color: #111317;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(70, 162, 40, 0.14) 0%, transparent 50%),
+                radial-gradient(circle at 85% 35%, rgba(34, 211, 238, 0.10) 0%, transparent 40%),
+                radial-gradient(circle at 15% 70%, rgba(168, 85, 247, 0.08) 0%, transparent 45%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+        }
+
+        .glass-card {
+            background: #181a20;
+            border: 2px solid #2d3139;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.08), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: #46a228;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.12), inset -2px -2px 0 rgba(0, 0, 0, 0.6), 0 0 25px rgba(70, 162, 40, 0.18);
+        }
+
+        .mc-btn, .mc-btn-stone {
+            background-color: #1f2229;
+            color: #e2e8f0;
+            border: 2px solid #2d3139;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.25), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.15s ease-in-out;
+            user-select: none;
+        }
+        .mc-btn:hover, .mc-btn-stone:hover {
+            background-color: #272c35;
+            color: #ffffff;
+            border-color: #3f4552;
+        }
+        .mc-btn:active, .mc-btn-stone:active, button:active {
+            box-shadow: inset -2px -2px 0 rgba(255, 255, 255, 0.25), inset 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+            transform: translateY(1px);
+        }
+
+        .mc-btn-primary {
+            background-color: #46a228 !important;
+            color: #ffffff !important;
+            border: 2px solid #2a6118 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.35), inset -2px -2px 0 rgba(0, 0, 0, 0.6) !important;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+            transition: all 0.15s ease-in-out;
+            font-weight: 700;
+        }
+        .mc-btn-primary:hover {
+            background-color: #55bb32 !important;
+            border-color: #388420 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(70, 162, 40, 0.4) !important;
+        }
+
+        .mc-btn-diamond {
+            background-color: #0891b2 !important;
+            color: #ffffff !important;
+            border: 2px solid #0e7490 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.35), inset -2px -2px 0 rgba(0, 0, 0, 0.6) !important;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+            transition: all 0.15s ease-in-out;
+            font-weight: 700;
+        }
+        .mc-btn-diamond:hover {
+            background-color: #06b6d4 !important;
+            border-color: #0891b2 !important;
+            box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.45), inset -2px -2px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(34, 211, 238, 0.4) !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body class="min-h-screen flex flex-col bg-cosmic-grid antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+    <!-- Header / Navbar -->
+    <header class="border-b-2 border-[#2d3139] bg-[#111317]/95 backdrop-blur-md sticky top-0 z-50 transition-colors shadow-lg">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 sm:h-18 flex items-center justify-between gap-4">
+            <a href="/" class="flex items-center space-x-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded-lg p-1">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/60 group-hover:scale-105 transition-all duration-200 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                    <svg class="w-5 h-5 text-emerald-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center gap-1.5">
+                        The Sift <span class="emerald-glow-text font-black">Guide</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 font-medium tracking-wider uppercase hidden sm:inline">Minecraft 4th Dimension Wiki</span>
+                </div>
+            </a>
+
+            <!-- Quick Nav Links (Desktop) -->
+            <nav class="hidden md:flex items-center space-x-1 text-xs font-semibold text-slate-300" aria-label="Main Navigation">
+                <a href="/" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Wiki Home</a>
+                <a href="/portal.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Portal Guide</a>
+                <a href="/mobs.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Mobs &amp; Entities</a>
+                <a href="/mods.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Mods Guide</a>
+                <a href="/dungeons-2" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Dungeons II</a>
+                <a href="/about" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">About</a>
+            </nav>
+
+            <!-- Status Badges & Mobile Menu Toggle -->
+            <div class="flex items-center space-x-2 sm:space-x-3 text-xs font-semibold">
+                <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/25">
+                    <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse" aria-hidden="true"></span>
+                    Dimensional Drift
+                </span>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" class="md:hidden mc-btn-stone p-2 rounded-lg text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Collapsible Menu -->
+        <div id="mobile-nav" class="hidden md:hidden border-t border-[#2d3139] bg-[#111317]/98 px-4 py-3 space-y-1">
+            <a href="/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Wiki Home</a>
+            <a href="/portal.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Portal Guide</a>
+            <a href="/mobs.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Mobs &amp; Entities</a>
+            <a href="/mods.html" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Mods Guide</a>
+            <a href="/dungeons-2" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">Dungeons II</a>
+            <a href="/about" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60">About Us</a>
+        </div>
+    </header>
+
+    <!-- Main 404 Container -->
+    <main class="flex-grow flex items-center justify-center max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-20 w-full">
+        <div class="glass-card rounded-2xl p-8 sm:p-12 md:p-16 text-center space-y-8 w-full max-w-2xl relative overflow-hidden border-2 border-[#2d3139]">
+            <!-- Decorative Void Glow -->
+            <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+
+            <!-- Coordinate / Rift Glitch Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold bg-red-500/10 text-red-400 border border-red-500/30 shadow-[0_0_15px_rgba(239,68,68,0.15)]">
+                <svg class="w-4 h-4 text-red-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span>X: ??? · Y: -64 · Z: ??? [Rift Desynchronized]</span>
+            </div>
+
+            <!-- Big 404 Visual & Headline -->
+            <div class="space-y-4">
+                <div class="text-7xl sm:text-9xl font-display font-black tracking-tight text-white select-none">
+                    4<span class="text-emerald-400 drop-shadow-[0_0_25px_rgba(70,162,40,0.5)]">0</span>4
+                </div>
+                <h1 class="text-2xl sm:text-4xl font-display font-black text-white tracking-tight leading-tight">
+                    404 - Lost in the Sift
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
+                    The coordinate you navigated to doesn't exist. Dimensional gateway collapsed or teleportation coordinates drifted outside known chunk boundaries.
+                </p>
+            </div>
+
+            <!-- Action Buttons Grid -->
+            <div class="pt-4 space-y-4">
+                <div class="text-xs font-mono uppercase tracking-wider text-slate-400">
+                    Re-align Dimensional Transceiver
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg mx-auto">
+                    <!-- Home -->
+                    <a href="/" class="mc-btn-primary px-5 py-3 rounded-lg text-sm font-display font-bold flex items-center justify-center gap-2 transition-all shadow-md group">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <span>Return to Home</span>
+                    </a>
+
+                    <!-- Portal -->
+                    <a href="/portal.html" class="mc-btn-diamond px-5 py-3 rounded-lg text-sm font-display font-bold flex items-center justify-center gap-2 transition-all shadow-md group">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        <span>Portal Guide</span>
+                    </a>
+
+                    <!-- Mobs -->
+                    <a href="/mobs.html" class="mc-btn-stone px-5 py-3 rounded-lg text-sm font-display font-bold flex items-center justify-center gap-2 transition-all group">
+                        <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        </svg>
+                        <span>Mobs &amp; Entities</span>
+                    </a>
+
+                    <!-- Mods -->
+                    <a href="/mods.html" class="mc-btn-stone px-5 py-3 rounded-lg text-sm font-display font-bold flex items-center justify-center gap-2 transition-all group">
+                        <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                        <span>Mods Guide</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t-2 border-[#2d3139] bg-[#111317] py-8 text-center text-xs text-slate-400 space-y-4">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col items-center gap-3">
+            <div class="flex items-center space-x-2 text-slate-300 font-semibold text-sm">
+                <span>The Sift Guide</span>
+                <span>·</span>
+                <span class="text-emerald-400">Community Wiki &amp; Utilities</span>
+            </div>
+            
+            <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs font-semibold text-slate-400 pt-1 pb-1">
+                <a href="/" class="hover:text-emerald-400 transition-colors">Wiki Home</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/portal.html" class="hover:text-emerald-400 transition-colors">Portal Guide</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/mobs.html" class="hover:text-emerald-400 transition-colors">Mobs &amp; Entities</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/mods.html" class="hover:text-emerald-400 transition-colors">Mods Guide</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/about" class="hover:text-emerald-400 transition-colors">About Us</a>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <a href="/privacy" class="hover:text-emerald-400 transition-colors">Privacy Policy</a>
+            </div>
+
+            <p class="max-w-lg leading-relaxed text-slate-400">
+                TheSiftGuide.com is an independent community wiki &amp; research guide tracking Minecraft's 4th dimension. Not affiliated with Mojang Studios or Microsoft.
+            </p>
+            <p class="text-slate-600">
+                © 2026 TheSiftGuide.com · Powered by Community Updates &amp; Forensic Analysis
+            </p>
+        </div>
+    </footer>
+
+    <!-- Mobile Nav Toggle Script -->
+    <script>
+      (function() {
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+        if (mobileBtn && mobileNav) {
+          mobileBtn.addEventListener('click', function() {
+            const isExpanded = mobileNav.classList.contains('hidden');
+            if (isExpanded) {
+              mobileNav.classList.remove('hidden');
+              mobileBtn.setAttribute('aria-expanded', 'true');
+            } else {
+              mobileNav.classList.add('hidden');
+              mobileBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+      })();
+    </script>
+</body>
+</html>

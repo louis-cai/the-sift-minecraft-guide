@@ -35,7 +35,8 @@ RESET = "\033[0m"
 
 
 class CleanURLHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
-    """Custom HTTP handler that resolves clean URLs (e.g. /portal -> /portal.html)."""
+    """Custom HTTP handler that resolves clean URLs (e.g. /portal -> /portal.html),
+    serves custom 404.html with HTTP 404 status, and applies Cloudflare Pages _headers."""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=BASE_DIR, **kwargs)
 
@@ -44,6 +45,29 @@ class CleanURLHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         if not os.path.exists(full_path) and os.path.exists(full_path + ".html"):
             return full_path + ".html"
         return full_path
+
+    def end_headers(self):
+        headers_path = os.path.join(BASE_DIR, "_headers")
+        if os.path.exists(headers_path):
+            with open(headers_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and ":" in line and not line.startswith("/*"):
+                        k, v = line.split(":", 1)
+                        self.send_header(k.strip(), v.strip())
+        super().end_headers()
+
+    def send_error(self, code, message=None, explain=None):
+        if code == 404:
+            custom_404_path = os.path.join(BASE_DIR, "404.html")
+            if os.path.exists(custom_404_path):
+                self.send_response(404, "Not Found")
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.end_headers()
+                with open(custom_404_path, "rb") as f:
+                    self.wfile.write(f.read())
+                return
+        super().send_error(code, message, explain)
 
     def log_message(self, format, *args):
         # Silence static server logs during test execution
@@ -688,6 +712,74 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
     except Exception as e:
         reporter.record_fail("Case 1.8 - Mods Subpage Verification", time.time() - t0, str(e))
 
+    # -------------------------------------------------------------
+    # Case 1.9: Soft-404 Prevention, Custom 404 Page & Security Headers
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        # 1. Verify _headers file on disk
+        headers_path = os.path.join(BASE_DIR, "_headers")
+        assert os.path.exists(headers_path), "_headers file missing at deployment root"
+        with open(headers_path, "r", encoding="utf-8") as f:
+            headers_content = f.read()
+        assert "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload" in headers_content, "Strict-Transport-Security missing or malformed in _headers"
+        assert "X-Content-Type-Options: nosniff" in headers_content, "X-Content-Type-Options missing in _headers"
+        assert "X-Frame-Options: SAMEORIGIN" in headers_content, "X-Frame-Options missing in _headers"
+        assert "Referrer-Policy: strict-origin-when-cross-origin" in headers_content, "Referrer-Policy missing in _headers"
+
+        # 2. Verify 404.html file on disk
+        html_404_path = os.path.join(BASE_DIR, "404.html")
+        assert os.path.exists(html_404_path), "404.html file missing at deployment root"
+
+        # 3. Load 404 page in browser
+        page.goto(f"{base_url}/404.html", wait_until="networkidle")
+        title = page.title()
+        assert title == "404 Page Not Found | The Sift Guide", f"404 page title mismatch: '{title}'"
+
+        # 4. Meta robots tag: noindex, follow
+        robots_meta = page.locator('meta[name="robots"]').get_attribute("content") or ""
+        assert "noindex" in robots_meta and "follow" in robots_meta, f"404 robots meta mismatch: '{robots_meta}'"
+
+        # 5. Clear message
+        body_text = page.locator("body").inner_text()
+        assert "404 - Lost in the Sift" in body_text, "404 headline message missing"
+        assert "The coordinate you navigated to doesn't exist" in body_text, "404 coordinate message missing"
+
+        # 6. Prominent action buttons linking to Home (/), Portal (/portal.html), Mobs (/mobs.html), Mods (/mods.html)
+        home_btn = page.locator('a[href="/"]')
+        portal_btn = page.locator('a[href="/portal.html"], a[href="/portal"]')
+        mobs_btn = page.locator('a[href="/mobs.html"], a[href="/mobs"]')
+        mods_btn = page.locator('a[href="/mods.html"], a[href="/mods"]')
+
+        assert home_btn.count() > 0 and home_btn.first.is_visible(), "Home action button missing on 404 page"
+        assert portal_btn.count() > 0 and portal_btn.first.is_visible(), "Portal action button missing on 404 page"
+        assert mobs_btn.count() > 0 and mobs_btn.first.is_visible(), "Mobs action button missing on 404 page"
+        assert mods_btn.count() > 0 and mods_btn.first.is_visible(), "Mods action button missing on 404 page"
+
+        # 7. Aesthetic check: dark mode gaming / Minecraft theme
+        page_bg = page.evaluate("() => window.getComputedStyle(document.body).backgroundColor")
+        assert page_bg in ("rgb(17, 19, 23)", "#111317"), f"Body background is not deepslate dark: {page_bg}"
+
+        # 8. Interactive navigation check from 404 page to Portal
+        portal_btn.first.click()
+        page.wait_for_load_state("networkidle")
+        assert "/portal" in page.url, f"Failed to navigate from 404 to Portal: {page.url}"
+
+        # 9. Verify soft-404 prevention: requesting a nonexistent path returns HTTP 404 status and renders custom 404 page
+        probe_resp = page.goto(f"{base_url}/nonexistent-test-probe-404", wait_until="networkidle")
+        assert probe_resp is not None, "No HTTP response for nonexistent probe URL"
+        assert probe_resp.status == 404, f"Expected HTTP 404 for nonexistent URL, got HTTP {probe_resp.status} (Soft 404!)"
+        assert "404 - Lost in the Sift" in page.locator("body").inner_text(), "Custom 404 content not served on 404 status"
+
+        # Return to 404 page and take screenshot
+        page.goto(f"{base_url}/404.html", wait_until="networkidle")
+        ss_404 = "14_desktop_404_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_404), full_page=False)
+        reporter.add_screenshot(ss_404, "Desktop 404 Page (Theme, Title, Noindex, Copy & Nav buttons verified)")
+        reporter.record_pass("Case 1.9 - Custom 404 Page & Security Headers Verification", time.time() - t0, "404.html, _headers, Title, Noindex meta, copy & action buttons verified")
+    except Exception as e:
+        reporter.record_fail("Case 1.9 - Custom 404 Page & Security Headers Verification", time.time() - t0, str(e))
+
     context.close()
 
 
@@ -867,6 +959,27 @@ def run_mobile_suite(browser: Browser, base_url: str, reporter: E2EReporter):
         reporter.record_pass("Case 2.4 - Mobile Mods Subpage & Zero Overflow", time.time() - t0, f"scrollWidth={scroll_width} <= innerWidth={inner_width} (zero overflow), mobile Matcher & FAQ verified")
     except Exception as e:
         reporter.record_fail("Case 2.4 - Mobile Mods Subpage & Zero Overflow", time.time() - t0, str(e))
+
+    # -------------------------------------------------------------
+    # Case 2.5: Mobile 404 Page Responsive & Zero Overflow
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        page.goto(f"{base_url}/404.html", wait_until="networkidle")
+        inner_width = page.evaluate("() => window.innerWidth")
+        scroll_width = page.evaluate("() => document.documentElement.scrollWidth")
+        assert scroll_width <= inner_width, f"Overflow detected on Mobile 404 page! scrollWidth={scroll_width} > innerWidth={inner_width}"
+
+        # Action buttons are visible and stacked/responsive
+        assert page.locator("text=Lost in the Sift").first.is_visible(), "Mobile 404 headline not visible"
+        assert page.locator('a[href="/"]').first.is_visible(), "Mobile 404 Home button not visible"
+
+        ss_mob_404 = "15_mobile_404_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mob_404), full_page=False)
+        reporter.add_screenshot(ss_mob_404, "Mobile 404 Page Verified (Zero horizontal overflow, touch buttons visible)")
+        reporter.record_pass("Case 2.5 - Mobile 404 Page & Zero Overflow", time.time() - t0, f"scrollWidth={scroll_width} <= innerWidth={inner_width} (zero overflow)")
+    except Exception as e:
+        reporter.record_fail("Case 2.5 - Mobile 404 Page & Zero Overflow", time.time() - t0, str(e))
 
     mobile_context.close()
 
