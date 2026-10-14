@@ -1,0 +1,10 @@
+name = "thesiftguide-mcp"
+main = "index.js"
+compatibility_date = "2024-11-01"
+
+routes = [
+  { pattern = "mcp.thesiftguide.com", custom_domain = true }
+]
+
+[observability]
+enabled = false

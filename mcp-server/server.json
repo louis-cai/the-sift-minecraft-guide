@@ -1,0 +1,13 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.thesiftguide/sift-tools",
+  "description": "Minecraft The Sift portal tools: coordinate converter, materials budget, and ignition diagnostic.",
+  "version": "1.0.0",
+  "websiteUrl": "https://thesiftguide.com",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.thesiftguide.com/mcp"
+    }
+  ]
+}

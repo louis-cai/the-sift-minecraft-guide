@@ -868,6 +868,52 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
     except Exception as e:
         reporter.record_fail("Case 1.10 - How to Enter Subpage Verification", time.time() - t0, str(e))
 
+    # -------------------------------------------------------------
+    # Case 1.11: MCP Server Endpoint Verification (Streamable HTTP /mcp)
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        mcp_url = "https://mcp.thesiftguide.com/mcp"
+        # 1. Browser GET verification & Screenshot
+        resp = page.goto(mcp_url, wait_until="networkidle")
+        assert resp and resp.status == 200, f"Expected 200 from {mcp_url}, got {resp.status if resp else 'None'}"
+        content_text = page.locator("body").inner_text()
+        data = json.loads(content_text)
+        assert data.get("server") == "com.thesiftguide/sift-tools", f"Unexpected server name: {data.get('server')}"
+        assert data.get("homepage") == "https://thesiftguide.com", f"Unexpected homepage: {data.get('homepage')}"
+        tools = data.get("tools", [])
+        assert "calculate_sift_portal_coordinates" in tools, "calculate_sift_portal_coordinates missing"
+        assert "calculate_sift_materials_budget" in tools, "calculate_sift_materials_budget missing"
+        assert "diagnose_sift_ignition" in tools, "diagnose_sift_ignition missing"
+
+        # 2. JSON-RPC tools/call POST verification
+        rpc_resp = context.request.post(
+            mcp_url,
+            headers={"Content-Type": "application/json"},
+            data=json.dumps({
+                "jsonrpc": "2.0",
+                "id": 101,
+                "method": "tools/call",
+                "params": {
+                    "name": "calculate_sift_portal_coordinates",
+                    "arguments": {"x": 100, "z": 200}
+                }
+            })
+        )
+        assert rpc_resp.status == 200, f"Expected 200 from JSON-RPC call, got {rpc_resp.status}"
+        rpc_json = rpc_resp.json()
+        assert "result" in rpc_json, f"No result in JSON-RPC response: {rpc_json}"
+        result_text = rpc_json["result"]["content"][0]["text"]
+        assert "Source: thesiftguide.com" in result_text, f"Missing Source tag in response: {result_text}"
+        assert "Teleport Command: /tp @s 25 64 50" in result_text, f"Unexpected calculation: {result_text}"
+
+        ss_mcp = "17_desktop_mcp_server_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_mcp), full_page=False)
+        reporter.add_screenshot(ss_mcp, "Desktop MCP Server Endpoint Verified (GET status ok, tools list, JSON-RPC 200, Source tag)")
+        reporter.record_pass("Case 1.11 - MCP Server Endpoint Verification", time.time() - t0, "mcp.thesiftguide.com/mcp GET 200, 3 tools, JSON-RPC calculation & Source tag verified")
+    except Exception as e:
+        reporter.record_fail("Case 1.11 - MCP Server Endpoint Verification", time.time() - t0, str(e))
+
     context.close()
 
 
