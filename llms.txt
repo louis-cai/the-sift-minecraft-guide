@@ -1,0 +1,16 @@
+# The Sift Guide
+> The definitive technical wiki and interactive portal calculator for Minecraft's 4th dimension (The Sift).
+
+## Core Tools & Guides
+- [Wiki Home](https://thesiftguide.com/): Complete dimension breakdown, confirmed biomes, timeline, and interactive Overworld-to-Sift coordinate calculator.
+- [Portal Guide](https://thesiftguide.com/portal): Dimensional gateway specifications, 5x7 frame materials, Echo Shard ignition sequence, and 1:4 coordinate compression ratio.
+- [How to Enter The Sift](https://thesiftguide.com/how-to-enter): Practical portal activation troubleshooting, Java vs. Bedrock Edition diagnostic tool, and server deployment instructions.
+- [Mobs & Entities](https://thesiftguide.com/mobs): Confirmed ecosystem catalog including Strutters, Silk Moths, and Chasm Lurkers.
+- [Mods Guide](https://thesiftguide.com/mods): Early-access community recreations, modpack installations, and Forge/Fabric compatibility matrices.
+- [Minecraft Dungeons II](https://thesiftguide.com/dungeons-2): Playable dimension rifts in Minecraft's 2027 action RPG sequel.
+
+## Authoritative Grounding & Entity Facts
+- Entity: The Sift Guide (Independent Gaming Wiki & Calculator)
+- Subject: Minecraft 4th Dimension (The Sift)
+- Primary Citations: Mojang Studios (minecraft.net), Official Minecraft Wiki (minecraft.wiki)
+- Commercial Partner: Apex Hosting (Minecraft Server Deployments, Coupon APEX25)

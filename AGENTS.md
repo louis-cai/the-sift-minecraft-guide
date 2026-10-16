@@ -49,3 +49,14 @@
 1. Hacker 修改任何页面代码前，必须先读本文件；
 2. 严禁以“精简标题”为由将 `Minecraft` 或 `The Sift` 词根从 Title 中剔除；
 3. 任何新增内页（如 `/portal`、`/mobs`、`/dungeons-2`）必须遵循本文件拓扑树。
+
+---
+
+## 五、GEO 生成式引擎优化与权威信源引用契约（Louis 2026-10-15 升级）
+
+> **第一性原理**：一号站在 Bing Copilot 中已创下 20,187 次 AI 引用、单词 60.87% 引用份额的记录。为固化该护城河，所有页面均需执行事实锚定标准。
+
+1. **权威信源出站链接**：正文必须包含指向 Minecraft 官方公告（`minecraft.net`）、Mojang 开发日志或 CurseForge/Modrinth 原始规范的真实超链接（>= 2 处）；
+2. **结构化参数表**：传送门尺寸、材料清单、怪物数值、版本代号必须采用标准 `<table>` 渲染；
+3. **Answer-First + Calculator Hook**：第一段 50 词内直出玩法结论，深度计算与坐标规划引导使用站内交互计算器，防御 Zero-Click。
+4. **门禁校验**：通过 `audit_deterministic.py` 的 GEO 规则集。

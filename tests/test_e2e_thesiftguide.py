@@ -914,6 +914,66 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
     except Exception as e:
         reporter.record_fail("Case 1.11 - MCP Server Endpoint Verification", time.time() - t0, str(e))
 
+    # -------------------------------------------------------------
+    # Case 1.12: GEO Artifacts, Outbound Citations & Data Tables Verification
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        # 1. llms.txt validation
+        llms_resp = page.goto(f"{base_url}/llms.txt", wait_until="networkidle")
+        assert llms_resp and llms_resp.status == 200, f"Expected 200 for /llms.txt, got {llms_resp.status if llms_resp else 'None'}"
+        llms_text = page.locator("body").inner_text()
+        assert "# The Sift Guide" in llms_text, "llms.txt missing title heading"
+        assert "## Core Tools & Guides" in llms_text, "llms.txt missing Core Tools & Guides section"
+        assert "## Authoritative Grounding & Entity Facts" in llms_text, "llms.txt missing Entity Facts section"
+        assert "https://thesiftguide.com/how-to-enter" in llms_text, "llms.txt missing how-to-enter link"
+
+        # 2. how-to-enter.html tables & outbound citations
+        page.goto(f"{base_url}/how-to-enter", wait_until="networkidle")
+        matrix_table = page.locator("#steps table")
+        assert matrix_table.count() > 0, "Missing compatibility matrix table in /how-to-enter #steps"
+        assert "Java Edition (1.21+)" in matrix_table.inner_text(), "Missing Java Edition row in /how-to-enter table"
+        assert "Bedrock Edition" in matrix_table.inner_text(), "Missing Bedrock Edition row in /how-to-enter table"
+        assert "Minecraft Dungeons II" in matrix_table.inner_text(), "Missing Dungeons II row in /how-to-enter table"
+
+        # Outbound citations on how-to-enter
+        cite_wiki = page.locator('a[href="https://minecraft.wiki/w/Ancient_City"]')
+        assert cite_wiki.count() > 0, "Missing outbound citation to minecraft.wiki/w/Ancient_City"
+        assert "noopener" in (cite_wiki.first.get_attribute("rel") or ""), "Missing noopener on Ancient_City link"
+        assert cite_wiki.first.get_attribute("target") == "_blank", "Missing target=_blank on Ancient_City link"
+
+        cite_mojang = page.locator('a[href="https://www.minecraft.net/en-us/article/the-wild-update-ancient-cities"]')
+        assert cite_mojang.count() > 0, "Missing outbound citation to minecraft.net release notes"
+        assert "noopener" in (cite_mojang.first.get_attribute("rel") or ""), "Missing noopener on Mojang release notes"
+
+        cite_mods = page.locator('a[href="https://modrinth.com/mods"]')
+        assert cite_mods.count() > 0, "Missing outbound citation to modrinth.com/mods"
+        assert "noopener" in (cite_mods.first.get_attribute("rel") or ""), "Missing noopener on modrinth link"
+
+        # 3. index.html specifications table & outbound citations
+        page.goto(f"{base_url}/", wait_until="networkidle")
+        facts_table = page.locator("#fast-facts table")
+        assert facts_table.count() > 0, "Missing specifications table in / #fast-facts"
+        assert "Dimension Index" in facts_table.inner_text(), "Missing Dimension Index in / specifications table"
+        assert "Coordinate Ratio" in facts_table.inner_text(), "Missing Coordinate Ratio in / specifications table"
+        
+        recap_link = page.locator('a[href="https://www.minecraft.net/en-us/article/minecraft-live-2026-recap"]')
+        assert recap_link.count() > 0, "Missing outbound link to Minecraft Live 2026 recap on home"
+
+        # 4. portal.html outbound citations
+        page.goto(f"{base_url}/portal", wait_until="networkidle")
+        portal_table = page.locator("table")
+        assert portal_table.count() > 0, "Missing comparison table on /portal"
+        echo_shard_link = page.locator('a[href="https://minecraft.wiki/w/Echo_Shard"]')
+        assert echo_shard_link.count() > 0, "Missing outbound link to Echo_Shard on /portal"
+
+        ss_geo = "18_desktop_geo_artifacts_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_geo), full_page=False)
+        reporter.add_screenshot(ss_geo, "Desktop GEO Artifacts Verified (llms.txt, tables & outbound authority links verified)")
+        reporter.record_pass("Case 1.12 - GEO Optimization & Artifact Verification", time.time() - t0, "llms.txt, tables on all 3 pages, and 7 authoritative outbound citations verified")
+    except Exception as e:
+        reporter.record_fail("Case 1.12 - GEO Optimization & Artifact Verification", time.time() - t0, str(e))
+
     context.close()
 
 
