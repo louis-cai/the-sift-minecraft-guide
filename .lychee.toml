@@ -1,0 +1,16 @@
+# Acceptance: exit 0 = pass, exit 1 = dead link found -> deploy blocked
+max_retries = 2
+timeout = 20
+
+# Root directory to use when checking absolute/root-relative links in local files
+root_dir = "."
+
+# When checking locally, attempts to locate missing files by trying fallback extensions (e.g. /portal -> portal.html)
+fallback_extensions = ["html"]
+
+# Local file links, mailto, and third-party/edge services out of scope for this gate
+exclude = [
+    "^mailto:",
+    "^tel:",
+    "^https?://[^/]+/cdn-cgi/",
+]
