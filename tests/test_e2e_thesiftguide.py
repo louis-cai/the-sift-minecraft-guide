@@ -984,12 +984,12 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
                           "/how-to-enter", "/dungeons-2", "/nonexistent-404-page"]
         for path in pages_to_check:
             page.goto(f"{base_url}{path}", wait_until="domcontentloaded")
-            launchtory_link = page.locator('footer a[href="https://launchtory.com"]')
+            launchtory_link = page.locator('footer a[href="https://launchtory.com/projects/thesiftguide"]')
             assert launchtory_link.count() == 1, f"/{path}: expected exactly 1 footer Launchtory link, got {launchtory_link.count()}"
             assert launchtory_link.is_visible(), f"/{path}: Launchtory footer link not visible"
             rel_attr = launchtory_link.get_attribute("rel") or ""
             assert "nofollow" not in rel_attr.lower(), f"/{path}: Launchtory link must be dofollow, got rel='{rel_attr}'"
-            assert launchtory_link.inner_text().strip() == "Launchtory", f"/{path}: unexpected link text"
+            assert launchtory_link.inner_text().strip() == "The Sift Guide on Launchtory", f"/{path}: unexpected link text"
 
         # 2. "Listed on" label present next to the link on home page
         page.goto(f"{base_url}/", wait_until="domcontentloaded")
