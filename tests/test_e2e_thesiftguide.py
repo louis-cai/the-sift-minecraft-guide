@@ -974,6 +974,38 @@ def run_desktop_suite(browser: Browser, base_url: str, reporter: E2EReporter):
     except Exception as e:
         reporter.record_fail("Case 1.12 - GEO Optimization & Artifact Verification", time.time() - t0, str(e))
 
+    # -------------------------------------------------------------
+    # Case 1.13: Launchtory Directory Backlink Verification (footer dofollow)
+    # -------------------------------------------------------------
+    t0 = time.time()
+    try:
+        # 1. Footer link visible & dofollow on all 9 pages (rel must NOT contain nofollow)
+        pages_to_check = ["/", "/portal", "/mobs", "/mods", "/about", "/privacy",
+                          "/how-to-enter", "/dungeons-2", "/nonexistent-404-page"]
+        for path in pages_to_check:
+            page.goto(f"{base_url}{path}", wait_until="domcontentloaded")
+            launchtory_link = page.locator('footer a[href="https://launchtory.com"]')
+            assert launchtory_link.count() == 1, f"/{path}: expected exactly 1 footer Launchtory link, got {launchtory_link.count()}"
+            assert launchtory_link.is_visible(), f"/{path}: Launchtory footer link not visible"
+            rel_attr = launchtory_link.get_attribute("rel") or ""
+            assert "nofollow" not in rel_attr.lower(), f"/{path}: Launchtory link must be dofollow, got rel='{rel_attr}'"
+            assert launchtory_link.inner_text().strip() == "Launchtory", f"/{path}: unexpected link text"
+
+        # 2. "Listed on" label present next to the link on home page
+        page.goto(f"{base_url}/", wait_until="domcontentloaded")
+        listed_row = page.locator("footer div", has_text="Listed on")
+        assert listed_row.count() > 0, "Missing 'Listed on' label next to Launchtory footer link"
+
+        # 3. Screenshot of the footer evidence
+        footer = page.locator("footer")
+        footer.scroll_into_view_if_needed()
+        ss_launchtory = "19_desktop_launchtory_backlink_verified.png"
+        page.screenshot(path=os.path.join(SCREENSHOTS_DIR, ss_launchtory), full_page=False)
+        reporter.add_screenshot(ss_launchtory, "Desktop Launchtory Dofollow Backlink Verified (footer, all 9 pages)")
+        reporter.record_pass("Case 1.13 - Launchtory Dofollow Backlink Verification", time.time() - t0, "Dofollow footer link verified on all 9 pages (no nofollow), 'Listed on' label present")
+    except Exception as e:
+        reporter.record_fail("Case 1.13 - Launchtory Dofollow Backlink Verification", time.time() - t0, str(e))
+
     context.close()
 
 
